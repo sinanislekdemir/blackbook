@@ -1,0 +1,9 @@
+{
+	"width":1200,
+	"height":800,
+	"w_multiplier":2,
+	"h_multiplier":2,
+	"title":"Project BlackBook",
+	"load":"data/space.json",
+	"start":true
+}

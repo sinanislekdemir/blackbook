@@ -1,0 +1,794 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: BbNewtonModule
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!BbNewtonModule.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (B)</a> &raquo;
+    
+    
+    <span class="title">BbNewtonModule</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: BbNewtonModule
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/physics/newton/bb_newton_module.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Newtonian Physics Formulas and constants</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="G-constant" class="">G =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Gravitational Constant</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='float'>6.67e-11</span></pre></dd>
+      
+        <dt id="MASS_EARTH-constant" class="">MASS_EARTH =
+          
+        </dt>
+        <dd><pre class="code"><span class='float'>5.97219e24</span></pre></dd>
+      
+        <dt id="RADIUS_EARTH-constant" class="">RADIUS_EARTH =
+          
+        </dt>
+        <dd><pre class="code"><span class='int'>6378100</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#included-class_method" title="included (class method)">+ (Object) <strong>included</strong>(receiver) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#angular_displacement-instance_method" title="#angular_displacement (instance method)">- (Object) <strong>angular_displacement</strong>(theta, a, t, wi = 0) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#angular_displacement_2-instance_method" title="#angular_displacement_2 (instance method)">- (Object) <strong>angular_displacement_2</strong>(theta, wi, w, time) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#circular_velocity-instance_method" title="#circular_velocity (instance method)">- (Object) <strong>circular_velocity</strong>(a, t, wi = 0) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#gravity-instance_method" title="#gravity (instance method)">- (Object) <strong>gravity</strong>(m1, m2, dist) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#kinetic_energy-instance_method" title="#kinetic_energy (instance method)">- (Object) <strong>kinetic_energy</strong>(m, v) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#position-instance_method" title="#position (instance method)">- (Object) <strong>position</strong>(v, t, vi, ri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>position = initial position + vel * init.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#position_acceleration-instance_method" title="#position_acceleration (instance method)">- (Object) <strong>position_acceleration</strong>(a, t, vi = 0, ri) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>position = initial position + (initial vel. * time) + (a * t^2) / 2.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#potential_energy-instance_method" title="#potential_energy (instance method)">- (Object) <strong>potential_energy</strong>(m, g, h) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#timeless_velocity-instance_method" title="#timeless_velocity (instance method)">- (Object) <strong>timeless_velocity</strong>(a, r, ri, vi) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#velocity-instance_method" title="#velocity (instance method)">- (Object) <strong>velocity</strong>(a, t, vi = 0) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>v = acceleration * time + initial velocity.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="included-class_method">
+  
+    + (<tt>Object</tt>) <strong>included</strong>(receiver) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_included'>included</span><span class='lparen'>(</span><span class='id identifier rubyid_receiver'>receiver</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span> <span class='const'>ClassMethods</span>
+  <span class='id identifier rubyid_receiver'>receiver</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span class='symbol'>:include</span><span class='comma'>,</span> <span class='const'>InstanceMethods</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="angular_displacement-instance_method">
+  
+    - (<tt>Object</tt>) <strong>angular_displacement</strong>(theta, a, t, wi = 0) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_angular_displacement'>angular_displacement</span><span class='lparen'>(</span><span class='id identifier rubyid_theta'>theta</span><span class='comma'>,</span> <span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_t'>t</span><span class='comma'>,</span> <span class='id identifier rubyid_wi'>wi</span> <span class='op'>=</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_theta'>theta</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_wi'>wi</span> <span class='op'>*</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='float'>0.5</span> <span class='op'>*</span> <span class='id identifier rubyid_a'>a</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_t'>t</span><span class='op'>**</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="angular_displacement_2-instance_method">
+  
+    - (<tt>Object</tt>) <strong>angular_displacement_2</strong>(theta, wi, w, time) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_angular_displacement_2'>angular_displacement_2</span><span class='lparen'>(</span><span class='id identifier rubyid_theta'>theta</span><span class='comma'>,</span> <span class='id identifier rubyid_wi'>wi</span><span class='comma'>,</span> <span class='id identifier rubyid_w'>w</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_theta'>theta</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='float'>0.5</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_wi'>wi</span> <span class='op'>+</span> <span class='id identifier rubyid_w'>w</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="circular_velocity-instance_method">
+  
+    - (<tt>Object</tt>) <strong>circular_velocity</strong>(a, t, wi = 0) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_circular_velocity'>circular_velocity</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_t'>t</span><span class='comma'>,</span> <span class='id identifier rubyid_wi'>wi</span> <span class='op'>=</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_wi'>wi</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span> <span class='op'>*</span> <span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="gravity-instance_method">
+  
+    - (<tt>Object</tt>) <strong>gravity</strong>(m1, m2, dist) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 58</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gravity'>gravity</span><span class='lparen'>(</span><span class='id identifier rubyid_m1'>m1</span><span class='comma'>,</span> <span class='id identifier rubyid_m2'>m2</span><span class='comma'>,</span> <span class='id identifier rubyid_dist'>dist</span><span class='rparen'>)</span>
+  <span class='const'>G</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_m1'>m1</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='id identifier rubyid_dist'>dist</span><span class='op'>**</span><span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="kinetic_energy-instance_method">
+  
+    - (<tt>Object</tt>) <strong>kinetic_energy</strong>(m, v) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 50</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_kinetic_energy'>kinetic_energy</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+  <span class='float'>0.5</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='op'>**</span><span class='int'>2</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="position-instance_method">
+  
+    - (<tt>Object</tt>) <strong>position</strong>(v, t, vi, ri) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>position = initial position + vel * init. vel / 2 * time</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+30
+31
+32</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 30</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_position'>position</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_t'>t</span><span class='comma'>,</span> <span class='id identifier rubyid_vi'>vi</span><span class='comma'>,</span> <span class='id identifier rubyid_ri'>ri</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ri'>ri</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span> <span class='op'>+</span> <span class='id identifier rubyid_vi'>vi</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='int'>2</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="position_acceleration-instance_method">
+  
+    - (<tt>Object</tt>) <strong>position_acceleration</strong>(a, t, vi = 0, ri) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>position = initial position + (initial vel. * time) + (a * t^2) / 2</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_position_acceleration'>position_acceleration</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_t'>t</span><span class='comma'>,</span> <span class='id identifier rubyid_vi'>vi</span> <span class='op'>=</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_ri'>ri</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ri'>ri</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_vi'>vi</span> <span class='op'>*</span> <span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_t'>t</span><span class='op'>**</span><span class='int'>2</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='int'>2</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="potential_energy-instance_method">
+  
+    - (<tt>Object</tt>) <strong>potential_energy</strong>(m, g, h) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_potential_energy'>potential_energy</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='id identifier rubyid_g'>g</span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span> <span class='op'>*</span> <span class='id identifier rubyid_g'>g</span> <span class='op'>*</span> <span class='id identifier rubyid_h'>h</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="timeless_velocity-instance_method">
+  
+    - (<tt>Object</tt>) <strong>timeless_velocity</strong>(a, r, ri, vi) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_timeless_velocity'>timeless_velocity</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_r'>r</span><span class='comma'>,</span> <span class='id identifier rubyid_ri'>ri</span><span class='comma'>,</span> <span class='id identifier rubyid_vi'>vi</span><span class='rparen'>)</span>
+  <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_sqrt'>sqrt</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_vi'>vi</span><span class='op'>**</span><span class='int'>2</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='int'>2</span> <span class='op'>*</span> <span class='id identifier rubyid_a'>a</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span> <span class='op'>-</span> <span class='id identifier rubyid_ri'>ri</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="velocity-instance_method">
+  
+    - (<tt>Object</tt>) <strong>velocity</strong>(a, t, vi = 0) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>v = acceleration * time + initial velocity</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/physics/newton/bb_newton_module.rb', line 20</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_velocity'>velocity</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_t'>t</span><span class='comma'>,</span> <span class='id identifier rubyid_vi'>vi</span> <span class='op'>=</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span> <span class='op'>*</span> <span class='id identifier rubyid_t'>t</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='id identifier rubyid_vi'>vi</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Tue Dec 16 15:09:36 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.1).
+</div>
+
+  </body>
+</html>
