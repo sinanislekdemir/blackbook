@@ -16,7 +16,7 @@ require 'terminal-table'
 require 'bb_space'
 require 'bb_engine'
 require 'bb_logger'
-
+require 'addons/string_color'
 require 'json'
 
 # main application
@@ -41,6 +41,10 @@ class Main < BBEngine
       filename: 'data/untitled.raw',
       name: 'idontknow'
       )
+    @space.add_object(
+      filename: 'data/ground.raw',
+      name: 'idontknowground'
+      )
     ui = @space.create_ui
     w = ui.add_window(
       x: 10, y: 10, z: 1, w: 1000, h: 400, title: 'Deneme'
@@ -48,11 +52,13 @@ class Main < BBEngine
     label = w.create_label({
       x: 10, y: 60, title: 'Object Position'
       })
-    on_update = -> (objs) {
-      cam_loc = objs[0].screen_to_world(objs[1], objs[2])
-      objs[3].text = cam_loc.x.to_s + '-' + cam_loc.y.to_s + ' - ' + cam_loc.z.to_s
+    on_update = -> (camera, x, y, obj) {
+      v = camera.world_to_screen(CVector.new(2, 2, 0))
+      # obj.text = v.x.to_s + ' ' + v.y.to_s + ' ' + v.z.to_s
+      obj.text = v[0].to_s + ' ' + v[1].to_s
+      # cam_loc = objs[0].screen_to_world(objs[1], objs[2])
     }
-    cam.on_update = [on_update, [label]]
+    cam.on_update = [on_update, label]
   end
 
   def load(file)

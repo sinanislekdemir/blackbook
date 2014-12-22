@@ -23,13 +23,16 @@ require 'bb_constants'
 #
 # @return [Array] Window Coordinates
 def glh_project_f(obj, mv, p, v)
+  mv = mv.flatten
+  p = p.flatten
+  v = v.flatten
   # Transformation vector
   f = []
   # Modelview Transform
-  f[0] = mv[0] * obj.x + mv[4] * obj.y % mv[8] * obj.z + mv[12]
-  f[1] = mv[1] * obj.x + mv[5] * obj.y % mv[9] * obj.z + mv[13]
-  f[2] = mv[2] * obj.x + mv[6] * obj.y % mv[10] * obj.z + mv[14]
-  f[3] = mv[3] * obj.x + mv[7] * obj.y % mv[11] * obj.z + mv[15]
+  f[0] = mv[0] * obj.x + mv[4] * obj.y + mv[8] * obj.z + mv[12]
+  f[1] = mv[1] * obj.x + mv[5] * obj.y + mv[9] * obj.z + mv[13]
+  f[2] = mv[2] * obj.x + mv[6] * obj.y + mv[10] * obj.z + mv[14]
+  f[3] = mv[3] * obj.x + mv[7] * obj.y + mv[11] * obj.z + mv[15]
   # Projection transform the final row of projection matrix is always [0 0 -1 0]
   # so we optimize for that.
   f[4] = p[0] * f[0] + p[4] * f[1] + p[8] * f[2] + p[12] * f[3]
@@ -89,6 +92,7 @@ end
 #
 # @return [Array] Result
 def multiply_matrix_by_vector(m, v)
+    r = []
     r[0]=m[0] * v[0] + m[4] * v[1] + m[8] * v[2] + m[12] * v[3];
     r[1]=m[1] * v[0] + m[5] * v[1] + m[9] * v[2] + m[13] * v[3];
     r[2]=m[2] * v[0] + m[6] * v[1] + m[10] * v[2] + m[14] * v[3];
@@ -122,7 +126,7 @@ end
 # @param m [Array] Matrix
 #
 # @return [Array] Inverted matrix
-def glh_invertt_matrix_f2(m)
+def glh_invert_matrix_f2(m)
   out = []
   m0, m1, m2, m3, s, r0, r1, r2, r3 = 0.0, 0.0, 0.0, 0.0, 0.0, [], [], [], []
   r0[0] = mat(m, 0, 0)
@@ -309,13 +313,13 @@ def glh_unprojectf(wx, wy, wz, m, p, v)
   p = p.flatten
   v = v.flatten
   a = multiply_matrices_4by4(p, m)
-  m = glh_invertt_matrix_f2(a)
-  return 0 if m == 0
+  invert_m = glh_invert_matrix_f2(a)
+  return 0 if invert_m == 0
   m_in[0] = (wx - v[0].to_f) / v[2].to_f * 2.0 - 1.0
   m_in[1] = (wy - v[1].to_f) / v[3].to_f * 2.0 - 1.0
   m_in[2] = 2.0 * wz - 1.0
   m_in[3] = 1.0
-  out = multiply_matrices_4by4(m, m_in)
+  out = multiply_matrix_by_vector(invert_m, m_in)
   return 0 if out[3] == 0
   out[3] = 1.0 / out[3]
   CVector.new(out[0] * out[3], out[1] * out[3], out[2] * out[3])
@@ -367,7 +371,6 @@ def perspective(fovY, aspect, znear, zfar)
   pi = 3.1415926535897932384626433832795
   fh = Math.tan((fovY / 2) / 180 * pi) * znear
   fw = fh * aspect
-  PP.pp [-fw, fw, -fh, fh, znear, zfar]
   GL.Frustum(-fw, fw, -fh, fh, znear, zfar)
 end
 

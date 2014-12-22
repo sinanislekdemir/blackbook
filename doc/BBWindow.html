@@ -811,13 +811,15 @@
 142
 143
 144
-145</pre>
+145
+146</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ui/bb_window.rb', line 138</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create_label'>create_label</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_text'>text</span> <span class='op'>=</span> <span class='const'>BBText</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_h'>h</span> <span class='op'>=</span> <span class='int'>30</span> <span class='kw'>unless</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='symbol'>:h</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_position'>position</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_position'>position</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_d'>d</span> <span class='op'>=</span> <span class='int'>2</span>
@@ -939,16 +941,16 @@
       <pre class="lines">
 
 
-155
 156
 157
 158
 159
 160
-161</pre>
+161
+162</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ui/bb_window.rb', line 155</span>
+      <pre class="code"><span class="info file"># File 'lib/ui/bb_window.rb', line 156</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mouse'>mouse</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_right_b'>right_b</span><span class='comma'>,</span> <span class='id identifier rubyid_left_b'>left_b</span><span class='comma'>,</span> <span class='id identifier rubyid_middle_b'>middle_b</span><span class='rparen'>)</span>
   <span class='ivar'>@items</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_item'>item</span><span class='op'>|</span>
@@ -988,7 +990,6 @@
       <pre class="lines">
 
 
-166
 167
 168
 169
@@ -1003,10 +1004,11 @@
 178
 179
 180
-181</pre>
+181
+182</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/ui/bb_window.rb', line 166</span>
+      <pre class="code"><span class="info file"># File 'lib/ui/bb_window.rb', line 167</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span>
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
@@ -1034,7 +1036,7 @@
 </div>
 
     <div id="footer">
-  Generated on Tue Dec 16 15:09:38 2014 by
+  Generated on Mon Dec 22 22:49:20 2014 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.1).
 </div>

@@ -24,6 +24,8 @@ require 'bb_functions'
 # @attr znear [Float] Near Plane Distance
 # @attr zfar [Float] Far Plane Distance
 # @attr on_update [Array] [0] -> Lambda | [1] -> Variable Array
+#   Your Lambda function MUST include 4 arguements like;
+#   on_update = -> (camera, x, y, extra_array_to_pass) { ... }
 #
 # @author [sinan islekdemir]
 #
@@ -77,13 +79,35 @@ class BBCamera < BBBase
     @fov = options.key?(:fov) ? options[:fov] : 30.0
     @znear = options.key?(:znear) ? options[:znear] : 1.0
     @zfar = options.key?(:zfar) ? options[:zfar] : 1000.0
+    @modified = false
   end
 
+  #
+  # Turn screen coordinates to world coordinates
+  # @param x [Integer] Cursor X
+  # @param y [Integer] Cursor Y
+  #
+  # @return [CVector] World position
   def screen_to_world(x, y)
     mv = GL.GetFloatv GL::MODELVIEW_MATRIX
     pm = GL.GetFloatv GL::PROJECTION_MATRIX
     vp = GL.GetFloatv GL::VIEWPORT
-    glh_unprojectf(x, y, 1, mv, pm, vp)
+    y = vp[3] - y
+    z = GL.ReadPixels(x, y, 1, 1, GL::DEPTH_COMPONENT, GL::FLOAT)
+    z = z.unpack("f")[0]
+    glh_unprojectf(x, y, z, mv, pm, vp)
+  end
+
+  #
+  # World to screen coordinates
+  # @param v [CVector] World coordinates
+  #
+  # @return [Array] Array of screen coordinates
+  def world_to_screen(v)
+    mv = GL.GetFloatv GL::MODELVIEW_MATRIX
+    pm = GL.GetFloatv GL::PROJECTION_MATRIX
+    vp = GL.GetFloatv GL::VIEWPORT
+    glh_project_f(v, mv, pm, vp)
   end
 
   #
@@ -129,6 +153,12 @@ class BBCamera < BBBase
   #
   # @return [Boolean] Success
   def end_render
+    if @modified && @on_update != nil
+      lambda = @on_update[0]
+      variable = @on_update[1]
+      lambda.call(self, @pos_x, @pos_y, variable)
+      @modified = false
+    end
     return false until framed
     GL.Disable(GL::SCISSOR_TEST)
     GL.PopAttrib
@@ -152,14 +182,7 @@ class BBCamera < BBBase
       diff.theta = diff.theta - deg_to_rad((y.to_f - @pos_y.to_f).to_f)
       diff.update_cartesian
       @eye_position = @target.add(diff)
-      unless @on_update.nil?
-        lambda = @on_update[0]
-        variable_array = @on_update[1]
-        variable_array.insert(0, self)
-        variable_array.insert(1, x)
-        variable_array.insert(2, y)
-        lambda.call variable_array
-      end
+      @modified = true
     end
     @pos_x, @pos_y = x, y
   end
