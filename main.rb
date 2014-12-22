@@ -49,15 +49,13 @@ class Main < BBEngine
     w = ui.add_window(
       x: 10, y: 10, z: 1, w: 1000, h: 400, title: 'Deneme'
       )
-    label = w.create_label({
-      x: 10, y: 60, title: 'Object Position'
-      })
-    on_update = -> (camera, x, y, obj) {
+    label = w.create_label(x: 10, y: 60, title: 'Object Position')
+    on_update = -> (camera, x, y, obj) do
       v = camera.world_to_screen(CVector.new(2, 2, 0))
       # obj.text = v.x.to_s + ' ' + v.y.to_s + ' ' + v.z.to_s
       obj.text = v[0].to_s + ' ' + v[1].to_s
       # cam_loc = objs[0].screen_to_world(objs[1], objs[2])
-    }
+    end
     cam.on_update = [on_update, label]
   end
 
@@ -78,9 +76,9 @@ class Main < BBEngine
   end
 end
 
-#buffer = File.read('data/engine_conf.json')
-#d = JSON.parse buffer
-w = Main.new(1200, 800, "BlackBook Project", 2, 2)
-#w.load d['load']
+# buffer = File.read('data/engine_conf.json')
+# d = JSON.parse buffer
+w = Main.new(1200, 800, 'BlackBook Project', 2, 2)
+# w.load d['load']
 
 w.engine_start

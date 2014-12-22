@@ -180,8 +180,8 @@ class BBText < BBUiElement
   #
   def render
     if @gl_active == false
-      chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567890' \
-              '!\'^+%&/()=?-_.'
+      chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' \
+              '01234567890!\'^+%&/()=?-_.'
       chars.each_char do |c|
         bb_char = BBChar.new
         bb_char.font_path = './data/font'

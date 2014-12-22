@@ -92,12 +92,12 @@ end
 #
 # @return [Array] Result
 def multiply_matrix_by_vector(m, v)
-    r = []
-    r[0]=m[0] * v[0] + m[4] * v[1] + m[8] * v[2] + m[12] * v[3];
-    r[1]=m[1] * v[0] + m[5] * v[1] + m[9] * v[2] + m[13] * v[3];
-    r[2]=m[2] * v[0] + m[6] * v[1] + m[10] * v[2] + m[14] * v[3];
-    r[3]=m[3] * v[0] + m[7] * v[1] + m[11] * v[2] + m[15] * v[3];
-    r
+  r = []
+  r[0] = m[0] * v[0] + m[4] * v[1] + m[8] * v[2] + m[12] * v[3]
+  r[1] = m[1] * v[0] + m[5] * v[1] + m[9] * v[2] + m[13] * v[3]
+  r[2] = m[2] * v[0] + m[6] * v[1] + m[10] * v[2] + m[14] * v[3]
+  r[3] = m[3] * v[0] + m[7] * v[1] + m[11] * v[2] + m[15] * v[3]
+  r
 end
 
 #
@@ -128,7 +128,7 @@ end
 # @return [Array] Inverted matrix
 def glh_invert_matrix_f2(m)
   out = []
-  m0, m1, m2, m3, s, r0, r1, r2, r3 = 0.0, 0.0, 0.0, 0.0, 0.0, [], [], [], []
+  r0, r1, r2, r3 = [], [], [], []
   r0[0] = mat(m, 0, 0)
   r0[1] = mat(m, 0, 1)
   r0[2] = mat(m, 0, 2)

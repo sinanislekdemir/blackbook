@@ -94,7 +94,7 @@ class BBCamera < BBBase
     vp = GL.GetFloatv GL::VIEWPORT
     y = vp[3] - y
     z = GL.ReadPixels(x, y, 1, 1, GL::DEPTH_COMPONENT, GL::FLOAT)
-    z = z.unpack("f")[0]
+    z = z.unpack('f')[0]
     glh_unprojectf(x, y, z, mv, pm, vp)
   end
 
@@ -153,7 +153,7 @@ class BBCamera < BBBase
   #
   # @return [Boolean] Success
   def end_render
-    if @modified && @on_update != nil
+    if @modified && !@on_update.nil?
       lambda = @on_update[0]
       variable = @on_update[1]
       lambda.call(self, @pos_x, @pos_y, variable)
