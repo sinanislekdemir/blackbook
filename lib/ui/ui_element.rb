@@ -20,7 +20,7 @@ module UI
       @y = options[:y] if options.key?(:y)
       @z = options[:z] if options.key?(:z)
       @w = options[:w] if options.key?(:w)
-      @h = options[:h] if options.key?(:h)
+      @h = options.key?(:h) ? options[:h] : 35
       @title = options[:title] if options.key?(:title)
     end
   end

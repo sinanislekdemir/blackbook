@@ -157,7 +157,7 @@ module BlackBook
     #
     # @return [Float] Bounding radius of the object
     def build_list
-      shader = BlackBook::Pool.instance.get('shader')
+      shader = BlackBook::Registry.instance.read('shader')
       shader = 'displaylist' if shader.nil?
       v1, v2 = CVector.new(0, 0, 0, 1), CVector.new(0, 0, 0, 1)
       v3 = CVector.new(0, 0, 0, 1)
@@ -242,7 +242,7 @@ module BlackBook
       GL.Rotate(@yaw, 0, 0, 1)
       GL.Scale(@scale.x, @scale.y, @scale.z)
 
-      shader = BlackBook::Pool.instance.get('shader')
+      shader = BlackBook::Registry.instance.read('shader')
       shader = 'displaylist' if shader.nil?
       case shader
       when 'displaylist'
@@ -272,8 +272,9 @@ module BlackBook
     #
     # @return [Boolean] Return true on success
     def load_raw(filename)
-      file = File.open(filename, 'r')
-      file.each_line do |line|
+      buffer = File.read filename
+      buffer = buffer.split("\n")
+      buffer.each do |line|
         items = line.split(' ')
         f_items = Array.new
         items.each do |item|

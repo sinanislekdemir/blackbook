@@ -51,6 +51,24 @@ module UI
       true
     end
 
+    def get_width
+      @width = 0.0
+      min_x, min_y, min_z = 999999, 999999, 999999
+      max_x, max_y, max_z = -999999, -999999, -999999
+      @faces.each do |face|
+        dx = [face[0], face[3], face[6]].minmax
+        dy = [face[1], face[4], face[7]].minmax
+        dz = [face[2], face[5], face[8]].minmax
+        min_x = dx[0] if dx[0] < min_x
+        min_y = dy[0] if dy[0] < min_y
+        min_z = dz[0] if dz[0] < min_z
+        max_x = dx[1] if dx[1] > max_x
+        max_y = dy[1] if dy[1] > max_y
+        max_z = dz[1] if dz[1] > max_z
+      end
+      @width = max_x - min_x
+    end
+
     #
     # Build OpenGL Display List
     #
@@ -94,9 +112,10 @@ module UI
     #
     # Load Character from file and build display list
     # @param c [String] Character to load
+    # @param build_list [boolean] Build list?
     #
     # @return [Float] Character width
-    def load_char(c)
+    def load_char(c, build_lists = false)
       filename = @font_path + '/' + c.ord.to_s + '.raw'
       file = File.open(filename, 'r')
       file.each_line do |line|
@@ -108,7 +127,8 @@ module UI
         add_face f_items
       end
       @char = c
-      build_list
+      get_width
+      build_list if build_lists
     end
 
     #
@@ -161,6 +181,15 @@ module UI
       @yaw = 0.0
       @text = text
       @gl_active = false
+      chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' \
+              '01234567890!\'^+%&/()=?-_.'
+      chars.each_char do |c|
+        bb_char = Char.new
+        bb_char.font_path = './data/font'
+        bb_char.load_char c
+        @font[c] = bb_char
+      end
+
     end
 
     #
@@ -173,7 +202,7 @@ module UI
         w += 0.5 if c == ' '
         w += @font[c].width + 0.1 if @font.key?(c)
       end
-      w
+      w * @scale.x
     end
 
     #
@@ -181,13 +210,8 @@ module UI
     #
     def render
       if @gl_active == false
-        chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' \
-                '01234567890!\'^+%&/()=?-_.'
-        chars.each_char do |c|
-          bb_char = Char.new
-          bb_char.font_path = './data/font'
-          bb_char.load_char c
-          @font[c] = bb_char
+        @font.each do |k, f|
+          f.build_list
         end
         @gl_active = true
       end

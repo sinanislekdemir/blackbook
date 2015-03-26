@@ -6,6 +6,7 @@
 
 require 'ui/ui_element'
 require 'ui/text'
+require 'BlackBook/constants'
 require 'BlackBook/functions'
 
 module UI
@@ -17,11 +18,12 @@ module UI
   # @attr caption [BBText] Caption object over button surface
   # @attr hover [CVector] OnHover Color
   # @attr font_size [Integer] Font Size in Pixels
+  # @attr caption_w [Integer] width of the caption in pixels
   # @author [sinan islekdemir]
   #
   class Button < UiElement
-    attr_accessor :label, :click, :caption, :hover, :font_size
-    attr_writer :label, :click, :caption, :hover, :font_size
+    attr_accessor :label, :click, :caption, :hover, :font_size, :caption_w
+    attr_writer :label, :click, :caption, :hover, :font_size, :caption_w
 
     #
     # Initialize BBButton Element
@@ -30,8 +32,10 @@ module UI
     # @return [Boolean] Reposition done
     def initialize(options)
       super
+      title = options.key?(:title) ? options[:title] : ''
       @font_size = options.key?(:font_size) ? options[:font_size] : 30
       @caption = Text.new(x: 0, y: 0, h: @font_size, title: title)
+      @caption_w = @caption.width
       @click = nil
       @hover = false
       reposition
@@ -43,12 +47,12 @@ module UI
     # @return [Boolean] Success
     def reposition
       w = @w
-      @w = @caption.width * 30 + 30 if w < @caption.width * 30 + 30
+      @w = @caption.width + 30 if w < @caption.width + 30
       w = @w
       @caption.d = 2
       @caption.position.z = 2
-      @caption.position.x = (w / 2 - (@caption.width * 30) / 2)
-      @caption.position.y = @font_size + 5
+      @caption.position.x = (@w - @caption_w) / 2
+      @caption.position.y = @y + @font_size
       true
     end
 
@@ -75,15 +79,17 @@ module UI
     #
     # @return [Boolean] Success
     def render
-      color = @hover ? CVector.new(255, 165, 0, 0.8) : CVector.new(0, 0, 0, 0.8)
+      color_hover   = BlackBook::CVector.new(255, 165, 0, 0.8)
+      color_normal  = BlackBook::CVector.new(0, 0, 0, 0.8)
+      color = @hover ? color_hover : color_normal
       options = {
         x: @x, y: @y, z: 1 / (10000 - @z.to_f),
         width: @w, height: @h, color: color,
-        border: true, border_color: CVector.new(255, 165, 0, 0.8)
+        border: true, border_color: BlackBook::CVector.new(255, 165, 0, 0.8)
       }
       BlackBook::draw_box_2d(options)
       GL.PushMatrix
-      GL.Translatef(@x, @y, 1 / (10000 - @z.to_f))
+      GL.Translatef(5 , 0, 1 / (10000 - @z.to_f))
       @hover ? @caption.color.set(0, 0, 0) : @caption.color.set(1.0, 1.0, 1.0)
       @caption.y = 5
       @caption.render

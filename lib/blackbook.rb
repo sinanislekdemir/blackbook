@@ -16,7 +16,6 @@ require 'BlackBook/rigid_body_object'
 require 'BlackBook/space'
 require 'BlackBook/space_object'
 require 'BlackBook/stime'
-require 'BlackBook/pool'
 
 module BlackBook
   extend self

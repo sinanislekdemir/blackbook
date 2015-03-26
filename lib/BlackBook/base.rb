@@ -15,7 +15,7 @@ module BlackBook
 
     def initialize(*_args)
       logging_params = { filename: 'debug.log', stdout: true }
-      @logger = Logger.new logging_params
+      Logger.instance.define logging_params
       @registry = Registry.instance
     end
   end
