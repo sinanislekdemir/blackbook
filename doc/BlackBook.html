@@ -1,0 +1,3105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: BlackBook
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!BlackBook.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (B)</a> &raquo;
+    
+    
+    <span class="title">BlackBook</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: BlackBook
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1"><span class='object_link'><a href="" title="BlackBook (module)">BlackBook</a></span></dd>
+      
+    
+  
+    
+  
+  
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="" title="BlackBook (module)">BlackBook</a></span></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/BlackBook/stime.rb<span class="defines">,<br />
+  lib/blackbook.rb,<br /> lib/BlackBook/base.rb,<br /> lib/BlackBook/color.rb,<br /> lib/BlackBook/light.rb,<br /> lib/BlackBook/space.rb,<br /> lib/BlackBook/logger.rb,<br /> lib/BlackBook/camera.rb,<br /> lib/BlackBook/engine.rb,<br /> lib/BlackBook/registry.rb,<br /> lib/BlackBook/constants.rb,<br /> lib/BlackBook/functions.rb,<br /> lib/BlackBook/b3dobject.rb,<br /> lib/BlackBook/space_object.rb,<br /> lib/BlackBook/physics/physics.rb,<br /> lib/BlackBook/rigid_body_object.rb,<br /> lib/BlackBook/physics/newton/newton.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Project BlackBook Lead Engineer: Sinan ISLEKDEMIR Simulation Engine Ruby
+Sources</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="BlackBook/Physics.html" title="BlackBook::Physics (module)">Physics</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="BlackBook/B3DObject.html" title="BlackBook::B3DObject (class)">B3DObject</a></span>, <span class='object_link'><a href="BlackBook/Base.html" title="BlackBook::Base (class)">Base</a></span>, <span class='object_link'><a href="BlackBook/CAcceleration.html" title="BlackBook::CAcceleration (class)">CAcceleration</a></span>, <span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span>, <span class='object_link'><a href="BlackBook/CVelocity.html" title="BlackBook::CVelocity (class)">CVelocity</a></span>, <span class='object_link'><a href="BlackBook/Camera.html" title="BlackBook::Camera (class)">Camera</a></span>, <span class='object_link'><a href="BlackBook/Engine.html" title="BlackBook::Engine (class)">Engine</a></span>, <span class='object_link'><a href="BlackBook/Light.html" title="BlackBook::Light (class)">Light</a></span>, <span class='object_link'><a href="BlackBook/Logger.html" title="BlackBook::Logger (class)">Logger</a></span>, <span class='object_link'><a href="BlackBook/Registry.html" title="BlackBook::Registry (class)">Registry</a></span>, <span class='object_link'><a href="BlackBook/RigidBodyObject.html" title="BlackBook::RigidBodyObject (class)">RigidBodyObject</a></span>, <span class='object_link'><a href="BlackBook/STime.html" title="BlackBook::STime (class)">STime</a></span>, <span class='object_link'><a href="BlackBook/Space.html" title="BlackBook::Space (class)">Space</a></span>, <span class='object_link'><a href="BlackBook/SpaceObject.html" title="BlackBook::SpaceObject (class)">SpaceObject</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>0.0.1</span><span class='tstring_end'>&#39;</span></span></pre></dd>
+      
+        <dt id="BLACK-constant" class="">BLACK =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="WHITE-constant" class="">WHITE =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="RED-constant" class="">RED =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="GREEN-constant" class="">GREEN =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="BLUE-constant" class="">BLUE =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='rparen'>)</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#_mat-instance_method" title="#_mat (instance method)">- (Integer) <strong>_mat</strong>(x, y) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return array position from x-y coordinates.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#apply_color-instance_method" title="#apply_color (instance method)">- (Boolean) <strong>apply_color</strong>(color_vector) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>CVector to color.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#array_to_vector-instance_method" title="#array_to_vector (instance method)">- (CVector) <strong>array_to_vector</strong>(data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Convert Array to Vector.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#calc_plane_normal-instance_method" title="#calc_plane_normal (instance method)">- (CVector) <strong>calc_plane_normal</strong>(p1, p2, p3) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Calculate Normal of a given Triangle.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#cross_prod-instance_method" title="#cross_prod (instance method)">- (Array) <strong>cross_prod</strong>(x1, y1, z1, x2, y2, z2) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Cross Product of two vectors.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#deg_to_rad-instance_method" title="#deg_to_rad (instance method)">- (Float) <strong>deg_to_rad</strong>(degrees) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Degrees to Radians Conversion.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#draw_box_2d-instance_method" title="#draw_box_2d (instance method)">- (Boolean) <strong>draw_box_2d</strong>(options) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Draw 2D Box.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#draw_circle-instance_method" title="#draw_circle (instance method)">- (type) <strong>draw_circle</strong>(r, num_segments) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Draw Circle.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#draw_grid-instance_method" title="#draw_grid (instance method)">- (Boolean) <strong>draw_grid</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Draw grid.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#glh_invert_matrix_f2-instance_method" title="#glh_invert_matrix_f2 (instance method)">- (Array) <strong>glh_invert_matrix_f2</strong>(m) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Invert matrix array.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#glh_project_f-instance_method" title="#glh_project_f (instance method)">- (Array) <strong>glh_project_f</strong>(obj, mv, p, v) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>glhProjectf (works only from perspective projection. With the orthogonal
+projection it gives different results than standard gluProject. <a
+href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.org/wiki/GluProject_and_gluUnProject_code</a>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#glh_unprojectf-instance_method" title="#glh_unprojectf (instance method)">- (CVector) <strong>glh_unprojectf</strong>(wx, wy, wz, m, p, v) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>GLU Unproject <a
+href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.org/wiki/GluProject_and_gluUnProject_code</a>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#look_at-instance_method" title="#look_at (instance method)">- (Boolean) <strong>look_at</strong>(eye, look_at, up) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>GLULookAt Alternative Function.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mat-instance_method" title="#mat (instance method)">- (type) <strong>mat</strong>(m, x, y) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Return item of matrix array from x-y coordinates.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#multiply_matrices_4by4-instance_method" title="#multiply_matrices_4by4 (instance method)">- (Array) <strong>multiply_matrices_4by4</strong>(m1, m2) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Multiply 4 x 4 matrices.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#multiply_matrix_by_vector-instance_method" title="#multiply_matrix_by_vector (instance method)">- (Array) <strong>multiply_matrix_by_vector</strong>(m, v) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Multiply matrix array with a vector array Vector held as array for quick
+usage.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#perspective-instance_method" title="#perspective (instance method)">- (Boolean) <strong>perspective</strong>(fovY, aspect, znear, zfar) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>GLUPerspective Alternative.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rad_to_deg-instance_method" title="#rad_to_deg (instance method)">- (Float) <strong>rad_to_deg</strong>(radians) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Radians to Degrees.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="_mat-instance_method">
+  
+    - (<tt>Integer</tt>) <strong>_mat</strong>(x, y) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return array position from x-y coordinates</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>X Coordinate</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Y Coordinate</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Array index</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 110</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>*</span> <span class='int'>4</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="apply_color-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>apply_color</strong>(color_vector) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>CVector to color. RGBA (0-255, 0-255, 0-255, 0-1)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>color_vector</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Color vector</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Success</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 426</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_apply_color'>apply_color</span><span class='lparen'>(</span><span class='id identifier rubyid_color_vector'>color_vector</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='id identifier rubyid_color_vector'>color_vector</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>==</span> <span class='int'>0</span> <span class='op'>?</span> <span class='int'>0</span> <span class='op'>:</span> <span class='id identifier rubyid_color_vector'>color_vector</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>/</span> <span class='float'>255.0</span>
+  <span class='id identifier rubyid_g'>g</span> <span class='op'>=</span> <span class='id identifier rubyid_color_vector'>color_vector</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>==</span> <span class='int'>0</span> <span class='op'>?</span> <span class='int'>0</span> <span class='op'>:</span> <span class='id identifier rubyid_color_vector'>color_vector</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>/</span> <span class='float'>255.0</span>
+  <span class='id identifier rubyid_b'>b</span> <span class='op'>=</span> <span class='id identifier rubyid_color_vector'>color_vector</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>==</span> <span class='int'>0</span> <span class='op'>?</span> <span class='int'>0</span> <span class='op'>:</span> <span class='id identifier rubyid_color_vector'>color_vector</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>/</span> <span class='float'>255.0</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Color4f</span><span class='lparen'>(</span>
+    <span class='id identifier rubyid_r'>r</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_g'>g</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_b'>b</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_color_vector'>color_vector</span><span class='period'>.</span><span class='id identifier rubyid_w'>w</span>
+    <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="array_to_vector-instance_method">
+  
+    - (<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>) <strong>array_to_vector</strong>(data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Convert Array to Vector</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>data</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Array of floats</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Result Vector</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+515
+516
+517</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 515</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_array_to_vector'>array_to_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="calc_plane_normal-instance_method">
+  
+    - (<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>) <strong>calc_plane_normal</strong>(p1, p2, p3) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Calculate Normal of a given Triangle</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>p1</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Triangle Vector A</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>p2</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Triangle Vector B</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>p3</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Triangle Vector C</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Normal Vector</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+502
+503
+504
+505
+506
+507
+508</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 502</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_calc_plane_normal'>calc_plane_normal</span><span class='lparen'>(</span><span class='id identifier rubyid_p1'>p1</span><span class='comma'>,</span> <span class='id identifier rubyid_p2'>p2</span><span class='comma'>,</span> <span class='id identifier rubyid_p3'>p3</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_v1'>v1</span> <span class='op'>=</span> <span class='id identifier rubyid_p2'>p2</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='id identifier rubyid_p1'>p1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_v2'>v2</span> <span class='op'>=</span> <span class='id identifier rubyid_p3'>p3</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='id identifier rubyid_p1'>p1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_v1'>v1</span><span class='period'>.</span><span class='id identifier rubyid_cross'>cross</span><span class='lparen'>(</span><span class='id identifier rubyid_v2'>v2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_normalize'>normalize</span>
+  <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="cross_prod-instance_method">
+  
+    - (<tt>Array</tt>) <strong>cross_prod</strong>(x1, y1, z1, x2, y2, z2) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Cross Product of two vectors</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>x1</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>X1 Element of vector
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y1</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>Y1 Element of vector
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>z1</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>Z1 Element of vector
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>x2</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>X2 Element of vector
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y2</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>Y2 Element of vector
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>z2</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>Z2 Element of vector
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Array of vector elements [x, y, z]</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+339
+340
+341</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 339</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_cross_prod'>cross_prod</span><span class='lparen'>(</span><span class='id identifier rubyid_x1'>x1</span><span class='comma'>,</span> <span class='id identifier rubyid_y1'>y1</span><span class='comma'>,</span> <span class='id identifier rubyid_z1'>z1</span><span class='comma'>,</span> <span class='id identifier rubyid_x2'>x2</span><span class='comma'>,</span> <span class='id identifier rubyid_y2'>y2</span><span class='comma'>,</span> <span class='id identifier rubyid_z2'>z2</span><span class='rparen'>)</span>
+  <span class='lbracket'>[</span><span class='lparen'>(</span><span class='id identifier rubyid_y1'>y1</span> <span class='op'>*</span> <span class='id identifier rubyid_z2'>z2</span> <span class='op'>-</span> <span class='id identifier rubyid_y2'>y2</span> <span class='op'>*</span> <span class='id identifier rubyid_z1'>z1</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_x2'>x2</span> <span class='op'>*</span> <span class='id identifier rubyid_z1'>z1</span> <span class='op'>-</span> <span class='id identifier rubyid_x1'>x1</span> <span class='op'>*</span> <span class='id identifier rubyid_z2'>z2</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_x1'>x1</span> <span class='op'>*</span> <span class='id identifier rubyid_y2'>y2</span> <span class='op'>-</span> <span class='id identifier rubyid_x2'>x2</span> <span class='op'>*</span> <span class='id identifier rubyid_y1'>y1</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="deg_to_rad-instance_method">
+  
+    - (<tt>Float</tt>) <strong>deg_to_rad</strong>(degrees) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Degrees to Radians Conversion</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>degrees</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Degrees</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Radians</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+479
+480
+481</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 479</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_deg_to_rad'>deg_to_rad</span><span class='lparen'>(</span><span class='id identifier rubyid_degrees'>degrees</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_degrees'>degrees</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span> <span class='op'>/</span> <span class='float'>180.0</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="draw_box_2d-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>draw_box_2d</strong>(options) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Draw 2D Box</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>options[:x, :y, :z, :w, :color, :border, :border_color]</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Success</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 443</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_draw_box_2d'>draw_box_2d</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>PushMatrix</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Disable</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LIGHTING</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Enable</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>COLOR_MATERIAL</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Enable</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>BLEND</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>BlendFunc</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>SRC_ALPHA</span><span class='comma'>,</span> <span class='const'>GL</span><span class='op'>::</span><span class='const'>ONE_MINUS_SRC_ALPHA</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Translatef</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:x</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:y</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:z</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='comment'># Border
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='symbol'>:border</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:border</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_apply_color'>apply_color</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:border_color</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='symbol'>:border_color</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_line_width'>line_width</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='symbol'>:border_size</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:border_size</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='int'>1</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>LineWidth</span><span class='lparen'>(</span><span class='id identifier rubyid_line_width'>line_width</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Begin</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LINE_STRIP</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex2d</span><span class='lparen'>(</span><span class='op'>-</span><span class='id identifier rubyid_line_width'>line_width</span><span class='comma'>,</span> <span class='op'>-</span><span class='id identifier rubyid_line_width'>line_width</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex2d</span><span class='lparen'>(</span><span class='op'>-</span><span class='id identifier rubyid_line_width'>line_width</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:height</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_line_width'>line_width</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex2d</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_line_width'>line_width</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:height</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_line_width'>line_width</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex2d</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_line_width'>line_width</span><span class='comma'>,</span> <span class='op'>-</span><span class='id identifier rubyid_line_width'>line_width</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex2d</span><span class='lparen'>(</span><span class='op'>-</span><span class='id identifier rubyid_line_width'>line_width</span><span class='comma'>,</span> <span class='op'>-</span><span class='id identifier rubyid_line_width'>line_width</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>End</span>
+  <span class='kw'>end</span>
+  <span class='comment'># Window
+</span>  <span class='id identifier rubyid_apply_color'>apply_color</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:color</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Begin</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>QUADS</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex2d</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex2d</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:height</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex2d</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:height</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex2d</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:width</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>End</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>PopMatrix</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="draw_circle-instance_method">
+  
+    - (<tt>type</tt>) <strong>draw_circle</strong>(r, num_segments) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Draw Circle</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>r</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Radius</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>num_segments</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Number of segments</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>type</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>description
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 525</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_draw_circle'>draw_circle</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='comma'>,</span> <span class='id identifier rubyid_num_segments'>num_segments</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_pi'>pi</span> <span class='op'>=</span> <span class='float'>3.1415926535897932384626433832795</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Begin</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LINE_LOOP</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_num_segments'>num_segments</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ii'>ii</span><span class='op'>|</span>
+    <span class='id identifier rubyid_theta'>theta</span> <span class='op'>=</span> <span class='float'>2.0</span> <span class='op'>*</span> <span class='id identifier rubyid_pi'>pi</span> <span class='op'>*</span> <span class='id identifier rubyid_ii'>ii</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='id identifier rubyid_num_segments'>num_segments</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+    <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_r'>r</span> <span class='op'>*</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_cos'>cos</span><span class='lparen'>(</span><span class='id identifier rubyid_theta'>theta</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_r'>r</span> <span class='op'>*</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_sin'>sin</span><span class='lparen'>(</span><span class='id identifier rubyid_theta'>theta</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex2f</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>End</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="draw_grid-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>draw_grid</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Draw grid</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Success</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 382</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_draw_grid'>draw_grid</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>PushMatrix</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Translatef</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rparen'>)</span>
+
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Disable</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LIGHTING</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Color3f</span><span class='lparen'>(</span><span class='float'>0.8</span><span class='comma'>,</span> <span class='float'>0.8</span><span class='comma'>,</span> <span class='float'>0.8</span><span class='rparen'>)</span>
+  <span class='int'>1</span><span class='period'>.</span><span class='id identifier rubyid_upto'>upto</span><span class='lparen'>(</span><span class='int'>200</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Begin</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LINES</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span> <span class='op'>-</span> <span class='int'>100</span><span class='comma'>,</span> <span class='op'>-</span><span class='int'>100</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex</span><span class='lparen'>(</span><span class='id identifier rubyid_i'>i</span> <span class='op'>-</span> <span class='int'>100</span><span class='comma'>,</span> <span class='int'>100</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>End</span><span class='lparen'>(</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Begin</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LINES</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex</span><span class='lparen'>(</span><span class='op'>-</span><span class='int'>100</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span> <span class='op'>-</span> <span class='int'>100</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex</span><span class='lparen'>(</span><span class='int'>100</span><span class='comma'>,</span> <span class='id identifier rubyid_i'>i</span> <span class='op'>-</span> <span class='int'>100</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>End</span><span class='lparen'>(</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>LineWidth</span> <span class='int'>3</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Color3f</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Begin</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LINES</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex3f</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex3f</span><span class='lparen'>(</span><span class='float'>100.0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>End</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Color3f</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Begin</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LINES</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex3f</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex3f</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>100.0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>End</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Color3f</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Begin</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LINES</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex3f</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Vertex3f</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>100.0</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>End</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>LineWidth</span> <span class='int'>1</span>
+
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Enable</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LIGHTING</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>PopMatrix</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="glh_invert_matrix_f2-instance_method">
+  
+    - (<tt>Array</tt>) <strong>glh_invert_matrix_f2</strong>(m) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Invert matrix array</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>m</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Matrix</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Inverted matrix</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 130</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_glh_invert_matrix_f2'>glh_invert_matrix_f2</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='comma'>,</span> <span class='id identifier rubyid_r1'>r1</span><span class='comma'>,</span> <span class='id identifier rubyid_r2'>r2</span><span class='comma'>,</span> <span class='id identifier rubyid_r3'>r3</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>1.0</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>1.0</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>1.0</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>1.0</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='comma'>,</span> <span class='id identifier rubyid_r2'>r2</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='comma'>,</span> <span class='id identifier rubyid_r3'>r3</span> <span class='kw'>if</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='comma'>,</span> <span class='id identifier rubyid_r1'>r1</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='comma'>,</span> <span class='id identifier rubyid_r2'>r2</span> <span class='kw'>if</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='comma'>,</span> <span class='id identifier rubyid_r0'>r0</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='comma'>,</span> <span class='id identifier rubyid_r1'>r1</span> <span class='kw'>if</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_m1'>m1</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>/</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_m2'>m2</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>/</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_m3'>m3</span> <span class='op'>=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>/</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m1'>m1</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m1'>m1</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m1'>m1</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>!=</span> <span class='float'>0.0</span>
+    <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m1'>m1</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>!=</span> <span class='float'>0.0</span>
+    <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m1'>m1</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>!=</span> <span class='float'>0.0</span>
+    <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m1'>m1</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>!=</span> <span class='float'>0.0</span>
+    <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m1'>m1</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='comma'>,</span> <span class='id identifier rubyid_r2'>r2</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='comma'>,</span> <span class='id identifier rubyid_r3'>r3</span> <span class='kw'>if</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='comma'>,</span> <span class='id identifier rubyid_r1'>r1</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='comma'>,</span> <span class='id identifier rubyid_r2'>r2</span> <span class='kw'>if</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>
+  <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_m2'>m2</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>/</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_m3'>m3</span> <span class='op'>=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>/</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='float'>0.0</span> <span class='op'>!=</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='float'>0.0</span> <span class='op'>!=</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='float'>0.0</span> <span class='op'>!=</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='kw'>if</span> <span class='float'>0.0</span> <span class='op'>!=</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m2'>m2</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+    <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='comma'>,</span> <span class='id identifier rubyid_r2'>r2</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='comma'>,</span> <span class='id identifier rubyid_r3'>r3</span> <span class='kw'>if</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span> <span class='op'>&gt;</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_abs'>abs</span>
+  <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_m3'>m3</span> <span class='op'>=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>/</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_m3'>m3</span> <span class='op'>*</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='float'>0.0</span> <span class='op'>==</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='float'>1.0</span> <span class='op'>/</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*=</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*=</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*=</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*=</span> <span class='id identifier rubyid_s'>s</span>
+  <span class='id identifier rubyid_m2'>m2</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='float'>1.0</span> <span class='op'>/</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_m1'>m1</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m1'>m1</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m1'>m1</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m1'>m1</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m1'>m1</span>
+  <span class='id identifier rubyid_m0'>m0</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span>
+  <span class='id identifier rubyid_m1'>m1</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='float'>1.0</span> <span class='op'>/</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m1'>m1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m1'>m1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m1'>m1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m1'>m1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_m0'>m0</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span>
+  <span class='id identifier rubyid_m0'>m0</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='float'>1.0</span> <span class='op'>/</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>-</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m0'>m0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r0'>r0</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r1'>r1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r2'>r2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_r3'>r3</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_out'>out</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="glh_project_f-instance_method">
+  
+    - (<tt>Array</tt>) <strong>glh_project_f</strong>(obj, mv, p, v) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>glhProjectf (works only from perspective projection. With the orthogonal
+projection it gives different results than standard gluProject. <a
+href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.org/wiki/GluProject_and_gluUnProject_code</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>obj</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Object Coordinates</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>mv</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Model View Matrix</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>p</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Projection Matrix</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>v</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Viewport Matrix</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Window Coordinates</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_glh_project_f'>glh_project_f</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='comma'>,</span> <span class='id identifier rubyid_mv'>mv</span><span class='comma'>,</span> <span class='id identifier rubyid_p'>p</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_mv'>mv</span> <span class='op'>=</span> <span class='id identifier rubyid_mv'>mv</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+  <span class='id identifier rubyid_v'>v</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+  <span class='comment'># Transformation vector
+</span>  <span class='id identifier rubyid_f'>f</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='comment'># Modelview Transform
+</span>  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span>
+  <span class='comment'># Projection transform the final row of projection matrix is always [0 0 -1 0]
+</span>  <span class='comment'># so we optimize for that.
+</span>  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='op'>-</span><span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='comment'># The result normalizes between -1 and 1
+</span>  <span class='kw'>return</span> <span class='lbracket'>[</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='float'>0.0</span>
+  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>1.0</span> <span class='op'>/</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='comment'># Perspective division
+</span>  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*=</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*=</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*=</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='comment'># Window coordinates
+</span>  <span class='comment'># Map x, y to range 0-1
+</span>  <span class='id identifier rubyid_window_coordinate'>window_coordinate</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_window_coordinate'>window_coordinate</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='float'>0.5</span> <span class='op'>+</span> <span class='float'>0.5</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_window_coordinate'>window_coordinate</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='float'>0.5</span> <span class='op'>+</span> <span class='float'>0.5</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='comment'># This is only correct when glDepthRange(0.0, 1.0)
+</span>  <span class='id identifier rubyid_window_coordinate'>window_coordinate</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='float'>1.0</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='float'>0.5</span>
+  <span class='id identifier rubyid_window_coordinate'>window_coordinate</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="glh_unprojectf-instance_method">
+  
+    - (<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>) <strong>glh_unprojectf</strong>(wx, wy, wz, m, p, v) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GLU Unproject <a
+href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.org/wiki/GluProject_and_gluUnProject_code</a></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>wx</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Window X Coordinate</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>wy</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Window Y Coordinate</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>wz</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Window Z Coordinate</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>m</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Model View Matrix</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>p</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Projection Matrix</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>v</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Viewport Matrix</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Object coordinates</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 308</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_glh_unprojectf'>glh_unprojectf</span><span class='lparen'>(</span><span class='id identifier rubyid_wx'>wx</span><span class='comma'>,</span> <span class='id identifier rubyid_wy'>wy</span><span class='comma'>,</span> <span class='id identifier rubyid_wz'>wz</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='id identifier rubyid_p'>p</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+  <span class='comment'># Transformation matrices
+</span>  <span class='id identifier rubyid_m_in'>m_in</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='comment'># Calculation for inverting a matrix, compute projection x modelview
+</span>  <span class='comment'># and store in A[16]
+</span>  <span class='id identifier rubyid_m'>m</span> <span class='op'>=</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+  <span class='id identifier rubyid_p'>p</span> <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+  <span class='id identifier rubyid_v'>v</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+  <span class='id identifier rubyid_a'>a</span> <span class='op'>=</span> <span class='id identifier rubyid_multiply_matrices_4by4'>multiply_matrices_4by4</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_invert_m'>invert_m</span> <span class='op'>=</span> <span class='id identifier rubyid_glh_invert_matrix_f2'>glh_invert_matrix_f2</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='id identifier rubyid_invert_m'>invert_m</span> <span class='op'>==</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_m_in'>m_in</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_wx'>wx</span> <span class='op'>-</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>*</span> <span class='float'>2.0</span> <span class='op'>-</span> <span class='float'>1.0</span>
+  <span class='id identifier rubyid_m_in'>m_in</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='id identifier rubyid_wy'>wy</span> <span class='op'>-</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>*</span> <span class='float'>2.0</span> <span class='op'>-</span> <span class='float'>1.0</span>
+  <span class='id identifier rubyid_m_in'>m_in</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>2.0</span> <span class='op'>*</span> <span class='id identifier rubyid_wz'>wz</span> <span class='op'>-</span> <span class='float'>1.0</span>
+  <span class='id identifier rubyid_m_in'>m_in</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>1.0</span>
+  <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='id identifier rubyid_multiply_matrix_by_vector'>multiply_matrix_by_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_invert_m'>invert_m</span><span class='comma'>,</span> <span class='id identifier rubyid_m_in'>m_in</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='int'>0</span> <span class='kw'>if</span> <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='float'>1.0</span> <span class='op'>/</span> <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_out'>out</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="look_at-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>look_at</strong>(eye, look_at, up) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GLULookAt Alternative Function</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>eye</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>Eye position
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>look_at</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>Target position
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>up</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>Up vector of camera
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Success</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 350</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_look_at'>look_at</span><span class='lparen'>(</span><span class='id identifier rubyid_eye'>eye</span><span class='comma'>,</span> <span class='id identifier rubyid_look_at'>look_at</span><span class='comma'>,</span> <span class='id identifier rubyid_up'>up</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_z'>z</span> <span class='op'>=</span> <span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_eye'>eye</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='id identifier rubyid_look_at'>look_at</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_eye'>eye</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>-</span> <span class='id identifier rubyid_look_at'>look_at</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_eye'>eye</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>-</span> <span class='id identifier rubyid_look_at'>look_at</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_z'>z</span><span class='period'>.</span><span class='id identifier rubyid_normalize'>normalize</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_up'>up</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_up'>up</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_up'>up</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_cross'>cross</span><span class='lparen'>(</span><span class='id identifier rubyid_z'>z</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_z'>z</span><span class='period'>.</span><span class='id identifier rubyid_cross'>cross</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_normalize'>normalize</span>
+  <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_normalize'>normalize</span>
+  <span class='id identifier rubyid_mat'>mat</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_z'>z</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_z'>z</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span><span class='comma'>,</span> <span class='id identifier rubyid_z'>z</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>MultMatrixf</span><span class='lparen'>(</span><span class='id identifier rubyid_mat'>mat</span><span class='rparen'>)</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Translatef</span><span class='lparen'>(</span><span class='op'>-</span><span class='id identifier rubyid_eye'>eye</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='op'>-</span><span class='id identifier rubyid_eye'>eye</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='op'>-</span><span class='id identifier rubyid_eye'>eye</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mat-instance_method">
+  
+    - (<tt>type</tt>) <strong>mat</strong>(m, x, y) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Return item of matrix array from x-y coordinates</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>m</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Matrix</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>x</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>X Coordinate</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>y</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Y Coordinate</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>type</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>description
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 121</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="multiply_matrices_4by4-instance_method">
+  
+    - (<tt>Array</tt>) <strong>multiply_matrices_4by4</strong>(m1, m2) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Multiply 4 x 4 matrices</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>m1</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Array of 4x4 matrice</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>m2</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Array of 4x4 matrice</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Result array</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_multiply_matrices_4by4'>multiply_matrices_4by4</span><span class='lparen'>(</span><span class='id identifier rubyid_m1'>m1</span><span class='comma'>,</span> <span class='id identifier rubyid_m2'>m2</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span>  <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span>  <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span>  <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span>  <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span>  <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span>  <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span>  <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span>  <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>  <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span>  <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m1'>m1</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_m2'>m2</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="multiply_matrix_by_vector-instance_method">
+  
+    - (<tt>Array</tt>) <strong>multiply_matrix_by_vector</strong>(m, v) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Multiply matrix array with a vector array Vector held as array for quick
+usage</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>m</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Matrix</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>v</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Vector</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Result</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97
+98
+99
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_multiply_matrix_by_vector'>multiply_matrix_by_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_v'>v</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_r'>r</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="perspective-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>perspective</strong>(fovY, aspect, znear, zfar) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>GLUPerspective Alternative</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>fovY</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Field of view</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>aspect</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Aspect ratio of view</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>znear</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Near Plane</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>zfar</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Far Plane</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Success</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+371
+372
+373
+374
+375
+376</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 371</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_perspective'>perspective</span><span class='lparen'>(</span><span class='id identifier rubyid_fovY'>fovY</span><span class='comma'>,</span> <span class='id identifier rubyid_aspect'>aspect</span><span class='comma'>,</span> <span class='id identifier rubyid_znear'>znear</span><span class='comma'>,</span> <span class='id identifier rubyid_zfar'>zfar</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_pi'>pi</span> <span class='op'>=</span> <span class='float'>3.1415926535897932384626433832795</span>
+  <span class='id identifier rubyid_fh'>fh</span> <span class='op'>=</span> <span class='const'>Math</span><span class='period'>.</span><span class='id identifier rubyid_tan'>tan</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_fovY'>fovY</span> <span class='op'>/</span> <span class='int'>2</span><span class='rparen'>)</span> <span class='op'>/</span> <span class='int'>180</span> <span class='op'>*</span> <span class='id identifier rubyid_pi'>pi</span><span class='rparen'>)</span> <span class='op'>*</span> <span class='id identifier rubyid_znear'>znear</span>
+  <span class='id identifier rubyid_fw'>fw</span> <span class='op'>=</span> <span class='id identifier rubyid_fh'>fh</span> <span class='op'>*</span> <span class='id identifier rubyid_aspect'>aspect</span>
+  <span class='const'>GL</span><span class='period'>.</span><span class='const'>Frustum</span><span class='lparen'>(</span><span class='op'>-</span><span class='id identifier rubyid_fw'>fw</span><span class='comma'>,</span> <span class='id identifier rubyid_fw'>fw</span><span class='comma'>,</span> <span class='op'>-</span><span class='id identifier rubyid_fh'>fh</span><span class='comma'>,</span> <span class='id identifier rubyid_fh'>fh</span><span class='comma'>,</span> <span class='id identifier rubyid_znear'>znear</span><span class='comma'>,</span> <span class='id identifier rubyid_zfar'>zfar</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="rad_to_deg-instance_method">
+  
+    - (<tt>Float</tt>) <strong>rad_to_deg</strong>(radians) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Radians to Degrees</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>radians</span>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Radians</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Float</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Degrees</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+488
+489
+490
+491
+492
+493</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 488</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rad_to_deg'>rad_to_deg</span><span class='lparen'>(</span><span class='id identifier rubyid_radians'>radians</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_radians'>radians</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='float'>180.0</span> <span class='op'>/</span> <span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='float'>360.0</span> <span class='op'>+</span> <span class='id identifier rubyid_result'>result</span> <span class='kw'>if</span> <span class='id identifier rubyid_result'>result</span> <span class='op'>&lt;</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='float'>360.0</span> <span class='op'>-</span> <span class='id identifier rubyid_result'>result</span> <span class='kw'>if</span> <span class='id identifier rubyid_result'>result</span> <span class='op'>&gt;</span> <span class='float'>360.0</span>
+  <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Sat Mar 28 16:36:02 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.2.2).
+</div>
+
+  </body>
+</html>
