@@ -22,8 +22,7 @@ After all, just give it a shot!
 
 Synrax Control
 --------------
-Please use **check_syntax.sh** for syntax control and do not change .rubocop_todo.yml
-
+Please use **check\_syntax.sh** for syntax control and do not change .rubocop_todo.yml
 
 
 Notes about known bugs
@@ -40,4 +39,4 @@ to
 There is something weird about screen occupation and I still don't know why :)
 
 
-I will write some more samples if I can find some time.
+Seems like, I broke the Physics Engine during my structure renewal. Sorry :) I will fix it ASAP and also fix the 8_physics.rb sample.
