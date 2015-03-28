@@ -16,7 +16,7 @@ require 'BlackBook/camera'
 require 'BlackBook/base'
 require 'BlackBook/light'
 require 'ui/ui'
-require 'BlackBook/physics/newton/newton'
+require 'BlackBook/physics/physics'
 
 module BlackBook
   #
@@ -47,9 +47,9 @@ module BlackBook
       @width, @height = w, h
       @items = {
         cameras: [],
-        lights: [],
+        lights:  [],
         objects: {},
-        uis: [],
+        uis:     [],
         plugins: []
       }
     end
@@ -146,6 +146,13 @@ module BlackBook
       ui = UI::Ui.new(@width, @height)
       @items[:uis].push ui
       ui
+    end
+
+    #
+    # Create Physics Dynamics Engine
+    # @return [BlackBookPhysics] BlackBook Physics Object
+    def create_dynamics
+      @physics << BlackBook::Newton.new
     end
 
     #

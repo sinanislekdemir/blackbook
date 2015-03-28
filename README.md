@@ -20,7 +20,7 @@ After all, just give it a shot!
     ruby main.rb
 
 
-Synrax Control
+Syntax Control
 --------------
 Please use **check\_syntax.sh** for syntax control and do not change .rubocop_todo.yml
 

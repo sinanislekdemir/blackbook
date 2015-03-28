@@ -32,10 +32,22 @@ module BlackBook
   class B3DObject < Base
     attr_writer :faces, :mass, :roll, :pitch, :yaw,
                 :position, :time, :name, :scale, :index, :bounding_radius,
-                :min, :max, :data_size, :normal_index
+                :min, :max, :data_size, :normal_index,
+                :kinetic_energy, :potential, :type, :angular_velocity,
+                :angular_acceleration, :linear_velocity, :linear_acceleration
     attr_accessor :faces, :mass, :roll, :pitch, :yaw,
-                  :position, :time, :name, :scale, :index, :bounding_radius,
-                  :min, :max, :data_size, :normal_index
+                :position, :time, :name, :scale, :index, :bounding_radius,
+                :min, :max, :data_size, :normal_index,
+                :kinetic_energy, :potential, :type, :angular_velocity,
+                :angular_acceleration, :linear_velocity, :linear_acceleration
+
+    PARTICLE = 0
+    SOLID_CUBE = 1
+    SOLID_SPHERE = 2
+    SOLID_MESH = 3
+    SOFT_CUBE = 4
+    SOFT_SPHERE = 5
+    SOFT_MESH = 6
 
     #
     # Initialize basic variables with default.
@@ -44,12 +56,20 @@ module BlackBook
     def initialize
       @faces = []
       @bounding_radius, @mass, @roll, @pitch, @yaw = 0.0, 0.0, 0.0, 0.0, 0.0
-      @position = CVector.new(0, 0, 0, 1)
-      @scale = CVector.new(1, 1, 1, 1)
+      @position     = CVector.new(0, 0, 0, 1)
+      @scale        = CVector.new(1, 1, 1, 1)
       @min, @max, @index = nil, nil, -1
-      @time = STime.new
-      @vertex_data = []
-      @data_size = 0
+      @time         = STime.new
+      @vertex_data  = []
+      @data_size    = 0
+      # Physics Related
+      @kinetic_energy = 0.0
+      @potential    = 0.0
+      @type         = PARTICLE
+      @angular_velocity     = CVelocity.new(CVector.new(0, 0, 0, 1))
+      @angular_acceleration = CAcceleration.new(CVector.new(0, 0, 0, 1))
+      @linear_acceleration  = CAcceleration.new(CVector.new(0, 0, 0, 1))
+      @linear_velocity      = CVelocity.new(CVector.new(0, 0, 0, 1))
     end
 
     #
@@ -78,9 +98,9 @@ module BlackBook
     #
     # @return [Float] Returns Yaw Flaot
     def load_rotation(data)
-      @roll = data['roll'] if data.key?('roll')
-      @pitch = data['pitch'] if data.key?('pitch')
-      @yaw = data['yaw'] if data.key?('yaw')
+      @roll   = data['roll'] if data.key?('roll')
+      @pitch  = data['pitch'] if data.key?('pitch')
+      @yaw    = data['yaw'] if data.key?('yaw')
     end
 
     #
@@ -90,6 +110,38 @@ module BlackBook
     # @return [Float] Returns Time
     def load_time(data)
       @time = data['time'] if data.key?('time')
+    end
+
+    def load_type(data)
+      @type = data['type'] if data.key?('type')
+    end
+
+    def load_linear_velocity(data)
+      return unless data.key?('linear_velocity')
+      @linear_velocity.vector.x = data['linear_velocity'][0]
+      @linear_velocity.vector.y = data['linear_velocity'][1]
+      @linear_velocity.vector.z = data['linear_velocity'][2]
+    end
+
+    def load_linear_acceleration(data)
+      return unless data.key?('linear_acceleration')
+      @linear_acceleration.vector.x = data['linear_acceleration'][0]
+      @linear_acceleration.vector.y = data['linear_acceleration'][1]
+      @linear_acceleration.vector.z = data['linear_acceleration'][2]
+    end
+
+    def load_angular_velocity(data)
+      return unless data.key?('angular_velocity')
+      @angular_velocity.vector.x = data['angular_velocity'][0]
+      @angular_velocity.vector.y = data['angular_velocity'][1]
+      @angular_velocity.vector.z = data['angular_velocity'][2]
+    end
+
+    def load_angular_acceleration(data)
+      return unless data.key?('angular_acceleration')
+      @angular_acceleration.vector.x = data['angular_acceleration'][0]
+      @angular_acceleration.vector.y = data['angular_acceleration'][1]
+      @angular_acceleration.vector.z = data['angular_acceleration'][2]
     end
 
     #
@@ -136,6 +188,21 @@ module BlackBook
       load_position data
       load_rotation data
       load_time data
+      load_type data
+      load_linear_velocity data
+      load_linear_acceleration data
+      load_angular_velocity data
+      load_angular_acceleration data
+      case @type
+      when 1
+        create_cube
+      when 2
+        create_sphere
+      when 3
+        load_raw data['filename']
+      end
+      x, y, z = data['scale'][0], data['scale'][1], data['scale'][2]
+      @scale.set(x, y, z) if data.key?('scale')
     end
 
     #

@@ -12,9 +12,7 @@ require 'BlackBook/constants'
 require 'BlackBook/functions'
 require 'BlackBook/light'
 require 'BlackBook/logger'
-require 'BlackBook/rigid_body_object'
 require 'BlackBook/space'
-require 'BlackBook/space_object'
 require 'BlackBook/stime'
 
 # BlackBook main module definition

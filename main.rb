@@ -60,6 +60,7 @@ module BlackBook
         obj.text = v[0].to_s + ' ' + v[1].to_s
       end
       cam.on_update = [on_update, label]
+      @space.create_dynamics
     end
 
     def load(file)
