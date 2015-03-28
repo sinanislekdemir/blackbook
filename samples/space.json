@@ -1,0 +1,49 @@
+[
+    {
+        "type":"newton",
+        "items":[
+            {
+                "name":"object_1",
+                "type":1,
+                "scale":[1, 1, 1],
+                "mass":1,
+                "position":[0, 5, 0],
+                "linear_velocity":[0, 0, 0],
+                "linear_acceleration":[0, 0, 0],
+                "roll":90,
+                "pitch":45,
+                "yaw":45,
+                "time":0
+            },
+            {
+                "name":"object_2",
+                "type":3,
+                "filename":"../data/w.raw",
+                "scale":[1, 1, 1],
+                "mass":1.2,
+                "position":[0, 0, 0],
+                "angular_velocity":[0, 0, 1],
+                "roll":0,
+                "pitch":0,
+                "yaw":0,
+                "time":0
+            }
+        ],
+        "constants":[
+            {
+                "name":"gravity",
+                "type":"linear_acceleration",
+                "magnitude":[0, 0, 9.8],
+                "start":0,
+                "end":0
+            }
+        ],
+        "keys":[
+            {
+                "start":0,
+                "duration":10,
+                "keys":[0.2, 0.5, 1.0, 4.0, 9.0]
+            }
+        ]
+    }
+]

@@ -382,6 +382,8 @@ module BlackBook
   #
   # @return [Boolean] Success
   def draw_grid
+    count = BlackBook::Registry.instance.read('grid_count')
+    count = 200 if count.nil?
     GL.PushMatrix
     GL.Translatef(0.0, 0.0, 0.0)
 

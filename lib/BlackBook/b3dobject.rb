@@ -99,7 +99,9 @@ module BlackBook
     #
     # @return [Boolean] Load cube object
     def create_cube
-      load_raw 'data/cube.raw'
+      data_path = BlackBook::Registry.instance.read('data_path')
+      data_path = 'data' if data_path.nil?
+      load_raw data_path + '/cube.raw'
     end
 
     #
@@ -109,7 +111,9 @@ module BlackBook
     #
     # @return [Boolean] Load sphere object.
     def create_sphere
-      load_raw 'data/sphere.raw'
+      data_path = BlackBook::Registry.instance.read('data_path')
+      data_path = 'data' if data_path.nil?
+      load_raw data_path + '/sphere.raw'
     end
 
     #

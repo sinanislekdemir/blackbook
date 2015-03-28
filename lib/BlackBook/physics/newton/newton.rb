@@ -100,7 +100,7 @@ module BlackBook
           name = data['name'] if data.key?('name')
           t_start = data['start'] if data.key?('start')
           t_end = data['end'] if data.key?('end')
-          m = array_to_vector(data['magnitude'])
+          m = BlackBook.array_to_vector(data['magnitude'])
           case data['type']
           when 'linear_velocity'
             v = CVelocity.new(m, name, t_start, t_end, CVelocity::LINEAR)

@@ -216,6 +216,8 @@ module BlackBook
       # Render Objects for each camera
       @items[:cameras].each do |cam|
         cam.begin_render
+        grid = BlackBook::Registry.instance.read('grid')
+        BlackBook.draw_grid if grid
         # Render Lights
         @items[:lights].each do |light|
           light.render
@@ -234,7 +236,6 @@ module BlackBook
         cam.end_render
       end
       GL.Viewport(0, 0, @width, @height)
-      # draw_grid
       @items[:uis].each do |ui|
         ui.render
       end
@@ -254,7 +255,7 @@ module BlackBook
       load_data.each do |phy|
         case phy['type']
         when 'newton'
-          newton_environment = Physics::Newton.new
+          newton_environment = Physics::Newton::Newton.new
           newton_environment.load phy
           @physics.push newton_environment
         end

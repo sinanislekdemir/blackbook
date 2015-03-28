@@ -125,21 +125,13 @@ module BlackBook
     # @return [Boolean] Success
     def begin_render
       if @frame_width > 0 && @frame_height > 0
-        draw_box_2d(
-          x: @frame_x,
-          y: @frame_y,
-          z: 0.1,
-          height: @frame_height,
-          width: @frame_width,
-          border: true,
-          border_color: CVector.new(255, 255, 255, 1),
-          border_size: 2.0,
-          color: CVector.new(0, 0, 0, 0)
-          )
         GL.PushAttrib(GL::SCISSOR_BIT)
         GL.Enable(GL::SCISSOR_TEST)
         GL.Scissor(@frame_x, @frame_y, @frame_width, @frame_height)
         GL.Viewport(@frame_x, @frame_y, @frame_width, @frame_height)
+        BlackBook.perspective(
+          30.0, @frame_width.to_f / @frame_height.to_f, 1.0, 1000.0
+          )
       end
       GL.LoadIdentity
       BlackBook.look_at(

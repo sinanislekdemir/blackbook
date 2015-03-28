@@ -45,6 +45,7 @@ module BlackBook
       if options.key?(:light_draw_radius)
         @light_draw_radius = options(:light_draw_radius)
       end
+      @@index += 1
     end
 
     #
