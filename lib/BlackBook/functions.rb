@@ -10,6 +10,7 @@ require 'pp'
 # Local Libs
 require 'BlackBook/constants'
 
+# Mathematics related general functions
 module BlackBook
   #
   # glhProjectf (works only from perspective projection.
@@ -34,7 +35,8 @@ module BlackBook
     f[1] = mv[1] * obj.x + mv[5] * obj.y + mv[9] * obj.z + mv[13]
     f[2] = mv[2] * obj.x + mv[6] * obj.y + mv[10] * obj.z + mv[14]
     f[3] = mv[3] * obj.x + mv[7] * obj.y + mv[11] * obj.z + mv[15]
-    # Projection transform the final row of projection matrix is always [0 0 -1 0]
+    # Projection transform the final row of projection
+    # matrix is always [0 0 -1 0]
     # so we optimize for that.
     f[4] = p[0] * f[0] + p[4] * f[1] + p[8] * f[2] + p[12] * f[3]
     f[5] = p[1] * f[0] + p[5] * f[1] + p[9] * f[2] + p[13] * f[3]
@@ -437,7 +439,8 @@ module BlackBook
 
   #
   # Draw 2D Box
-  # @param options [Hash] options[:x, :y, :z, :w, :color, :border, :border_color]
+  # @param options [Hash]
+  #   options[:x, :y, :z, :w, :color, :border, :border_color]
   #
   # @return [Boolean] Success
   def draw_box_2d(options)

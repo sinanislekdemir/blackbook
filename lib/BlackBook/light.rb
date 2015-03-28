@@ -57,11 +57,11 @@ module BlackBook
       if @draw_light
         GL.Disable(GL::LIGHTING)
         GL.PushMatrix
-        BlackBook::apply_color(CVector.new(255, 255, 0, 1))
+        BlackBook.apply_color(CVector.new(255, 255, 0, 1))
         GL.Translatef(@position.x, @position.y, @position.z)
-        BlackBook::draw_circle(@light_draw_radius, 10)
+        BlackBook.draw_circle(@light_draw_radius, 10)
         GL.Rotatef(90.0, 1.0, 0, 0)
-        BlackBook::draw_circle(@light_draw_radius, 10)
+        BlackBook.draw_circle(@light_draw_radius, 10)
         GL.PopMatrix
         GL.Enable(GL::LIGHTING)
       end

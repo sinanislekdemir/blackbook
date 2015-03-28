@@ -87,9 +87,9 @@ module UI
         width: @w, height: @h, color: color,
         border: true, border_color: BlackBook::CVector.new(255, 165, 0, 0.8)
       }
-      BlackBook::draw_box_2d(options)
+      BlackBook.draw_box_2d(options)
       GL.PushMatrix
-      GL.Translatef(5 , 0, 1 / (10000 - @z.to_f))
+      GL.Translatef(5, 0, 1 / (10000 - @z.to_f))
       @hover ? @caption.color.set(0, 0, 0) : @caption.color.set(1.0, 1.0, 1.0)
       @caption.y = 5
       @caption.render

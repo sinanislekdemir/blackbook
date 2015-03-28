@@ -67,9 +67,8 @@ module BlackBook
       @main_window = Glfw::Window.new(@window_width, @window_height, @title)
       fail 'Unable to create window' if @main_window.nil?
       @main_window.close_callback = -> (window) { window.should_close = true }
-      @main_window.mouse_button_callback = lambda {
-        |_window, right, left, middle|
-        @right, @left, @middle = right, left, middle
+      @main_window.mouse_button_callback = lambda { |_window, r, l, m|
+        @right, @left, @middle = r, l, m
       }
       @main_window.char_callback = -> (window, char) do
         puts char.chr

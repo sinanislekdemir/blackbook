@@ -160,7 +160,7 @@ module BlackBook
       GL.ShadeModel(GL::SMOOTH)
       GL.MatrixMode(GL::PROJECTION)
       GL.LoadIdentity
-      BlackBook::perspective(30.0, @width.to_f / @height.to_f, 1.0, 1000.0)
+      BlackBook.perspective(30.0, @width.to_f / @height.to_f, 1.0, 1000.0)
       GL.MatrixMode(GL::MODELVIEW)
       GL.ClearColor(0.05, 0.05, 0.1, 1.0)
       @gl_active = true
@@ -199,7 +199,8 @@ module BlackBook
     # General Render Method
     # 1. Render Lights
     # 2. Call Light Methods of Plugins
-    # 3. Call Camera Methods of Plugins (Make it before real cameras for shaders)
+    # 3. Call Camera Methods of Plugins
+    #    Make it before real cameras for shaders)
     # 4. Render Cameras
     #   4a. Render Objects
     #   4b. Call Render Methods of Plugins

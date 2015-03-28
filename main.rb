@@ -52,7 +52,7 @@ module BlackBook
       b = w.create_button(x: 10, y: 150, w: 200, title: 'buton', name: 'bt')
       b.click = -> do
         ui.add_window(
-          x: 10, y: 200, z: 1, w: 1000, h: 400, title: 'Alt pencere', name: 'sub'
+          x: 10, y: 200, z: 1, w: 1000, h: 400, title: 'Subw', name: 'sub'
         )
       end
       on_update = -> (camera, x, y, obj) do
@@ -71,11 +71,11 @@ module BlackBook
       @space.init_gl if @space.gl_active == false
       @space.render
       @space.mouse_move(
-          @main_window.cursor_pos[0],
-          @main_window.cursor_pos[1],
-          @right,
-          @left,
-          @middle)
+        @main_window.cursor_pos[0],
+        @main_window.cursor_pos[1],
+        @right,
+        @left,
+        @middle)
     end
   end
 end

@@ -26,26 +26,32 @@ module BlackBook
     end
 
     def warning(message)
-      @file.printf "%-27s - %-10s : %s \n",
-                    Time.now.to_s,
-                    'WARNING',
-                    message unless @file.nil?
+      @file.printf(
+        "%-27s - %-10s : %s \n",
+        Time.now.to_s,
+        'WARNING',
+        message
+        ) unless @file.nil?
       printf "%-10s : %s\n", 'WARNING', message if @stdout
     end
 
     def error(message)
-      @file.printf "%-27s - %-10s : %s \n",
-                    Time.now.to_s,
-                    'ERROR',
-                    message unless @file.nil?
+      @file.printf(
+        "%-27s - %-10s : %s \n",
+        Time.now.to_s,
+        'ERROR',
+        message
+        ) unless @file.nil?
       printf "%-10s : %s\n", 'ERROR', message if @stdout
     end
 
     def info(message)
-      @file.printf "%-27s - %-10s : %s \n",
-                    Time.now.to_s,
-                    'INFORM',
-                    message unless @file.nil?
+      @file.printf(
+        "%-27s - %-10s : %s \n",
+        Time.now.to_s,
+        'INFORM',
+        message
+        ) unless @file.nil?
       printf "%-10s : %s\n", 'INFORM', message if @stdout
     end
 

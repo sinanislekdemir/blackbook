@@ -11,6 +11,7 @@ require 'BlackBook/physics/physics'
 
 module BlackBook
   module Physics
+    # Newton physics for mechanics
     module Newton
       # Gravitational Constant
       G = 6.67e-11
@@ -104,11 +105,15 @@ module BlackBook
           when 'linear_velocity'
             v = CVelocity.new(m, name, t_start, t_end, CVelocity::LINEAR)
           when 'linear_acceleration'
-            v = CAcceleration.new(m, name, t_start, t_end, CAcceleration::LINEAR)
+            v = CAcceleration.new(
+              m, name, t_start, t_end, CAcceleration::LINEAR
+              )
           when 'angular_velocity'
             v = CVelocity.new(m, name, t_start, t_end, CVelocity::ANGULAR)
           when 'angular_acceleration'
-            v = CAcceleration.new(m, name, t_start, t_end, CAcceleration::ANGULAR)
+            v = CAcceleration.new(
+              m, name, t_start, t_end, CAcceleration::ANGULAR
+              )
           end
 
           @variables.push v

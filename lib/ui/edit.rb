@@ -37,7 +37,7 @@ module UI
       @max_chars = options.key?(:max_chars) ? options[:max_chars] : 255
       @value = options.key?(:value) ? options[:value] : ''
       @focus = options.key?(:focus) ? options[:focus] : false
-      @text = Text.new(x:0, y:0, h: @font_size, title: value)
+      @text = Text.new(x: 0, y: 0, h: @font_size, title: value)
       @text.color.set(200, 200, 200)
       @text.d = 2
       @h = @font_size + 10.0
@@ -50,7 +50,7 @@ module UI
         width: @w, height: @h, color: color,
         border: true, border_color: BlackBook::CVector.new(0, 255, 255, 0.8)
       }
-      BlackBook::draw_box_2d(options)
+      BlackBook.draw_box_2d(options)
       GL.PushMatrix
       GL.Translatef(@x, @y, 1 / (10000 - @z.to_f + 1000))
       @text.text = @value

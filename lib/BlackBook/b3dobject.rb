@@ -172,7 +172,7 @@ module BlackBook
           v1.x, v1.y, v1.z = face[0], face[1], face[2]
           v2.x, v2.y, v2.z = face[3], face[4], face[5]
           v3.x, v3.y, v3.z = face[6], face[7], face[8]
-          normal = BlackBook::calc_plane_normal(v1, v2, v3)
+          normal = BlackBook.calc_plane_normal(v1, v2, v3)
           GL.Begin(GL::TRIANGLES)
           1.upto(vertex_count) do |index|
             i = (index - 1) * 3
@@ -195,7 +195,7 @@ module BlackBook
           v1.x, v1.y, v1.z = face[0], face[1], face[2]
           v2.x, v2.y, v2.z = face[3], face[4], face[5]
           v3.x, v3.y, v3.z = face[6], face[7], face[8]
-          normal = BlackBook::calc_plane_normal(v1, v2, v3)
+          normal = BlackBook.calc_plane_normal(v1, v2, v3)
           1.upto(vertex_count) do |index|
             i = (index - 1) * 3
             data << face[i]
@@ -214,13 +214,13 @@ module BlackBook
         GL.BufferData(
           GL::GL_ARRAY_BUFFER,
           data.length * 4,
-          data.pack("f*"),
+          data.pack('f*'),
           GL::GL_STATIC_DRAW)
         GL.BindBuffer(GL::GL_ARRAY_BUFFER, @index[1])
         GL.BufferData(
           GL::GL_ARRAY_BUFFER,
           normals.length * 4,
-          normals.pack("f*"),
+          normals.pack('f*'),
           GL::GL_STATIC_DRAW
           )
       end
@@ -276,7 +276,7 @@ module BlackBook
       buffer = buffer.split("\n")
       buffer.each do |line|
         items = line.split(' ')
-        f_items = Array.new
+        f_items = []
         items.each do |item|
           f_items.push item.to_f
         end

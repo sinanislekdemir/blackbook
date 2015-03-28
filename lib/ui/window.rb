@@ -102,11 +102,12 @@ module UI
     def render
       options = {
         x: @x, y: @y, z: 1 / (10000 - @z.to_f),
-        width: @w, height: @h, color: BlackBook::CVector.new(1.0, 1.0, 1.0, 0.8),
+        width: @w, height: @h,
+        color: BlackBook::CVector.new(1.0, 1.0, 1.0, 0.8),
         border: true, border_color: BlackBook::CVector.new(218, 112, 214),
         border_size: 3
       }
-      BlackBook::draw_box_2d(options)
+      BlackBook.draw_box_2d(options)
       GL.PushMatrix
       GL.Translatef(@x, @y, 1 / (10000 - @z.to_f))
       @title_bar.render

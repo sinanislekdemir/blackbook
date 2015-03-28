@@ -17,6 +17,7 @@ require 'BlackBook/space'
 require 'BlackBook/space_object'
 require 'BlackBook/stime'
 
+# BlackBook main module definition
 module BlackBook
   extend self
   VERSION = '0.0.1'

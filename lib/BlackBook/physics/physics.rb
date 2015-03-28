@@ -13,6 +13,7 @@ require 'BlackBook/constants'
 require 'BlackBook/physics/newton/newton'
 
 module BlackBook
+  # Physics module for BlackBook Space
   module Physics
     # Generalized class for Physics
     class BlackBookPhysics < Base

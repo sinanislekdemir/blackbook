@@ -1,7 +1,9 @@
 require 'singleton'
 require 'json'
 
+# Blackbook Registry for global variables
 module BlackBook
+  # Singleton Registry class
   class Registry
     include Singleton
 
@@ -15,7 +17,7 @@ module BlackBook
 
     # read object from hash, return nil if not found
     def read(key)
-      return @params.key?(key) ? @params[key] : nil
+      @params.key?(key) ? @params[key] : nil
     end
 
     # write to instance hash

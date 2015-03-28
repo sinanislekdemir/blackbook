@@ -78,7 +78,8 @@ module UI
       @width = 0.0
       min_x, min_y, min_z = 999999, 999999, 999999
       max_x, max_y, max_z = -999999, -999999, -999999
-      v1, v2 = BlackBook::CVector.new(0, 0, 0, 1), BlackBook::CVector.new(0, 0, 0, 1)
+      v1 = BlackBook::CVector.new(0, 0, 0, 1)
+      v2 = BlackBook::CVector.new(0, 0, 0, 1)
       v3 = BlackBook::CVector.new(0, 0, 0, 1)
       GL.NewList(@index, GL::COMPILE)
       GL.LineWidth(2)
@@ -96,7 +97,7 @@ module UI
         max_x = dx[1] if dx[1] > max_x
         max_y = dy[1] if dy[1] > max_y
         max_z = dz[1] if dz[1] > max_z
-        normal = BlackBook::calc_plane_normal(v1, v2, v3)
+        normal = BlackBook.calc_plane_normal(v1, v2, v3)
         GL.Begin(GL::TRIANGLES)
         1.upto(vertex_count) do |index|
           i = (index - 1) * 3
@@ -120,7 +121,7 @@ module UI
       file = File.open(filename, 'r')
       file.each_line do |line|
         items = line.split(' ')
-        f_items = Array.new
+        f_items = []
         items.each do |item|
           f_items.push item.to_f
         end
@@ -189,7 +190,6 @@ module UI
         bb_char.load_char c
         @font[c] = bb_char
       end
-
     end
 
     #

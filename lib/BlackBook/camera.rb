@@ -108,7 +108,7 @@ module BlackBook
       mv = GL.GetFloatv GL::MODELVIEW_MATRIX
       pm = GL.GetFloatv GL::PROJECTION_MATRIX
       vp = GL.GetFloatv GL::VIEWPORT
-      BlackBook::glh_project_f(v, mv, pm, vp)
+      BlackBook.glh_project_f(v, mv, pm, vp)
     end
 
     #
@@ -142,7 +142,7 @@ module BlackBook
         GL.Viewport(@frame_x, @frame_y, @frame_width, @frame_height)
       end
       GL.LoadIdentity
-      BlackBook::look_at(
+      BlackBook.look_at(
         @eye_position,
         @target,
         @up_vector)
@@ -179,8 +179,10 @@ module BlackBook
       if left_b == 1
         diff = @eye_position.sub(@target)
         diff.update_spherical
-        diff.phi = diff.phi - BlackBook::deg_to_rad((x.to_f - @pos_x.to_f).to_f)
-        diff.theta = diff.theta - BlackBook::deg_to_rad((y.to_f - @pos_y.to_f).to_f)
+        diff.phi = diff.phi - BlackBook.deg_to_rad((x.to_f - @pos_x.to_f).to_f)
+        diff.theta = diff.theta - BlackBook.deg_to_rad(
+          (y.to_f - @pos_y.to_f).to_f
+          )
         diff.update_cartesian
         @eye_position = @target.add(diff)
         @modified = true

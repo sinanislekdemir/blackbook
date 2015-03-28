@@ -1,5 +1,6 @@
 require 'BlackBook/constants'
 
+# Some standard colors
 module BlackBook
   BLACK = CVector.new(0.0, 0.0, 0.0, 1.0)
   WHITE = CVector.new(1.0, 1.0, 1.0, 1.0)
@@ -7,4 +8,3 @@ module BlackBook
   GREEN = CVector.new(0.0, 1.0, 0.0, 1.0)
   BLUE  = CVector.new(0.0, 0.0, 1.0, 1.0)
 end
-
