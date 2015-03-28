@@ -18,3 +18,20 @@ I hope you enjoy it. You can find the requirements inside Gemfile.
 After all, just give it a shot!
 
     ruby main.rb
+
+
+Notes about known bugs
+-----------------------
+
+If you come accross a situation where things seem not to fit the screen, you may need to change
+
+    w = BlackBook::Main.new(800, 600, 'BlackBook Project', 2, 2)
+
+to
+
+    w = BlackBook::Main.new(800, 600, 'BlackBook Project', 1, 1)
+
+There is something weird about screen occupation and I still don't know why :)
+
+
+I will write some more samples if I can find some time.
