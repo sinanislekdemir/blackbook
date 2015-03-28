@@ -52,7 +52,7 @@ module BlackBook
       b = w.create_button(x: 10, y: 150, w: 200, title: 'buton', name: 'bt')
       b.click = -> do
         ui.add_window(
-          x: 10, y: 200, z: 1, w: 1000, h: 400, title: 'Subw', name: 'sub'
+          x: 10, y: 400, z: 1, w: 1000, h: 400, title: 'Subw', name: 'sub'
         )
       end
       on_update = -> (camera, x, y, obj) do

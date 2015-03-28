@@ -59,7 +59,7 @@ module UI
     end
 
     def mouse_move(x, y, right_b, left_b, middle_b)
-      @items.each do |name, obj|
+      @items.clone.each do |name, obj|
         obj.mouse(x, y, right_b, left_b, middle_b) if obj.respond_to?('mouse')
       end
       false
