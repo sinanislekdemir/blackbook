@@ -20,6 +20,12 @@ After all, just give it a shot!
     ruby main.rb
 
 
+Synrax Control
+--------------
+Please use **check_syntax.sh** for syntax control and do not change .rubocop_todo.yml
+
+
+
 Notes about known bugs
 -----------------------
 
