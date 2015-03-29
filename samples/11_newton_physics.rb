@@ -15,15 +15,7 @@ require 'blackbook'
 space = BlackBook::Space.new(0, 0)
 physics = BlackBook::Newton.new(space)
 
-puts "Hit Enter to break the loop.. Free fall starting in "
-puts "3 ..."
-# sleep 1
-puts "2 ..."
-# sleep 1
-puts "1 ..."
-# sleep 1
-puts "Engine runs..."
-
+puts "Free fall starting"
 mass = 100
 
 puts "Create dummy space object"
@@ -32,7 +24,7 @@ object.mass = mass
 object.position.set(0, 0, 200.0)
 
 puts "Set gravity"
-gravity = -9.8
+gravity = -9.80665
 physics.add_variable(BlackBook::CAcceleration.new(
   BlackBook::CVector.new(0, 0, gravity), 'gravity'
   ))
