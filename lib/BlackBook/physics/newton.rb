@@ -34,47 +34,6 @@ module BlackBook
       @variables << const
     end
 
-    def load_constant(data)
-      name = 'const_' + @variables.count.to_s
-      t_start = 0
-      t_end = 0
-      name = data['name'] if data.key?('name')
-      t_start = data['start'] if data.key?('start')
-      t_end = data['end'] if data.key?('end')
-      m = BlackBook.array_to_vector(data['magnitude'])
-      case data['type']
-      when 'linear_velocity'
-        v = CVelocity.new(m, name, t_start, t_end, CVelocity::LINEAR)
-      when 'linear_acceleration'
-        v = CAcceleration.new(
-          m, name, t_start, t_end, CAcceleration::LINEAR
-        )
-      when 'angular_velocity'
-        v = CVelocity.new(m, name, t_start, t_end, CVelocity::ANGULAR)
-      when 'angular_acceleration'
-        v = CAcceleration.new(
-          m, name, t_start, t_end, CAcceleration::ANGULAR
-        )
-      end
-
-      @variables.push v
-    end
-
-    def load_keys(data)
-      return unless data.key?('keys')
-    end
-
-    def load(data)
-      data['items'].each do |item|
-        obj = SpaceObject.new
-        obj.load item
-        @items[item['name']] = obj
-      end
-      data['constants'].each do |constant|
-        load_constant constant
-      end
-    end
-
     # v = acceleration * time + initial velocity
     def velocity(a, t, vi = 0)
       (a * t) + vi
@@ -116,6 +75,58 @@ module BlackBook
 
     def gravity(m1, m2, dist)
       G * (m1 * m2 / (dist**2))
+    end
+
+    # Get appied linear acceleration on object
+    def get_linear_acceleration(obj)
+      result = CVector.new(0, 0, 0)
+      @variables.each do |variable|
+        if variable.is_a? CAcceleration &&
+          variable.direction == CAcceleration::ANGULAR
+          result.x += variable.vector.x
+          result.y += variable.vector.y
+          result.z += variable.vector.z
+        end
+      end
+      result.x += obj.linear_acceleration.x
+      result.y += obj.linear_acceleration.y
+      result.z += obj.linear_acceleration.z
+      result
+    end
+
+    # Get applied linear veloctiy on object
+    def get_linear_velocty(obj)
+      result = CVector.new(0, 0, 0)
+      @variables.each do |variable|
+        if variable.is_a? CVelocity && variable.direction == CVelocity::ANGULAR
+          result.x += variable.vector.x
+          result.y += variable.vector.y
+          result.z += variable.vector.z
+        end
+      end
+      result.x += obj.linear_acceleration.x
+      result.y += obj.linear_acceleration.y
+      result.z += obj.linear_acceleration.z
+      result
+    end
+
+    def step(time_lapse)
+      return false if @space.nil?
+      return false if time_lapse == 0
+      # Everything leads to position changes
+      # From acceleration to velocity, from velocity to displacement
+      @space.items[:objects].each do |name, obj|
+        total_acceleration = get_linear_acceleration(obj)
+        total_velocity     = get_linear_velocty(obj)
+        total_velocity     = total_velocity.add(
+          velocity(total_acceleration, time_lapse, total_velocity)
+          )
+        total_displacement = CVector.new(0, 0, 0)
+        total_displacement.x = total_velocity.x * time_lapse
+        total_displacement.y = total_velocity.y * time_lapse
+        total_displacement.z = total_velocity.z * time_lapse
+        obj.position.add(total_displacement)
+      end
     end
   end
 end

@@ -152,7 +152,7 @@ module BlackBook
     # Create Physics Dynamics Engine
     # @return [BlackBookPhysics] BlackBook Physics Object
     def create_dynamics
-      @physics << BlackBook::Newton.new
+      @physics << BlackBook::Newton.new(self)
     end
 
     #
@@ -254,19 +254,6 @@ module BlackBook
     def save(filename)
       space_json = JSON.generate(@physics)
       File.open(filename, 'w') { |file| file.write(space_json) }
-    end
-
-    def load(filename)
-      buffer = File.read filename
-      load_data = JSON.parse buffer
-      load_data.each do |phy|
-        case phy['type']
-        when 'newton'
-          newton_environment = Physics::Newton::Newton.new
-          newton_environment.load phy
-          @physics.push newton_environment
-        end
-      end
     end
   end
 end

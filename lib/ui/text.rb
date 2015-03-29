@@ -182,11 +182,13 @@ module UI
       @yaw = 0.0
       @text = text
       @gl_active = false
+      data_path = BlackBook::Registry.instance.read('data_path')
+      data_path = './data' if data_path.nil?
       chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' \
               '01234567890!\'^+%&/()=?-_.'
       chars.each_char do |c|
         bb_char = Char.new
-        bb_char.font_path = './data/font'
+        bb_char.font_path = data_path + '/font'
         bb_char.load_char c
         @font[c] = bb_char
       end
