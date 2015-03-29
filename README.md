@@ -31,6 +31,12 @@ There are some global variables that you might need to define in your applicatio
    BlackBook::Registry.instance.write('shader', 'displaylist') # Set object shading to display lists
 
 
+
+RAW Object Files
+----------------
+3D Raw Object files are simply exports from Blender3D as raw text format.
+
+
 Syntax Control
 --------------
 Please use **check\_syntax.sh** for syntax control and do not change .rubocop_todo.yml
