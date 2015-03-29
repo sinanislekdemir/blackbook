@@ -447,7 +447,8 @@
 45
 46
 47
-48</pre>
+48
+49</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/BlackBook/light.rb', line 36</span>
@@ -464,6 +465,7 @@
   <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='symbol'>:light_draw_radius</span><span class='rparen'>)</span>
     <span class='ivar'>@light_draw_radius</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lparen'>(</span><span class='symbol'>:light_draw_radius</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+  <span class='cvar'>@@index</span> <span class='op'>+=</span> <span class='int'>1</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -892,7 +894,6 @@
       <pre class="lines">
 
 
-54
 55
 56
 57
@@ -913,10 +914,11 @@
 72
 73
 74
-75</pre>
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/light.rb', line 54</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/light.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='ivar'>@self_index</span> <span class='op'>&gt;</span> <span class='int'>7</span>
@@ -924,11 +926,11 @@
   <span class='kw'>if</span> <span class='ivar'>@draw_light</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>Disable</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LIGHTING</span><span class='rparen'>)</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>PushMatrix</span>
-    <span class='const'>BlackBook</span><span class='op'>::</span><span class='id identifier rubyid_apply_color'>apply_color</span><span class='lparen'>(</span><span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>255</span><span class='comma'>,</span> <span class='int'>255</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_apply_color'>apply_color</span><span class='lparen'>(</span><span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>255</span><span class='comma'>,</span> <span class='int'>255</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span><span class='rparen'>)</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>Translatef</span><span class='lparen'>(</span><span class='ivar'>@position</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='ivar'>@position</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='ivar'>@position</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span><span class='rparen'>)</span>
-    <span class='const'>BlackBook</span><span class='op'>::</span><span class='id identifier rubyid_draw_circle'>draw_circle</span><span class='lparen'>(</span><span class='ivar'>@light_draw_radius</span><span class='comma'>,</span> <span class='int'>10</span><span class='rparen'>)</span>
+    <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_draw_circle'>draw_circle</span><span class='lparen'>(</span><span class='ivar'>@light_draw_radius</span><span class='comma'>,</span> <span class='int'>10</span><span class='rparen'>)</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>Rotatef</span><span class='lparen'>(</span><span class='float'>90.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
-    <span class='const'>BlackBook</span><span class='op'>::</span><span class='id identifier rubyid_draw_circle'>draw_circle</span><span class='lparen'>(</span><span class='ivar'>@light_draw_radius</span><span class='comma'>,</span> <span class='int'>10</span><span class='rparen'>)</span>
+    <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_draw_circle'>draw_circle</span><span class='lparen'>(</span><span class='ivar'>@light_draw_radius</span><span class='comma'>,</span> <span class='int'>10</span><span class='rparen'>)</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>PopMatrix</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>Enable</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>LIGHTING</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -950,7 +952,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sat Mar 28 16:36:03 2015 by
+  Generated on Sun Mar 29 18:02:05 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

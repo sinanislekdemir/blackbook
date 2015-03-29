@@ -1114,7 +1114,8 @@
 114
 115
 116
-117</pre>
+117
+118</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/ui/window.rb', line 102</span>
@@ -1122,11 +1123,12 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span>
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>x:</span> <span class='ivar'>@x</span><span class='comma'>,</span> <span class='label'>y:</span> <span class='ivar'>@y</span><span class='comma'>,</span> <span class='label'>z:</span> <span class='int'>1</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='int'>10000</span> <span class='op'>-</span> <span class='ivar'>@z</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span><span class='comma'>,</span>
-    <span class='label'>width:</span> <span class='ivar'>@w</span><span class='comma'>,</span> <span class='label'>height:</span> <span class='ivar'>@h</span><span class='comma'>,</span> <span class='label'>color:</span> <span class='const'>BlackBook</span><span class='op'>::</span><span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>0.8</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>width:</span> <span class='ivar'>@w</span><span class='comma'>,</span> <span class='label'>height:</span> <span class='ivar'>@h</span><span class='comma'>,</span>
+    <span class='label'>color:</span> <span class='const'>BlackBook</span><span class='op'>::</span><span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>0.8</span><span class='rparen'>)</span><span class='comma'>,</span>
     <span class='label'>border:</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='label'>border_color:</span> <span class='const'>BlackBook</span><span class='op'>::</span><span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>218</span><span class='comma'>,</span> <span class='int'>112</span><span class='comma'>,</span> <span class='int'>214</span><span class='rparen'>)</span><span class='comma'>,</span>
     <span class='label'>border_size:</span> <span class='int'>3</span>
   <span class='rbrace'>}</span>
-  <span class='const'>BlackBook</span><span class='op'>::</span><span class='id identifier rubyid_draw_box_2d'>draw_box_2d</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+  <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_draw_box_2d'>draw_box_2d</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>PushMatrix</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>Translatef</span><span class='lparen'>(</span><span class='ivar'>@x</span><span class='comma'>,</span> <span class='ivar'>@y</span><span class='comma'>,</span> <span class='int'>1</span> <span class='op'>/</span> <span class='lparen'>(</span><span class='int'>10000</span> <span class='op'>-</span> <span class='ivar'>@z</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span><span class='rparen'>)</span>
   <span class='ivar'>@title_bar</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span>
@@ -1145,7 +1147,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sat Mar 28 16:36:03 2015 by
+  Generated on Sun Mar 29 18:02:05 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

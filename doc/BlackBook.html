@@ -87,8 +87,8 @@
   
   
     <dt class="r1 last">Defined in:</dt>
-    <dd class="r1 last">lib/BlackBook/stime.rb<span class="defines">,<br />
-  lib/blackbook.rb,<br /> lib/BlackBook/base.rb,<br /> lib/BlackBook/color.rb,<br /> lib/BlackBook/light.rb,<br /> lib/BlackBook/space.rb,<br /> lib/BlackBook/logger.rb,<br /> lib/BlackBook/camera.rb,<br /> lib/BlackBook/engine.rb,<br /> lib/BlackBook/registry.rb,<br /> lib/BlackBook/constants.rb,<br /> lib/BlackBook/functions.rb,<br /> lib/BlackBook/b3dobject.rb,<br /> lib/BlackBook/space_object.rb,<br /> lib/BlackBook/physics/physics.rb,<br /> lib/BlackBook/rigid_body_object.rb,<br /> lib/BlackBook/physics/newton/newton.rb</span>
+    <dd class="r1 last">lib/blackbook.rb<span class="defines">,<br />
+  lib/BlackBook/base.rb,<br /> lib/BlackBook/color.rb,<br /> lib/BlackBook/light.rb,<br /> lib/BlackBook/stime.rb,<br /> lib/BlackBook/space.rb,<br /> lib/BlackBook/camera.rb,<br /> lib/BlackBook/engine.rb,<br /> lib/BlackBook/logger.rb,<br /> lib/BlackBook/registry.rb,<br /> lib/BlackBook/b3dobject.rb,<br /> lib/BlackBook/constants.rb,<br /> lib/BlackBook/functions.rb,<br /> lib/BlackBook/physics/base.rb,<br /> lib/BlackBook/physics/newton.rb</span>
 </dd>
   
 </dl>
@@ -97,8 +97,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>Project BlackBook Lead Engineer: Sinan ISLEKDEMIR Simulation Engine Ruby
-Sources</p>
+<p>Mathematics related general functions</p>
 
 
   </div>
@@ -110,11 +109,9 @@ Sources</p>
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="BlackBook/Physics.html" title="BlackBook::Physics (module)">Physics</a></span>
-    
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="BlackBook/B3DObject.html" title="BlackBook::B3DObject (class)">B3DObject</a></span>, <span class='object_link'><a href="BlackBook/Base.html" title="BlackBook::Base (class)">Base</a></span>, <span class='object_link'><a href="BlackBook/CAcceleration.html" title="BlackBook::CAcceleration (class)">CAcceleration</a></span>, <span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span>, <span class='object_link'><a href="BlackBook/CVelocity.html" title="BlackBook::CVelocity (class)">CVelocity</a></span>, <span class='object_link'><a href="BlackBook/Camera.html" title="BlackBook::Camera (class)">Camera</a></span>, <span class='object_link'><a href="BlackBook/Engine.html" title="BlackBook::Engine (class)">Engine</a></span>, <span class='object_link'><a href="BlackBook/Light.html" title="BlackBook::Light (class)">Light</a></span>, <span class='object_link'><a href="BlackBook/Logger.html" title="BlackBook::Logger (class)">Logger</a></span>, <span class='object_link'><a href="BlackBook/Registry.html" title="BlackBook::Registry (class)">Registry</a></span>, <span class='object_link'><a href="BlackBook/RigidBodyObject.html" title="BlackBook::RigidBodyObject (class)">RigidBodyObject</a></span>, <span class='object_link'><a href="BlackBook/STime.html" title="BlackBook::STime (class)">STime</a></span>, <span class='object_link'><a href="BlackBook/Space.html" title="BlackBook::Space (class)">Space</a></span>, <span class='object_link'><a href="BlackBook/SpaceObject.html" title="BlackBook::SpaceObject (class)">SpaceObject</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="BlackBook/B3DObject.html" title="BlackBook::B3DObject (class)">B3DObject</a></span>, <span class='object_link'><a href="BlackBook/Base.html" title="BlackBook::Base (class)">Base</a></span>, <span class='object_link'><a href="BlackBook/CAcceleration.html" title="BlackBook::CAcceleration (class)">CAcceleration</a></span>, <span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span>, <span class='object_link'><a href="BlackBook/CVelocity.html" title="BlackBook::CVelocity (class)">CVelocity</a></span>, <span class='object_link'><a href="BlackBook/Camera.html" title="BlackBook::Camera (class)">Camera</a></span>, <span class='object_link'><a href="BlackBook/Engine.html" title="BlackBook::Engine (class)">Engine</a></span>, <span class='object_link'><a href="BlackBook/Light.html" title="BlackBook::Light (class)">Light</a></span>, <span class='object_link'><a href="BlackBook/Logger.html" title="BlackBook::Logger (class)">Logger</a></span>, <span class='object_link'><a href="BlackBook/Newton.html" title="BlackBook::Newton (class)">Newton</a></span>, <span class='object_link'><a href="BlackBook/Physics.html" title="BlackBook::Physics (class)">Physics</a></span>, <span class='object_link'><a href="BlackBook/Registry.html" title="BlackBook::Registry (class)">Registry</a></span>, <span class='object_link'><a href="BlackBook/STime.html" title="BlackBook::STime (class)">STime</a></span>, <span class='object_link'><a href="BlackBook/Space.html" title="BlackBook::Space (class)">Space</a></span>
     
   
 </p>
@@ -695,12 +692,12 @@ usage.</p>
       <pre class="lines">
 
 
-110
-111
-112</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_y'>y</span> <span class='op'>*</span> <span class='int'>4</span> <span class='op'>+</span> <span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='rparen'>)</span>
@@ -774,20 +771,20 @@ usage.</p>
       <pre class="lines">
 
 
-426
-427
-428
-429
 430
 431
 432
 433
 434
 435
-436</pre>
+436
+437
+438
+439
+440</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 426</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 430</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_apply_color'>apply_color</span><span class='lparen'>(</span><span class='id identifier rubyid_color_vector'>color_vector</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='id identifier rubyid_color_vector'>color_vector</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>==</span> <span class='int'>0</span> <span class='op'>?</span> <span class='int'>0</span> <span class='op'>:</span> <span class='id identifier rubyid_color_vector'>color_vector</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>/</span> <span class='float'>255.0</span>
@@ -869,12 +866,12 @@ usage.</p>
       <pre class="lines">
 
 
-515
-516
-517</pre>
+520
+521
+522</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 515</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 520</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_array_to_vector'>array_to_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
@@ -980,16 +977,16 @@ usage.</p>
       <pre class="lines">
 
 
-502
-503
-504
-505
-506
 507
-508</pre>
+508
+509
+510
+511
+512
+513</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 502</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 507</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_calc_plane_normal'>calc_plane_normal</span><span class='lparen'>(</span><span class='id identifier rubyid_p1'>p1</span><span class='comma'>,</span> <span class='id identifier rubyid_p2'>p2</span><span class='comma'>,</span> <span class='id identifier rubyid_p3'>p3</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_v1'>v1</span> <span class='op'>=</span> <span class='id identifier rubyid_p2'>p2</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='id identifier rubyid_p1'>p1</span><span class='rparen'>)</span>
@@ -1147,12 +1144,12 @@ usage.</p>
       <pre class="lines">
 
 
-339
-340
-341</pre>
+341
+342
+343</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 339</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 341</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_cross_prod'>cross_prod</span><span class='lparen'>(</span><span class='id identifier rubyid_x1'>x1</span><span class='comma'>,</span> <span class='id identifier rubyid_y1'>y1</span><span class='comma'>,</span> <span class='id identifier rubyid_z1'>z1</span><span class='comma'>,</span> <span class='id identifier rubyid_x2'>x2</span><span class='comma'>,</span> <span class='id identifier rubyid_y2'>y2</span><span class='comma'>,</span> <span class='id identifier rubyid_z2'>z2</span><span class='rparen'>)</span>
   <span class='lbracket'>[</span><span class='lparen'>(</span><span class='id identifier rubyid_y1'>y1</span> <span class='op'>*</span> <span class='id identifier rubyid_z2'>z2</span> <span class='op'>-</span> <span class='id identifier rubyid_y2'>y2</span> <span class='op'>*</span> <span class='id identifier rubyid_z1'>z1</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_x2'>x2</span> <span class='op'>*</span> <span class='id identifier rubyid_z1'>z1</span> <span class='op'>-</span> <span class='id identifier rubyid_x1'>x1</span> <span class='op'>*</span> <span class='id identifier rubyid_z2'>z2</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='lparen'>(</span><span class='id identifier rubyid_x1'>x1</span> <span class='op'>*</span> <span class='id identifier rubyid_y2'>y2</span> <span class='op'>-</span> <span class='id identifier rubyid_x2'>x2</span> <span class='op'>*</span> <span class='id identifier rubyid_y1'>y1</span><span class='rparen'>)</span><span class='rbracket'>]</span>
@@ -1226,12 +1223,12 @@ usage.</p>
       <pre class="lines">
 
 
-479
-480
-481</pre>
+484
+485
+486</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 479</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 484</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deg_to_rad'>deg_to_rad</span><span class='lparen'>(</span><span class='id identifier rubyid_degrees'>degrees</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_degrees'>degrees</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span> <span class='op'>/</span> <span class='float'>180.0</span><span class='rparen'>)</span>
@@ -1305,11 +1302,6 @@ usage.</p>
       <pre class="lines">
 
 
-443
-444
-445
-446
-447
 448
 449
 450
@@ -1334,10 +1326,15 @@ usage.</p>
 469
 470
 471
-472</pre>
+472
+473
+474
+475
+476
+477</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 443</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 448</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_draw_box_2d'>draw_box_2d</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>PushMatrix</span>
@@ -1454,20 +1451,20 @@ usage.</p>
       <pre class="lines">
 
 
-525
-526
-527
-528
-529
 530
 531
 532
 533
 534
-535</pre>
+535
+536
+537
+538
+539
+540</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 525</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 530</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_draw_circle'>draw_circle</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='comma'>,</span> <span class='id identifier rubyid_num_segments'>num_segments</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_pi'>pi</span> <span class='op'>=</span> <span class='float'>3.1415926535897932384626433832795</span>
@@ -1529,8 +1526,6 @@ usage.</p>
       <pre class="lines">
 
 
-382
-383
 384
 385
 386
@@ -1565,12 +1560,18 @@ usage.</p>
 415
 416
 417
-418</pre>
+418
+419
+420
+421
+422</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 382</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 384</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_draw_grid'>draw_grid</span>
+  <span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='const'>BlackBook</span><span class='op'>::</span><span class='const'>Registry</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>grid_count</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_count'>count</span> <span class='op'>=</span> <span class='int'>200</span> <span class='kw'>if</span> <span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>PushMatrix</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>Translatef</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rparen'>)</span>
 
@@ -1676,8 +1677,6 @@ usage.</p>
       <pre class="lines">
 
 
-130
-131
 132
 133
 134
@@ -1840,10 +1839,12 @@ usage.</p>
 291
 292
 293
-294</pre>
+294
+295
+296</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 130</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_glh_invert_matrix_f2'>glh_invert_matrix_f2</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -2129,7 +2130,6 @@ href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.o
       <pre class="lines">
 
 
-26
 27
 28
 29
@@ -2161,10 +2161,12 @@ href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.o
 55
 56
 57
-58</pre>
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 27</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_glh_project_f'>glh_project_f</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='comma'>,</span> <span class='id identifier rubyid_mv'>mv</span><span class='comma'>,</span> <span class='id identifier rubyid_p'>p</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_mv'>mv</span> <span class='op'>=</span> <span class='id identifier rubyid_mv'>mv</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
@@ -2177,7 +2179,8 @@ href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.o
   <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>6</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>10</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>14</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>7</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>11</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>+</span> <span class='id identifier rubyid_mv'>mv</span><span class='lbracket'>[</span><span class='int'>15</span><span class='rbracket'>]</span>
-  <span class='comment'># Projection transform the final row of projection matrix is always [0 0 -1 0]
+  <span class='comment'># Projection transform the final row of projection
+</span>  <span class='comment'># matrix is always [0 0 -1 0]
 </span>  <span class='comment'># so we optimize for that.
 </span>  <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>4</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>8</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>12</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>5</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>9</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>13</span><span class='rbracket'>]</span> <span class='op'>*</span> <span class='id identifier rubyid_f'>f</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
@@ -2349,8 +2352,6 @@ href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.o
       <pre class="lines">
 
 
-308
-309
 310
 311
 312
@@ -2368,10 +2369,12 @@ href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.o
 324
 325
 326
-327</pre>
+327
+328
+329</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 308</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 310</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_glh_unprojectf'>glh_unprojectf</span><span class='lparen'>(</span><span class='id identifier rubyid_wx'>wx</span><span class='comma'>,</span> <span class='id identifier rubyid_wy'>wy</span><span class='comma'>,</span> <span class='id identifier rubyid_wz'>wz</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='id identifier rubyid_p'>p</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
   <span class='comment'># Transformation matrices
@@ -2494,8 +2497,6 @@ href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.o
       <pre class="lines">
 
 
-350
-351
 352
 353
 354
@@ -2505,10 +2506,12 @@ href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.o
 358
 359
 360
-361</pre>
+361
+362
+363</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 350</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 352</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_look_at'>look_at</span><span class='lparen'>(</span><span class='id identifier rubyid_eye'>eye</span><span class='comma'>,</span> <span class='id identifier rubyid_look_at'>look_at</span><span class='comma'>,</span> <span class='id identifier rubyid_up'>up</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_z'>z</span> <span class='op'>=</span> <span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_eye'>eye</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>-</span> <span class='id identifier rubyid_look_at'>look_at</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_eye'>eye</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>-</span> <span class='id identifier rubyid_look_at'>look_at</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_eye'>eye</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>-</span> <span class='id identifier rubyid_look_at'>look_at</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
@@ -2623,12 +2626,12 @@ href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.o
       <pre class="lines">
 
 
-121
-122
-123</pre>
+123
+124
+125</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 123</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mat'>mat</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='id identifier rubyid__mat'>_mat</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='rparen'>)</span><span class='rbracket'>]</span>
@@ -2718,8 +2721,6 @@ href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.o
       <pre class="lines">
 
 
-66
-67
 68
 69
 70
@@ -2737,10 +2738,12 @@ href="https://www.opengl.org/wiki/GluProject_and_gluUnProject_code">www.opengl.o
 82
 83
 84
-85</pre>
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_multiply_matrices_4by4'>multiply_matrices_4by4</span><span class='lparen'>(</span><span class='id identifier rubyid_m1'>m1</span><span class='comma'>,</span> <span class='id identifier rubyid_m2'>m2</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -2848,17 +2851,17 @@ usage</p>
       <pre class="lines">
 
 
-95
-96
 97
 98
 99
 100
 101
-102</pre>
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 97</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_multiply_matrix_by_vector'>multiply_matrix_by_vector</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='id identifier rubyid_v'>v</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -2985,15 +2988,15 @@ usage</p>
       <pre class="lines">
 
 
-371
-372
 373
 374
 375
-376</pre>
+376
+377
+378</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 371</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 373</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_perspective'>perspective</span><span class='lparen'>(</span><span class='id identifier rubyid_fovY'>fovY</span><span class='comma'>,</span> <span class='id identifier rubyid_aspect'>aspect</span><span class='comma'>,</span> <span class='id identifier rubyid_znear'>znear</span><span class='comma'>,</span> <span class='id identifier rubyid_zfar'>zfar</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_pi'>pi</span> <span class='op'>=</span> <span class='float'>3.1415926535897932384626433832795</span>
@@ -3070,15 +3073,15 @@ usage</p>
       <pre class="lines">
 
 
-488
-489
-490
-491
-492
-493</pre>
+493
+494
+495
+496
+497
+498</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 488</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 493</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_rad_to_deg'>rad_to_deg</span><span class='lparen'>(</span><span class='id identifier rubyid_radians'>radians</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid_radians'>radians</span> <span class='op'>*</span> <span class='lparen'>(</span><span class='float'>180.0</span> <span class='op'>/</span> <span class='const'>Math</span><span class='op'>::</span><span class='const'>PI</span><span class='rparen'>)</span>
@@ -3096,7 +3099,7 @@ usage</p>
 </div>
 
     <div id="footer">
-  Generated on Sat Mar 28 16:36:02 2015 by
+  Generated on Sun Mar 29 18:02:04 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

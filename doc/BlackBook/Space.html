@@ -469,6 +469,30 @@ in an engine and more than one cameras In every Space</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#create_dynamics-instance_method" title="#create_dynamics (instance method)">- (BlackBookPhysics) <strong>create_dynamics</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create Physics Dynamics Engine.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#create_light-instance_method" title="#create_light (instance method)">- (BBLight) <strong>create_light</strong> </a>
     
 
@@ -584,28 +608,6 @@ in an engine and more than one cameras In every Space</p>
     <span class="summary_desc"><div class='inline'>
 <p>Initialize scene, set lights, init opengl set perspective.</p>
 </div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#load-instance_method" title="#load (instance method)">- (Object) <strong>load</strong>(filename) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -744,9 +746,9 @@ in an engine and more than one cameras In every Space</p>
   <span class='ivar'>@width</span><span class='comma'>,</span> <span class='ivar'>@height</span> <span class='op'>=</span> <span class='id identifier rubyid_w'>w</span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span>
   <span class='ivar'>@items</span> <span class='op'>=</span> <span class='lbrace'>{</span>
     <span class='label'>cameras:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span>
-    <span class='label'>lights:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='label'>lights:</span>  <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span>
     <span class='label'>objects:</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span>
-    <span class='label'>uis:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='label'>uis:</span>     <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span>
     <span class='label'>plugins:</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='rbrace'>}</span>
 <span class='kw'>end</span></pre>
@@ -1541,6 +1543,65 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="create_dynamics-instance_method">
+  
+    - (<tt>BlackBookPhysics</tt>) <strong>create_dynamics</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create Physics Dynamics Engine</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>BlackBookPhysics</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>BlackBook Physics Object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+154
+155
+156</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/space.rb', line 154</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_create_dynamics'>create_dynamics</span>
+  <span class='ivar'>@physics</span> <span class='op'>&lt;&lt;</span> <span class='const'>BlackBook</span><span class='op'>::</span><span class='const'>Newton</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="create_light-instance_method">
   
     - (<tt>BBLight</tt>) <strong>create_light</strong> 
@@ -1770,22 +1831,22 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
       <pre class="lines">
 
 
-155
-156
-157
-158
-159
-160
-161
 162
 163
 164
 165
 166
-167</pre>
+167
+168
+169
+170
+171
+172
+173
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/space.rb', line 155</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/space.rb', line 162</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_init_gl'>init_gl</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>Viewport</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='ivar'>@width</span><span class='comma'>,</span> <span class='ivar'>@height</span><span class='rparen'>)</span>
@@ -1795,58 +1856,10 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>ShadeModel</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>SMOOTH</span><span class='rparen'>)</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>MatrixMode</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>PROJECTION</span><span class='rparen'>)</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>LoadIdentity</span>
-  <span class='const'>BlackBook</span><span class='op'>::</span><span class='id identifier rubyid_perspective'>perspective</span><span class='lparen'>(</span><span class='float'>30.0</span><span class='comma'>,</span> <span class='ivar'>@width</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='ivar'>@height</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1000.0</span><span class='rparen'>)</span>
+  <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_perspective'>perspective</span><span class='lparen'>(</span><span class='float'>30.0</span><span class='comma'>,</span> <span class='ivar'>@width</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='ivar'>@height</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1000.0</span><span class='rparen'>)</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>MatrixMode</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>MODELVIEW</span><span class='rparen'>)</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>ClearColor</span><span class='lparen'>(</span><span class='float'>0.05</span><span class='comma'>,</span> <span class='float'>0.05</span><span class='comma'>,</span> <span class='float'>0.1</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='rparen'>)</span>
   <span class='ivar'>@gl_active</span> <span class='op'>=</span> <span class='kw'>true</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="load-instance_method">
-  
-    - (<tt>Object</tt>) <strong>load</strong>(filename) 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-250
-251
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/space.rb', line 250</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_buffer'>buffer</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span> <span class='id identifier rubyid_filename'>filename</span>
-  <span class='id identifier rubyid_load_data'>load_data</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span> <span class='id identifier rubyid_buffer'>buffer</span>
-  <span class='id identifier rubyid_load_data'>load_data</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_phy'>phy</span><span class='op'>|</span>
-    <span class='kw'>case</span> <span class='id identifier rubyid_phy'>phy</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>type</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-    <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>newton</span><span class='tstring_end'>&#39;</span></span>
-      <span class='id identifier rubyid_newton_environment'>newton_environment</span> <span class='op'>=</span> <span class='const'>Physics</span><span class='op'>::</span><span class='const'>Newton</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-      <span class='id identifier rubyid_newton_environment'>newton_environment</span><span class='period'>.</span><span class='id identifier rubyid_load'>load</span> <span class='id identifier rubyid_phy'>phy</span>
-      <span class='ivar'>@physics</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='id identifier rubyid_newton_environment'>newton_environment</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1988,13 +2001,6 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
       <pre class="lines">
 
 
-182
-183
-184
-185
-186
-187
-188
 189
 190
 191
@@ -2002,10 +2008,17 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
 193
 194
 195
-196</pre>
+196
+197
+198
+199
+200
+201
+202
+203</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/space.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/space.rb', line 189</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mouse_move'>mouse_move</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_right_b'>right_b</span><span class='comma'>,</span> <span class='id identifier rubyid_left_b'>left_b</span><span class='comma'>,</span> <span class='id identifier rubyid_middle_b'>middle_b</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_x'>x</span> <span class='op'>*=</span> <span class='ivar'>@muliplier</span>
@@ -2045,7 +2058,7 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
 </li><li>
 <p>Call Light Methods of Plugins</p>
 </li><li>
-<p>Call Camera Methods of Plugins (Make it before real cameras for shaders)</p>
+<p>Call Camera Methods of Plugins Make it before real cameras for shaders)</p>
 </li><li>
 <p>Render Cameras</p>
 </li></ol>
@@ -2088,14 +2101,6 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
       <pre class="lines">
 
 
-210
-211
-212
-213
-214
-215
-216
-217
 218
 219
 220
@@ -2121,10 +2126,19 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
 240
 241
 242
-243</pre>
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/space.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/space.rb', line 218</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span>
   <span class='comment'># Render Plugin Cameras
@@ -2134,6 +2148,8 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
   <span class='comment'># Render Objects for each camera
 </span>  <span class='ivar'>@items</span><span class='lbracket'>[</span><span class='symbol'>:cameras</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cam'>cam</span><span class='op'>|</span>
     <span class='id identifier rubyid_cam'>cam</span><span class='period'>.</span><span class='id identifier rubyid_begin_render'>begin_render</span>
+    <span class='id identifier rubyid_grid'>grid</span> <span class='op'>=</span> <span class='const'>BlackBook</span><span class='op'>::</span><span class='const'>Registry</span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>grid</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_draw_grid'>draw_grid</span> <span class='kw'>if</span> <span class='id identifier rubyid_grid'>grid</span>
     <span class='comment'># Render Lights
 </span>    <span class='ivar'>@items</span><span class='lbracket'>[</span><span class='symbol'>:lights</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_light'>light</span><span class='op'>|</span>
       <span class='id identifier rubyid_light'>light</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span>
@@ -2152,8 +2168,7 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
     <span class='id identifier rubyid_cam'>cam</span><span class='period'>.</span><span class='id identifier rubyid_end_render'>end_render</span>
   <span class='kw'>end</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>Viewport</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='ivar'>@width</span><span class='comma'>,</span> <span class='ivar'>@height</span><span class='rparen'>)</span>
-  <span class='comment'># draw_grid
-</span>  <span class='ivar'>@items</span><span class='lbracket'>[</span><span class='symbol'>:uis</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ui'>ui</span><span class='op'>|</span>
+  <span class='ivar'>@items</span><span class='lbracket'>[</span><span class='symbol'>:uis</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ui'>ui</span><span class='op'>|</span>
     <span class='id identifier rubyid_ui'>ui</span><span class='period'>.</span><span class='id identifier rubyid_render'>render</span>
   <span class='kw'>end</span>
   <span class='ivar'>@items</span><span class='lbracket'>[</span><span class='symbol'>:plugins</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_plugin'>plugin</span><span class='op'>|</span>
@@ -2180,13 +2195,13 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
       <pre class="lines">
 
 
-245
-246
-247
-248</pre>
+254
+255
+256
+257</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/space.rb', line 245</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/space.rb', line 254</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_save'>save</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_space_json'>space_json</span> <span class='op'>=</span> <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_generate'>generate</span><span class='lparen'>(</span><span class='ivar'>@physics</span><span class='rparen'>)</span>
@@ -2202,7 +2217,7 @@ Roll angle :pitch    =&gt; Pitch angle :yaw      =&gt; Yaw angle :position
 </div>
 
     <div id="footer">
-  Generated on Sat Mar 28 16:36:03 2015 by
+  Generated on Sun Mar 29 18:02:05 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

@@ -1494,39 +1494,23 @@ arguements like; on_update = -&gt; (camera, x, y, extra_array_to_pass) { …
 139
 140
 141
-142
-143
-144
-145
-146
-147
-148
-149
-150</pre>
+142</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/BlackBook/camera.rb', line 126</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_begin_render'>begin_render</span>
   <span class='kw'>if</span> <span class='ivar'>@frame_width</span> <span class='op'>&gt;</span> <span class='int'>0</span> <span class='op'>&amp;&amp;</span> <span class='ivar'>@frame_height</span> <span class='op'>&gt;</span> <span class='int'>0</span>
-    <span class='id identifier rubyid_draw_box_2d'>draw_box_2d</span><span class='lparen'>(</span>
-      <span class='label'>x:</span> <span class='ivar'>@frame_x</span><span class='comma'>,</span>
-      <span class='label'>y:</span> <span class='ivar'>@frame_y</span><span class='comma'>,</span>
-      <span class='label'>z:</span> <span class='float'>0.1</span><span class='comma'>,</span>
-      <span class='label'>height:</span> <span class='ivar'>@frame_height</span><span class='comma'>,</span>
-      <span class='label'>width:</span> <span class='ivar'>@frame_width</span><span class='comma'>,</span>
-      <span class='label'>border:</span> <span class='kw'>true</span><span class='comma'>,</span>
-      <span class='label'>border_color:</span> <span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>255</span><span class='comma'>,</span> <span class='int'>255</span><span class='comma'>,</span> <span class='int'>255</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span><span class='comma'>,</span>
-      <span class='label'>border_size:</span> <span class='float'>2.0</span><span class='comma'>,</span>
-      <span class='label'>color:</span> <span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
-      <span class='rparen'>)</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>PushAttrib</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>SCISSOR_BIT</span><span class='rparen'>)</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>Enable</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>SCISSOR_TEST</span><span class='rparen'>)</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>Scissor</span><span class='lparen'>(</span><span class='ivar'>@frame_x</span><span class='comma'>,</span> <span class='ivar'>@frame_y</span><span class='comma'>,</span> <span class='ivar'>@frame_width</span><span class='comma'>,</span> <span class='ivar'>@frame_height</span><span class='rparen'>)</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>Viewport</span><span class='lparen'>(</span><span class='ivar'>@frame_x</span><span class='comma'>,</span> <span class='ivar'>@frame_y</span><span class='comma'>,</span> <span class='ivar'>@frame_width</span><span class='comma'>,</span> <span class='ivar'>@frame_height</span><span class='rparen'>)</span>
+    <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_perspective'>perspective</span><span class='lparen'>(</span>
+      <span class='float'>30.0</span><span class='comma'>,</span> <span class='ivar'>@frame_width</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='ivar'>@frame_height</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='comma'>,</span> <span class='float'>1.0</span><span class='comma'>,</span> <span class='float'>1000.0</span>
+      <span class='rparen'>)</span>
   <span class='kw'>end</span>
   <span class='const'>GL</span><span class='period'>.</span><span class='const'>LoadIdentity</span>
-  <span class='const'>BlackBook</span><span class='op'>::</span><span class='id identifier rubyid_look_at'>look_at</span><span class='lparen'>(</span>
+  <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_look_at'>look_at</span><span class='lparen'>(</span>
     <span class='ivar'>@eye_position</span><span class='comma'>,</span>
     <span class='ivar'>@target</span><span class='comma'>,</span>
     <span class='ivar'>@up_vector</span><span class='rparen'>)</span>
@@ -1581,21 +1565,21 @@ arguements like; on_update = -&gt; (camera, x, y, extra_array_to_pass) { …
       <pre class="lines">
 
 
+148
+149
+150
+151
+152
+153
+154
+155
 156
 157
 158
-159
-160
-161
-162
-163
-164
-165
-166
-167</pre>
+159</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/camera.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/camera.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_end_render'>end_render</span>
   <span class='kw'>if</span> <span class='ivar'>@modified</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='ivar'>@on_update</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -1783,30 +1767,34 @@ arguements like; on_update = -&gt; (camera, x, y, extra_array_to_pass) { …
       <pre class="lines">
 
 
+169
+170
+171
+172
+173
+174
+175
+176
 177
 178
 179
 180
 181
 182
-183
-184
-185
-186
-187
-188
-189</pre>
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/camera.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/camera.rb', line 169</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mouse_move'>mouse_move</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid__right_b'>_right_b</span><span class='comma'>,</span> <span class='id identifier rubyid_left_b'>left_b</span><span class='comma'>,</span> <span class='id identifier rubyid__middle_b'>_middle_b</span><span class='rparen'>)</span>
   <span class='ivar'>@pos_x</span><span class='comma'>,</span> <span class='ivar'>@pos_y</span> <span class='op'>=</span> <span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span> <span class='kw'>if</span> <span class='ivar'>@pos_x</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_left_b'>left_b</span> <span class='op'>==</span> <span class='int'>1</span>
     <span class='id identifier rubyid_diff'>diff</span> <span class='op'>=</span> <span class='ivar'>@eye_position</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='ivar'>@target</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_update_spherical'>update_spherical</span>
-    <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_phi'>phi</span> <span class='op'>=</span> <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_phi'>phi</span> <span class='op'>-</span> <span class='const'>BlackBook</span><span class='op'>::</span><span class='id identifier rubyid_deg_to_rad'>deg_to_rad</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>-</span> <span class='ivar'>@pos_x</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_theta'>theta</span> <span class='op'>=</span> <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_theta'>theta</span> <span class='op'>-</span> <span class='const'>BlackBook</span><span class='op'>::</span><span class='id identifier rubyid_deg_to_rad'>deg_to_rad</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>-</span> <span class='ivar'>@pos_y</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_phi'>phi</span> <span class='op'>=</span> <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_phi'>phi</span> <span class='op'>-</span> <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_deg_to_rad'>deg_to_rad</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>-</span> <span class='ivar'>@pos_x</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_theta'>theta</span> <span class='op'>=</span> <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_theta'>theta</span> <span class='op'>-</span> <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_deg_to_rad'>deg_to_rad</span><span class='lparen'>(</span>
+      <span class='lparen'>(</span><span class='id identifier rubyid_y'>y</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>-</span> <span class='ivar'>@pos_y</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+      <span class='rparen'>)</span>
     <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_update_cartesian'>update_cartesian</span>
     <span class='ivar'>@eye_position</span> <span class='op'>=</span> <span class='ivar'>@target</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_diff'>diff</span><span class='rparen'>)</span>
     <span class='ivar'>@modified</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -2003,7 +1991,7 @@ arguements like; on_update = -&gt; (camera, x, y, extra_array_to_pass) { …
   <span class='id identifier rubyid_mv'>mv</span> <span class='op'>=</span> <span class='const'>GL</span><span class='period'>.</span><span class='const'>GetFloatv</span> <span class='const'>GL</span><span class='op'>::</span><span class='const'>MODELVIEW_MATRIX</span>
   <span class='id identifier rubyid_pm'>pm</span> <span class='op'>=</span> <span class='const'>GL</span><span class='period'>.</span><span class='const'>GetFloatv</span> <span class='const'>GL</span><span class='op'>::</span><span class='const'>PROJECTION_MATRIX</span>
   <span class='id identifier rubyid_vp'>vp</span> <span class='op'>=</span> <span class='const'>GL</span><span class='period'>.</span><span class='const'>GetFloatv</span> <span class='const'>GL</span><span class='op'>::</span><span class='const'>VIEWPORT</span>
-  <span class='const'>BlackBook</span><span class='op'>::</span><span class='id identifier rubyid_glh_project_f'>glh_project_f</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_mv'>mv</span><span class='comma'>,</span> <span class='id identifier rubyid_pm'>pm</span><span class='comma'>,</span> <span class='id identifier rubyid_vp'>vp</span><span class='rparen'>)</span>
+  <span class='const'>BlackBook</span><span class='period'>.</span><span class='id identifier rubyid_glh_project_f'>glh_project_f</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_mv'>mv</span><span class='comma'>,</span> <span class='id identifier rubyid_pm'>pm</span><span class='comma'>,</span> <span class='id identifier rubyid_vp'>vp</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -2015,7 +2003,7 @@ arguements like; on_update = -&gt; (camera, x, y, extra_array_to_pass) { …
 </div>
 
     <div id="footer">
-  Generated on Sat Mar 28 16:36:03 2015 by
+  Generated on Sun Mar 29 18:02:05 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>
