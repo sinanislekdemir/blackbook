@@ -15,9 +15,8 @@ module BlackBook
     attr_writer :name
 
     # initialize engine
-    def initialize
+    def initialize(space = nil)
       super
-      puts "initialize p engine"
       @global_time = STime.new
       @variables = []
       @constraints = {}
@@ -29,9 +28,6 @@ module BlackBook
     end
 
     def load_variables(filename)
-      f = File.open(filename, 'r')
-      @variables = JSON.parse(f.read)
-      f.close
     end
 
     def apply_variables

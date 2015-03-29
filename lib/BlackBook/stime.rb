@@ -7,17 +7,26 @@
 module BlackBook
   # Space - Time Class
   class STime
-    attr_accessor :year, :days, :seconds, :scale, :start, :diff
-    attr_writer :year, :days, :seconds, :scale, :start, :diff
+    attr_accessor :year, :days, :seconds, :scale, :start, :diff,
+      :last_time
+    attr_writer :year, :days, :seconds, :scale, :start, :diff,
+      :last_time
 
     # start timer
     def initialize
       @start = Time.now.to_f
+      @last_time = @start
     end
 
     # get time difference
     def calc_time
       @diff = Time.now.to_f - @start
+    end
+
+    def step
+      r = Time.now.to_f - @last_time
+      @last_time = Time.now.to_f
+      r
     end
 
     # reset start time

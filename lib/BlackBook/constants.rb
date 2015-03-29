@@ -45,12 +45,19 @@ module BlackBook
     #
     # Scalar Multiply Vector with a factor float
     # @param factor [Float] Multiplication Float
-    #
-    # @return [type] [description]
     def multiply(factor)
       @x *= factor
       @y *= factor
       @z *= factor
+    end
+
+    #
+    # Scalar Division Vector with a factor float
+    # @param [Float] Division Float
+    def div(factor)
+      @x /= factor
+      @y /= factor
+      @z /= factor
     end
 
     #

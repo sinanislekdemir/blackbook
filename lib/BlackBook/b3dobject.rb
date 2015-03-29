@@ -66,8 +66,20 @@ module BlackBook
       @kinetic_energy = 0.0
       @potential    = 0.0
       @type         = PARTICLE
-      @angular_velocity     = CVelocity.new(CVector.new(0, 0, 0, 1))
-      @angular_acceleration = CAcceleration.new(CVector.new(0, 0, 0, 1))
+      @angular_velocity     = CVelocity.new(
+        CVector.new(0, 0, 0, 1),
+        '',
+        0,
+        0,
+        CVelocity::ANGULAR
+        )
+      @angular_acceleration = CAcceleration.new(
+        CVector.new(0, 0, 0, 1),
+        '',
+        0,
+        0,
+        CAcceleration::ANGULAR
+        )
       @linear_acceleration  = CAcceleration.new(CVector.new(0, 0, 0, 1))
       @linear_velocity      = CVelocity.new(CVector.new(0, 0, 0, 1))
     end

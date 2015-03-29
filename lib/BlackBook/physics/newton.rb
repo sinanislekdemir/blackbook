@@ -8,6 +8,7 @@
 require 'BlackBook/b3dobject'
 require 'BlackBook/functions'
 require 'BlackBook/physics/physics'
+require 'json'
 
 module BlackBook
   class Newton < Physics
@@ -23,6 +24,7 @@ module BlackBook
       super
       @space = space
       @ground_plane = nil
+      @variables = []
     end
 
     # calculate positions for given miliseconds
@@ -36,41 +38,84 @@ module BlackBook
 
     # v = acceleration * time + initial velocity
     def velocity(a, t, vi = 0)
-      (a * t) + vi
+      # (a * t) + vi
+      result = a.clone
+      result.multiply(t)
+      result.add(vi)
+      result
     end
 
     # position = initial position + (initial vel. * time) + (a * t^2) / 2
     def position_acceleration(a, t, vi = 0, ri)
-      ri + (vi * t) + (a * (t**2) / 2)
+      result = CVector.new(0, 0, 0)
+      result.x = ri.x + (vi.x * t) + (a.x * (t**2) / 2)
+      result.y = ri.y + (vi.x * t) + (a.x * (t**2) / 2)
+      result.z = ri.z + (vi.x * t) + (a.x * (t**2) / 2)
+      result
     end
 
     # position = initial position + vel * init. vel / 2 * time
     def position(v, t, vi, ri)
-      ri + (((v + vi) / 2) * t)
+      # ri + (((v + vi) / 2) * t)
+      result = CVector.new(0, 0, 0)
+      result.x = ri.x + (((v.x + vi.x) / 2) * t)
+      result.y = ri.y + (((v.y + vi.y) / 2) * t)
+      result.z = ri.z + (((v.z + vi.z) / 2) * t)
+      result
     end
 
     def timeless_velocity(a, r, ri, vi)
-      Math.sqrt((vi**2) + (2 * a * (r - ri)))
+      # Math.sqrt((vi**2) + (2 * a * (r - ri)))
+      result = CVector.new(0, 0, 0)
+      result.x = Math.sqrt((vi.x ** 2) + (2 * a.x * (r.x - ri.x)))
+      result.y = Math.sqrt((vi.y ** 2) + (2 * a.y * (r.y - ri.y)))
+      result.z = Math.sqrt((vi.z ** 2) + (2 * a.z * (r.z - ri.z)))
+      result
     end
 
     def circular_velocity(a, t, wi = 0)
-      wi + (a * t)
+      # wi + (a * t)
+      result = CVector.new(0, 0, 0)
+      result.x = wi + (a.x * t)
+      result.y = wi + (a.y * t)
+      result.z = wi + (a.z * t)
+      result
     end
 
     def angular_displacement(theta, a, t, wi = 0)
-      theta + (wi * time) + (0.5 * a * (t**2))
+      result = CVector.new(0, 0, 0)
+      result.x = theta + (wi * t) + (0.5 * a.x * (t**2))
+      result.y = theta + (wi * t) + (0.5 * a.y * (t**2))
+      result.z = theta + (wi * t) + (0.5 * a.z * (t**2))
+      # theta + (wi * time) + (0.5 * a * (t**2))
+      result
     end
 
     def angular_displacement_2(theta, wi, w, time)
-      theta + (0.5 * (wi + w) * t)
+      result = CVector.new(0, 0, 0)
+      result.x = theta + (0.5 * (wi + w.x) * time)
+      result.y = theta + (0.5 * (wi + w.y) * time)
+      result.z = theta + (0.5 * (wi + w.z) * time)
+      # theta + (0.5 * (wi + w) * t)
+      result
     end
 
     def kinetic_energy(m, v)
-      0.5 * m * (v**2)
+      # 0.5 * m * (v**2)
+      result = CVector.new(0, 0, 0)
+      result.x = 0.5 * m * (v.x**2)
+      result.y = 0.5 * m * (v.y**2)
+      result.z = 0.5 * m * (v.z**2)
+      result
     end
 
     def potential_energy(m, g, h)
-      m * g * h
+      result = CVector.new(0, 0, 0)
+      # m * g * h
+      result.x = m * g.x * h
+      result.y = m * g.y * h
+      result.z = m * g.z * h
+      result
     end
 
     def gravity(m1, m2, dist)
@@ -81,16 +126,15 @@ module BlackBook
     def get_linear_acceleration(obj)
       result = CVector.new(0, 0, 0)
       @variables.each do |variable|
-        if variable.is_a? CAcceleration &&
-          variable.direction == CAcceleration::ANGULAR
-          result.x += variable.vector.x
-          result.y += variable.vector.y
-          result.z += variable.vector.z
-        end
+        next unless variable.is_a? CAcceleration
+        next unless variable.direction == CAcceleration::LINEAR
+        result.x += variable.vector.x
+        result.y += variable.vector.y
+        result.z += variable.vector.z
       end
-      result.x += obj.linear_acceleration.x
-      result.y += obj.linear_acceleration.y
-      result.z += obj.linear_acceleration.z
+      result.x += obj.linear_acceleration.vector.x
+      result.y += obj.linear_acceleration.vector.y
+      result.z += obj.linear_acceleration.vector.z
       result
     end
 
@@ -98,15 +142,15 @@ module BlackBook
     def get_linear_velocty(obj)
       result = CVector.new(0, 0, 0)
       @variables.each do |variable|
-        if variable.is_a? CVelocity && variable.direction == CVelocity::ANGULAR
-          result.x += variable.vector.x
-          result.y += variable.vector.y
-          result.z += variable.vector.z
-        end
+        next unless variable.is_a? CVelocity
+        next unless variable.direction == CVelocity::LINEAR
+        result.x += variable.vector.x
+        result.y += variable.vector.y
+        result.z += variable.vector.z
       end
-      result.x += obj.linear_acceleration.x
-      result.y += obj.linear_acceleration.y
-      result.z += obj.linear_acceleration.z
+      result.x += obj.linear_velocity.vector.x
+      result.y += obj.linear_velocity.vector.y
+      result.z += obj.linear_velocity.vector.z
       result
     end
 
@@ -125,7 +169,8 @@ module BlackBook
         total_displacement.x = total_velocity.x * time_lapse
         total_displacement.y = total_velocity.y * time_lapse
         total_displacement.z = total_velocity.z * time_lapse
-        obj.position.add(total_displacement)
+        obj.linear_velocity.vector = total_velocity
+        obj.position = obj.position.add(total_displacement)
       end
     end
   end
