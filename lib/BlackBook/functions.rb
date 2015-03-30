@@ -557,4 +557,104 @@ module BlackBook
     end
     GL.End
   end
+
+  #
+  # Vector combine
+  # @param [CVector] first vector
+  # @param [CVector] second vector
+  # @param [CVector] Factor
+  # @return [CVector] Result
+  def vector_combine(v1, v2, t)
+    CVector.new(
+      v1.x + (t * v2.x),
+      v1.y + (t * v2.y),
+      v1.z + (t * v2.z),
+      v1.w + (t * v2.w)
+    )
+  end
+
+  #
+  # RayCastTriangleIntersect
+  #
+  # @param [CVector] ray_start
+  # @param [CVector] ray_vector
+  # @param [CVector] p1
+  # @param [CVector] p2
+  # @param [CVector] p3
+  #
+  # @return [Hash] :hit boolean, :point CVector, :normal CVector
+  def raycast_triangle_intersect(ray_start, ray_vector, p1, p2, p3)
+    e2 = 1e-30
+    result = {}
+    result[:point] = CVector.new(0, 0, 0)
+    result[:normal] = CVector.new(0, 0, 0)
+    result[:hit] = false
+    pvec = CVector.new(0, 0, 0)
+    v1 = CVector.new(0, 0, 0)
+    v2 = CVector.new(0, 0, 0)
+    qvec = CVector.new(0, 0, 0)
+    tvec = CVector.new(0, 0, 0)
+    t = 0.0
+    u = 0.0
+    v = 0.0
+    det = 0.0
+    inv_det = 0.0
+    v1 = p2.sub(p1)
+    v2 = p3.sub(p1)
+    pvec = ray_vector.cross(v2)
+    det = v1.dot(pvec)
+    return result if det < e2 && det > -e2
+    inv_det = 1.0 / det
+    tvec = ray_start.sub(p1)
+    u = tvec.dot(pvec) * inv_det
+    return result if u < 0 or u > 1
+    qvec = tvec.cross(v1)
+    v = tvec.dot(pvec) * inv_det
+    result[:hit] = (v >= 0) && (u + v <= 1)
+    if result[:hit]
+      t = v2.dot(qvec) * inv_det
+      if t > 0
+        result[:point] = BlackBook.vector_combine(
+          ray_start,
+          ray_vector,
+          t
+          )
+        result[:normal] = v1.cross(v2)
+        result[:normal].normalize
+      else
+        result[:hit] = false
+      end
+    end
+    result
+  end
+
+  #
+  # Raycast Plane Intersect
+  # @param [CVector] ray_start
+  # @param [CVector] ray_vector
+  # @param [CVector] plane_point
+  # @param [CVector] plane_normal
+  # @return [Hash] result
+  #
+  def raycase_plane_intersect(ray_start, ray_vector, plane_point, plane_normal)
+    result = {}
+    result[:point] = CVector.new(0, 0, 0)
+    e2 = 1e-30
+    sp = CVector.new(0, 0, 0)
+    t = 0.0
+    d = 0.0
+    d = ray_vector.dot(plane_normal)
+    result[:hit] = ((d > e2) || (d < -e2))
+    if result[:hit]
+      sp = plane_point.sub(ray_start)
+      d = 1 / d
+      t = sp.dot(plane_normal) * d
+      if t > 0
+        result[:point] = BlackBook.vector_combine(ray_start, ray_vector, t)
+      else
+        result[:hit] = false
+      end
+    end
+    result
+  end
 end
