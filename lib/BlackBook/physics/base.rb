@@ -28,7 +28,7 @@ require 'BlackBook/stime'
 require 'BlackBook/constants'
 
 module BlackBook
-    # Physics module for BlackBook Space
+  # Physics module for BlackBook Space
   class Physics < Base
     attr_accessor :variables, :constraints, :global_time, :name
     attr_writer :name

@@ -55,10 +55,10 @@ module BlackBook
                 :kinetic_energy, :potential, :type, :angular_velocity,
                 :angular_acceleration, :linear_velocity, :linear_acceleration
     attr_accessor :faces, :mass, :roll, :pitch, :yaw,
-                :position, :time, :name, :scale, :index, :bounding_radius,
-                :min, :max, :data_size, :normal_index,
-                :kinetic_energy, :potential, :type, :angular_velocity,
-                :angular_acceleration, :linear_velocity, :linear_acceleration
+                  :position, :time, :name, :scale, :index, :bounding_radius,
+                  :min, :max, :data_size, :normal_index,
+                  :kinetic_energy, :potential, :type, :angular_velocity,
+                  :angular_acceleration, :linear_velocity, :linear_acceleration
 
     PARTICLE = 0
     SOLID_CUBE = 1

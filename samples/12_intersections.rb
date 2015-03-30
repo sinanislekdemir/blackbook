@@ -18,7 +18,6 @@
 #    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 ##############################################################################
 
-
 $LOAD_PATH << '../lib/'
 
 ################################################################
@@ -48,7 +47,7 @@ puts 'ray_start  = ' + ray_start.to_array.to_s
 puts 'ray_vector = ' + ray_vector.to_array.to_s
 
 puts 'Raycast:'
-res = BlackBook::raycast_triangle_intersect(
+res = BlackBook.raycast_triangle_intersect(
   ray_start,
   ray_vector,
   v1, v2, v3)
@@ -56,4 +55,3 @@ res = BlackBook::raycast_triangle_intersect(
 puts 'Hit result: ' + res[:hit].to_s
 puts 'Hit point: ' + res[:point].to_array.to_s
 puts 'Hit normal: ' + res[:normal].to_array.to_s
-

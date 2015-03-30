@@ -30,6 +30,7 @@ require 'BlackBook/physics/physics'
 require 'json'
 
 module BlackBook
+  # Newton physics
   class Newton < Physics
     attr_accessor :ground_plane, :start, :duration, :keys, :space
     attr_writer :ground_plane, :start, :duration, :keys, :space
@@ -86,9 +87,9 @@ module BlackBook
     def timeless_velocity(a, r, ri, vi)
       # Math.sqrt((vi**2) + (2 * a * (r - ri)))
       result = CVector.new(0, 0, 0)
-      result.x = Math.sqrt((vi.x ** 2) + (2 * a.x * (r.x - ri.x)))
-      result.y = Math.sqrt((vi.y ** 2) + (2 * a.y * (r.y - ri.y)))
-      result.z = Math.sqrt((vi.z ** 2) + (2 * a.z * (r.z - ri.z)))
+      result.x = Math.sqrt((vi.x**2) + (2 * a.x * (r.x - ri.x)))
+      result.y = Math.sqrt((vi.y**2) + (2 * a.y * (r.y - ri.y)))
+      result.z = Math.sqrt((vi.z**2) + (2 * a.z * (r.z - ri.z)))
       result
     end
 

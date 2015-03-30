@@ -607,7 +607,7 @@ module BlackBook
     inv_det = 1.0 / det
     tvec = ray_start.sub(p1)
     u = tvec.dot(pvec) * inv_det
-    return result if u < 0 or u > 1
+    return result if u < 0 || u > 1
     qvec = tvec.cross(v1)
     v = tvec.dot(pvec) * inv_det
     result[:hit] = (v >= 0) && (u + v <= 1)

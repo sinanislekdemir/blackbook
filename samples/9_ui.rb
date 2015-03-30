@@ -105,7 +105,7 @@ module BlackBook
 
       ui = @space.create_ui
       window = ui.add_window(
-        x: 10, y:10, z: 1, w: 500, h: 400, title: 'Window Title', name: 'w1'
+        x: 10, y: 10, z: 1, w: 500, h: 400, title: 'Window Title', name: 'w1'
         )
       window.create_label(x: 10, y: 60, title: 'UI Sample')
       button = window.create_button(
