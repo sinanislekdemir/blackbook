@@ -657,4 +657,23 @@ module BlackBook
     end
     result
   end
+
+  #
+  # Check if given point lays on the defined line
+  # @param [CVector] point
+  # @param [CVector] line_start
+  # @param [CVector] line_end
+  # @return [Boolean] result
+  #
+  def point_on_line(point, line_start, line_end)
+    e2 = 1e-30
+    line_length     = line_start.distance line_end
+    point_to_start  = line_start.distance point
+    point_to_end    = line_end.distance point
+    c = point_to_start + point_to_end - line_length
+    puts 'Line length: ' + line_length.to_s
+    puts 'P2S: ' + point_to_start.to_s
+    puts 'P2E: ' + point_to_end.to_s
+    c.abs < e2
+  end
 end
