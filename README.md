@@ -25,8 +25,9 @@ Registry
 There are some global variables that you might need to define in your application setup;
 
     BlackBook::Registry.instance.write('grid', true)            # Draw grid
-    BlackBook::Registry.instance.write('grid\_count', 100)      # Grid line count
-    BlackBook::Registry.instance.write('data\_path', '../data') # Data path, especially needed for fonts.
+    BlackBook::Registry.instance.write('grid_count', 100)      # Grid line count
+    BlackBook::Registry.instance.write('grid_size', 2)      # Grid line count
+    BlackBook::Registry.instance.write('data_path', '../data') # Data path, especially needed for fonts.
     BlackBook::Registry.instance.write('shader', 'vbo')         # Set object shading to Virtual Buffer Objects
     BlackBook::Registry.instance.write('shader', 'displaylist') # Set object shading to display lists
 
