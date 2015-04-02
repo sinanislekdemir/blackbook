@@ -23,20 +23,29 @@
 # Simulation Engine Ruby Sources
 ################################################################
 
-require 'BlackBook/engine'
+require 'opengl'
 require 'BlackBook/base'
-require 'BlackBook/b3dobject'
-require 'BlackBook/camera'
 require 'BlackBook/constants'
-require 'BlackBook/functions'
-require 'BlackBook/light'
-require 'BlackBook/logger'
-require 'BlackBook/space'
-require 'BlackBook/stime'
-require 'BlackBook/material'
 
-# BlackBook main module definition
 module BlackBook
-  extend self
-  VERSION = '0.0.1'
+  class Material
+    attr_writer :color, :texture_data
+    attr_accessor :color, :texture_data
+
+    def initialize
+      @color = CVector.new(1.0, 1.0, 1.0, 1.0)
+    end
+
+    def start_render
+      GL.Enable(GL::COLOR_MATERIAL)
+      GL.Enable(GL::BLEND)
+      GL.BlendFunc(GL::SRC_ALPHA, GL::ONE_MINUS_SRC_ALPHA)
+      GL.Color4f(@color.x, @color.y, @color.z, @color.w)
+    end
+
+    def end_render
+      GL.Disable(GL::BLEND)
+      GL.Disable(GL::COLOR_MATERIAL)
+    end
+  end
 end

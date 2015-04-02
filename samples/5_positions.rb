@@ -48,6 +48,9 @@ module BlackBook
       super
       # Enable GRID for the scene
       BlackBook::Registry.instance.write('grid', true)
+      BlackBook::Registry.instance.write('grid_count', 10)
+      BlackBook::Registry.instance.write('grid_size', 3)
+
       # Create 3D space
       @space = Space.new(
         @window_width * w_multiplier,
@@ -90,6 +93,11 @@ module BlackBook
         filename: '../data/cube.raw',
         name: 'cube_object_5'
         )
+      obj_1.material.color.set(1.0, 0.0, 0.0, 0.9)
+      obj_2.material.color.set(1.0, 1.0, 0.0, 0.3)
+      obj_3.material.color.set(1.0, 0.0, 1.0, 0.5)
+      obj_4.material.color.set(0.0, 1.0, 0.0, 1.0)
+      obj_5.material.color.set(0.0, 1.0, 1.0, 0.7)
       obj_2.position.x = 8.0
       obj_3.position.y = 5.0
       obj_3.position.z = 6.7

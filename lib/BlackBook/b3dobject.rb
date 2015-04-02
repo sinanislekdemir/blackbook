@@ -53,12 +53,14 @@ module BlackBook
                 :position, :time, :name, :scale, :index, :bounding_radius,
                 :min, :max, :data_size, :normal_index,
                 :kinetic_energy, :potential, :type, :angular_velocity,
-                :angular_acceleration, :linear_velocity, :linear_acceleration
+                :angular_acceleration, :linear_velocity, :linear_acceleration,
+                :material
     attr_accessor :faces, :mass, :roll, :pitch, :yaw,
                   :position, :time, :name, :scale, :index, :bounding_radius,
                   :min, :max, :data_size, :normal_index,
                   :kinetic_energy, :potential, :type, :angular_velocity,
-                  :angular_acceleration, :linear_velocity, :linear_acceleration
+                  :angular_acceleration, :linear_velocity, :linear_acceleration,
+                  :material
 
     PARTICLE = 0
     SOLID_CUBE = 1
@@ -101,6 +103,7 @@ module BlackBook
         )
       @linear_acceleration  = CAcceleration.new(CVector.new(0, 0, 0, 1))
       @linear_velocity      = CVelocity.new(CVector.new(0, 0, 0, 1))
+      @material = Material.new
     end
 
     #
@@ -335,8 +338,8 @@ module BlackBook
     def render
       build_list if @index == -1
       # GL.Disable(GL::LIGHTING)
-      GL.Enable(GL::COLOR_MATERIAL)
-      GL.Color3f(1.0, 1.0, 1.0)
+      @material.start_render
+
       GL.PushMatrix
       GL.Translate(@position.x, @position.y, @position.z)
       GL.Rotate(@roll, 1, 0, 0)
@@ -364,6 +367,7 @@ module BlackBook
       end
 
       GL.PopMatrix
+      @material.end_render
       # GL.Enable(GL::LIGHTING)
     end
 

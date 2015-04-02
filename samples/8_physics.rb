@@ -48,6 +48,9 @@ module BlackBook
       super
       # Enable GRID for the scene
       BlackBook::Registry.instance.write('grid', true)
+      BlackBook::Registry.instance.write('grid_count', 10)
+      BlackBook::Registry.instance.write('grid_size', 3)
+
       BlackBook::Registry.instance.write('data_path', '../data')
       # Create 3D space
       @space = Space.new(

@@ -44,8 +44,12 @@ module BlackBook
     def initialize(w, h, title, w_multiplier = 1, h_multiplier = 1)
       super
       BlackBook::Registry.instance.write('shader', 'vbo')
+      BlackBook::Registry.instance.write('grid', true)
+      BlackBook::Registry.instance.write('grid_count', 10)
+      BlackBook::Registry.instance.write('grid_size', 3)
+
       @space = Space.new(@window_width * w_m, @window_height * h_m, w_m)
-      cam = @space.add_camera(
+      @space.add_camera(
         eye_position: CVector.new(10.0, 10.0, 10.0),
         up: CVector.new(0.0, 0.0, 1.0),
         target_position: CVector.new(0, 0, 0)
@@ -56,28 +60,28 @@ module BlackBook
         filename: 'data/wings.raw',
         name: 'idontknow'
         )
-      o = @space.add_object(
-        filename: 'data/ground.raw',
-        name: 'idontknowground'
-        )
-      o.position.z = -0.5
-      ui = @space.create_ui
-      w = ui.add_window(
-        x: 10, y: 10, z: 1, w: 1000, h: 400, title: 'Deneme', name: 'test'
-        )
-      label = w.create_label(x: 10, y: 60, title: 'Object Position')
-      # e = w.create_edit(x: 10, y: 100, w: 200, value: 'testing', name: 'ed')
-      b = w.create_button(x: 10, y: 150, w: 200, title: 'buton', name: 'bt')
-      b.click = -> do
-        ui.add_window(
-          x: 10, y: 400, z: 1, w: 1000, h: 400, title: 'Subw', name: 'sub'
-        )
-      end
-      on_update = -> (camera, x, y, obj) do
-        v = camera.world_to_screen(CVector.new(2, 2, 0))
-        obj.text = v[0].to_s + ' ' + v[1].to_s
-      end
-      cam.on_update = [on_update, label]
+      # o = @space.add_object(
+      #   filename: 'data/ground.raw',
+      #   name: 'idontknowground'
+      #   )
+      # o.position.z = -0.5
+      # ui = @space.create_ui
+      # w = ui.add_window(
+      #   x: 10, y: 10, z: 1, w: 1000, h: 400, title: 'Deneme', name: 'test'
+      #   )
+      # label = w.create_label(x: 10, y: 60, title: 'Object Position')
+      # # e = w.create_edit(x: 10, y: 100, w: 200, value: 'testing', name: 'ed')
+      # b = w.create_button(x: 10, y: 150, w: 200, title: 'buton', name: 'bt')
+      # b.click = -> do
+      #   ui.add_window(
+      #     x: 10, y: 400, z: 1, w: 1000, h: 400, title: 'Subw', name: 'sub'
+      #   )
+      # end
+      # on_update = -> (camera, x, y, obj) do
+      #   v = camera.world_to_screen(CVector.new(2, 2, 0))
+      #   obj.text = v[0].to_s + ' ' + v[1].to_s
+      # end
+      # cam.on_update = [on_update, label]
       @space.create_dynamics
     end
 

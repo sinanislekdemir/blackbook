@@ -402,20 +402,23 @@ module BlackBook
   # @return [Boolean] Success
   def draw_grid
     count = BlackBook::Registry.instance.read('grid_count')
+    size = BlackBook::Registry.instance.read('grid_size')
     count = 200 if count.nil?
     GL.PushMatrix
     GL.Translatef(0.0, 0.0, 0.0)
 
     GL.Disable(GL::LIGHTING)
     GL.Color3f(0.8, 0.8, 0.8)
-    1.upto(200) do |i|
+    x = (count / 2) * size * -1.0
+    y = (count / 2) * size * -1.0
+    1.upto(count - 1) do |i|
       GL.Begin(GL::LINES)
-      GL.Vertex(i - 100, -100, 0)
-      GL.Vertex(i - 100, 100, 0)
+      GL.Vertex(x + (size * i), y, 0)
+      GL.Vertex(x + (size * i), -y, 0)
       GL.End()
       GL.Begin(GL::LINES)
-      GL.Vertex(-100, i - 100, 0)
-      GL.Vertex(100, i - 100, 0)
+      GL.Vertex(x, y + (size * i), 0)
+      GL.Vertex(-x, y + (size * i), 0)
       GL.End()
     end
     GL.LineWidth 3
