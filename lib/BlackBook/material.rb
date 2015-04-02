@@ -27,15 +27,19 @@ require 'opengl'
 require 'BlackBook/base'
 require 'BlackBook/constants'
 
+# BlackBook Material
 module BlackBook
+  # BlackBook Material
   class Material
     attr_writer :color, :texture_data
     attr_accessor :color, :texture_data
 
+    # Initialize material
     def initialize
       @color = CVector.new(1.0, 1.0, 1.0, 1.0)
     end
 
+    # Render material
     def start_render
       GL.Enable(GL::COLOR_MATERIAL)
       GL.Enable(GL::BLEND)
@@ -43,6 +47,7 @@ module BlackBook
       GL.Color4f(@color.x, @color.y, @color.z, @color.w)
     end
 
+    # End Material
     def end_render
       GL.Disable(GL::BLEND)
       GL.Disable(GL::COLOR_MATERIAL)

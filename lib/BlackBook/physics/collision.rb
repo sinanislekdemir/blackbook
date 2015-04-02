@@ -28,6 +28,7 @@ require 'BlackBook/functions'
 require 'BlackBook/constants'
 
 module BlackBook
+  # Collision detection class
   class Collision
     attr_accessor :hit_point, :hit_normal, :result
     attr_writer :hit_point, :hit_normal, :result
@@ -105,7 +106,6 @@ module BlackBook
         end
       end
       @result = false
-      return false
     end
   end
 end

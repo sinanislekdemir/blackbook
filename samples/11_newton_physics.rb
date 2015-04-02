@@ -51,7 +51,7 @@ physics.add_variable(
 
 initial = Time.now.to_f
 
-while true
+loop do
   if physics.global_time.calc_time > 1
     time_step = physics.global_time.step
     puts 'Object position = ' +
