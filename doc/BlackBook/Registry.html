@@ -340,12 +340,12 @@
       <pre class="lines">
 
 
-14
-15
-16</pre>
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@params</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -388,12 +388,12 @@
       <pre class="lines">
 
 
-11
-12
-13</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_params'>params</span>
   <span class='ivar'>@params</span>
@@ -436,12 +436,12 @@
       <pre class="lines">
 
 
-29
-30
-31</pre>
+48
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exists'>exists</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span> <span class='id identifier rubyid_key'>key</span>
@@ -477,13 +477,13 @@
       <pre class="lines">
 
 
-39
-40
-41
-42</pre>
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_from_file'>load_from_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_buffer'>buffer</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
@@ -520,12 +520,12 @@
       <pre class="lines">
 
 
-19
-20
-21</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read'>read</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='rparen'>)</span> <span class='op'>?</span> <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='kw'>nil</span>
@@ -561,12 +561,12 @@
       <pre class="lines">
 
 
-34
-35
-36</pre>
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_save_to_file'>save_to_file</span><span class='lparen'>(</span><span class='id identifier rubyid_filename'>filename</span><span class='rparen'>)</span>
   <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span> <span class='id identifier rubyid_filename'>filename</span><span class='comma'>,</span> <span class='ivar'>@params</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span>
@@ -602,12 +602,12 @@
       <pre class="lines">
 
 
-24
-25
-26</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/registry.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write'>write</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='ivar'>@params</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
@@ -622,7 +622,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Mar 29 18:02:06 2015 by
+  Generated on Thu Apr  2 22:26:02 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

@@ -174,6 +174,33 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#last_time-instance_method" title="#last_time (instance method)">- (Object) <strong>last_time</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute last_time.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#scale-instance_method" title="#scale (instance method)">- (Object) <strong>scale</strong> </a>
     
 
@@ -369,6 +396,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#step-instance_method" title="#step (instance method)">- (Object) <strong>step</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#time_dilation-instance_method" title="#time_dilation (instance method)">- (Object) <strong>time_dilation</strong>(velocity) </a>
     
 
@@ -422,15 +471,17 @@
       <pre class="lines">
 
 
-14
-15
-16</pre>
+35
+36
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@start</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+  <span class='ivar'>@last_time</span> <span class='op'>=</span> <span class='ivar'>@start</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -470,12 +521,12 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_days'>days</span>
   <span class='ivar'>@days</span>
@@ -513,15 +564,58 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_diff'>diff</span>
   <span class='ivar'>@diff</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="last_time=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="last_time-instance_method">
+  
+    - (<tt>Object</tt>) <strong>last_time</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute last_time</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_last_time'>last_time</span>
+  <span class='ivar'>@last_time</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -556,12 +650,12 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scale'>scale</span>
   <span class='ivar'>@scale</span>
@@ -599,12 +693,12 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_seconds'>seconds</span>
   <span class='ivar'>@seconds</span>
@@ -642,12 +736,12 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span>
   <span class='ivar'>@start</span>
@@ -685,12 +779,12 @@
       <pre class="lines">
 
 
-10
-11
-12</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_year'>year</span>
   <span class='ivar'>@year</span>
@@ -733,12 +827,12 @@
       <pre class="lines">
 
 
-19
-20
-21</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_calc_time'>calc_time</span>
   <span class='ivar'>@diff</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>-</span> <span class='ivar'>@start</span>
@@ -774,15 +868,49 @@
       <pre class="lines">
 
 
-24
-25
-26</pre>
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_reset_time'>reset_time</span>
   <span class='ivar'>@start</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="step-instance_method">
+  
+    - (<tt>Object</tt>) <strong>step</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+45
+46
+47
+48
+49</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 45</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_step'>step</span>
+  <span class='id identifier rubyid_r'>r</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>-</span> <span class='ivar'>@last_time</span>
+  <span class='ivar'>@last_time</span> <span class='op'>=</span> <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+  <span class='id identifier rubyid_r'>r</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -815,14 +943,14 @@
       <pre class="lines">
 
 
-29
-30
-31
-32
-33</pre>
+57
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/stime.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_time_dilation'>time_dilation</span><span class='lparen'>(</span><span class='id identifier rubyid_velocity'>velocity</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_calc_time'>calc_time</span>
@@ -839,7 +967,7 @@
 </div>
 
     <div id="footer">
-  Generated on Sun Mar 29 18:02:05 2015 by
+  Generated on Thu Apr  2 22:26:01 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>
