@@ -27,6 +27,7 @@ require 'opengl'
 require 'BlackBook/base'
 require 'BlackBook/constants'
 require 'BlackBook/stime'
+require 'pp'
 
 module BlackBook
   #
@@ -44,23 +45,22 @@ module BlackBook
   # @attr name [String] Name of the object
   # @attr scale [CVector] Scale of the object for rendering
   # @attr index [Integer] GlGenList OpenGL List Index
-  # @attr bounding_radius [Float] Radius of the bounding sphere
   # @attr min [CVector] Minimum coordinates
   # @attr max [CVector] Maximum coordinates
   #
   class B3DObject < Base
     attr_writer :faces, :mass, :roll, :pitch, :yaw,
-                :position, :time, :name, :scale, :index, :bounding_radius,
+                :time, :name, :scale, :index,
                 :min, :max, :data_size, :normal_index,
                 :kinetic_energy, :potential, :type, :angular_velocity,
                 :angular_acceleration, :linear_velocity, :linear_acceleration,
-                :material
+                :material, :matrix, :radius
     attr_accessor :faces, :mass, :roll, :pitch, :yaw,
-                  :position, :time, :name, :scale, :index, :bounding_radius,
+                  :time, :name, :scale, :index,
                   :min, :max, :data_size, :normal_index,
                   :kinetic_energy, :potential, :type, :angular_velocity,
                   :angular_acceleration, :linear_velocity, :linear_acceleration,
-                  :material
+                  :material, :matrix, :radius
 
     PARTICLE = 0
     SOLID_CUBE = 1
@@ -76,7 +76,7 @@ module BlackBook
     # @return [BB3DObject] return self
     def initialize
       @faces = []
-      @bounding_radius, @mass, @roll, @pitch, @yaw = 0.0, 0.0, 0.0, 0.0, 0.0
+      @mass, @roll, @pitch, @yaw = 0.0, 0.0, 0.0, 0.0
       @position     = CVector.new(0, 0, 0, 1)
       @scale        = CVector.new(1, 1, 1, 1)
       @min, @max, @index = nil, nil, -1
@@ -87,6 +87,10 @@ module BlackBook
       @kinetic_energy = 0.0
       @potential    = 0.0
       @type         = PARTICLE
+      @matrix       = CMatrix.new
+      @radius       = 0.0
+      @min          = CVector.new(9999999, 9999999, 9999999)
+      @max          = CVector.new(-9999999, -9999999, -9999999)
       @angular_velocity     = CVelocity.new(
         CVector.new(0, 0, 0, 1),
         '',
@@ -106,6 +110,26 @@ module BlackBook
       @material = Material.new
     end
 
+    # Convert local vector to absolute coordinates
+    # @param [CVector] Vector
+    # @param [CMatrix] Absolute Matrix
+    # @return [CVector] Absolute Vector
+    def local_to_absolute(v)
+      # @matrix[3][0] = @position.x
+      # @matrix[3][1] = @position.y
+      # @matrix[3][2] = @position.z
+      # v = BlackBook.vector_transform(v, @matrix)
+      # v
+    end
+
+    # rotate object
+    # @param [Float] x axis
+    # @param [Float] y axis
+    # @param [Float] z axis
+    def rotate(x, y, z)
+      @matrix.rotate x, y, z
+    end
+
     #
     # Load Mass Data
     # @param data [Hash] Load Data hash. (Recursive scene loading from json)
@@ -121,9 +145,9 @@ module BlackBook
     #
     # @return [CVector] Position vector
     def load_position(data)
-      @position.x = data['position'][0] if data.key?('position')
-      @position.y = data['position'][1] if data.key?('position')
-      @position.z = data['position'][2] if data.key?('position')
+      @matrix.pos.x = data['position'][0] if data.key?('position')
+      @matrix.pos.y = data['position'][1] if data.key?('position')
+      @matrix.pos.z = data['position'][2] if data.key?('position')
     end
 
     #
@@ -245,16 +269,13 @@ module BlackBook
     #
     # @return [CVector] Max Vector
     def update_min_max(v)
-      if @min.nil?
-        @min, @max = v, v
-        return true
-      end
       @min.x = v.x if v.x < @min.x
       @min.y = v.y if v.y < @min.y
       @min.z = v.z if v.z < @min.z
       @max.x = v.x if v.x > @max.x
       @max.y = v.y if v.y > @max.y
       @max.z = v.z if v.z > @max.z
+      @radius = @min.distance(@max) / 2.0
     end
 
     #
@@ -269,7 +290,6 @@ module BlackBook
       case shader
       when 'displaylist'
         @index = GL.GenLists(1)
-        @bounding_radius = 0.0
         GL.NewList(@index, GL::COMPILE)
         GL.LineWidth(2)
         @faces.each do |face|
@@ -290,7 +310,6 @@ module BlackBook
           update_min_max(v3)
         end
         GL.EndList
-        @bounding_radius = @min.distance(@max)
       when 'vbo'
         @index = GL.GenBuffers(2)
         data = []
@@ -341,11 +360,7 @@ module BlackBook
       @material.start_render
 
       GL.PushMatrix
-      GL.Translate(@position.x, @position.y, @position.z)
-      GL.Rotate(@roll, 1, 0, 0)
-      GL.Rotate(@pitch, 0, 1, 0)
-      GL.Rotate(@yaw, 0, 0, 1)
-      GL.Scale(@scale.x, @scale.y, @scale.z)
+      GL.MultMatrixf(@matrix.to_array)
 
       shader = BlackBook::Registry.instance.read('shader')
       shader = 'displaylist' if shader.nil?

@@ -62,4 +62,3 @@ if BlackBook.point_on_line(res[:point], ray_start, BlackBook::CVector.new(2.0, 2
 else
   puts 'Point misses line'
 end
-

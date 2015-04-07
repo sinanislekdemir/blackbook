@@ -98,19 +98,31 @@ module BlackBook
       obj_3.material.color.set(1.0, 0.0, 1.0, 0.5)
       obj_4.material.color.set(0.0, 1.0, 0.0, 1.0)
       obj_5.material.color.set(0.0, 1.0, 1.0, 0.7)
+      obj_1.mass = 0.0
+      obj_2.mass = 1.0
+      obj_3.mass = 1.0
+      obj_4.mass = 1.0
+      obj_5.mass = 1.0
       obj_2.matrix.pos.x = 8.0
       obj_3.matrix.pos.y = 5.0
       obj_3.matrix.pos.z = 6.7
-      obj_4.matrix.pos.z = -4.0
       obj_5.matrix.pos.y = 9.0
       obj_5.matrix.pos.z = 3.0
-      obj_1.rotate(45, 20, 45)
+      @physics = BlackBook::Newton.new(@space)
+      gravity = -0.80665
+      @physics.add_variable(
+        CAcceleration.new(
+          CVector.new(0, 0, gravity), 'gravity'
+          )
+        )
+      # physics.run(1)
     end
 
     def render
       super
       # Initialize space if gl is not active
       @space.init_gl unless @space.gl_active
+      @physics.step(@physics.global_time.step)
       @space.render
       # Enable mouse events
       @space.mouse_move(
@@ -119,6 +131,7 @@ module BlackBook
         @right,
         @left,
         @middle)
+      @physics.global_time.reset_time
     end
   end
 end

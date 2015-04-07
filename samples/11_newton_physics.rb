@@ -39,7 +39,7 @@ mass = 100
 puts 'Create dummy space object'
 object = space.create_object
 object.mass = mass
-object.position.set(0, 0, 200.0)
+object.matrix.pos.set(0, 0, 200.0)
 
 puts 'Set gravity'
 gravity = -9.80665
@@ -55,16 +55,16 @@ loop do
   if physics.global_time.calc_time > 1
     time_step = physics.global_time.step
     puts 'Object position = ' +
-      object.position.to_array.to_s +
+      object.matrix.pos.to_array.to_s +
       ' time diff = ' + time_step.to_s
     physics.step(time_step)
     physics.global_time.reset_time
-    break if object.position.z < 0
+    break if object.matrix.pos.z < 0
   end
 end
 
 finish = Time.now.to_f
 
 puts 'Hit the ground!'
-puts 'Last position = ' + object.position.to_array.to_s
+puts 'Last position = ' + object.matrix.pos.to_array.to_s
 puts 'Total time = ' + (finish - initial).to_s + ' seconds'

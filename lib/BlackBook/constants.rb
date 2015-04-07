@@ -24,6 +24,7 @@
 ################################################################
 
 require 'BlackBook/base'
+require 'BlackBook/functions'
 
 module BlackBook
   #
@@ -123,7 +124,7 @@ module BlackBook
       @x /= d
       @y /= d
       @z /= d
-      true
+      self
     end
 
     #
@@ -233,6 +234,64 @@ module BlackBook
     # @return [type] [description]
     def to_array
       [x, y, z, w]
+    end
+  end
+
+  # CMatrix Class
+  class CMatrix
+    attr_writer :left, :dir, :up, :pos
+    attr_accessor :left, :dir, :up, :pos
+
+    # initialize
+    def initialize
+      @left = CVector.new(1.0, 0.0, 0.0, 0.0)
+      @dir  = CVector.new(0.0, 1.0, 0.0, 0.0)
+      @up   = CVector.new(0.0, 0.0, 1.0, 0.0)
+      @pos  = CVector.new(0.0, 0.0, 0.0, 1.0)
+    end
+
+    def to_array
+      m = [left.to_array, dir.to_array, up.to_array, pos.to_array]
+      m.flatten
+    end
+
+    def rotate(x, y, z)
+      m = to_array
+      x = BlackBook.deg_to_rad x
+      y = BlackBook.deg_to_rad y
+      z = BlackBook.deg_to_rad z
+      m[12] = 0.0
+      m[13] = 0.0
+      m[14] = 0.0
+      unified = [
+        1.0, 0.0, 0.0, 0.0,
+        0.0, 1.0, 0.0, 0.0,
+        0.0, 0.0, 1.0, 0.0,
+        0.0, 0.0, 0.0, 1.0
+      ]
+      x_matrix = unified.clone
+      x_matrix[5] = Math.cos y
+      x_matrix[6] = -1 * Math.sin(y)
+      x_matrix[9] = Math.sin y
+      x_matrix[10] = Math.cos y
+      y_matrix = unified.clone
+      y_matrix[0] = Math.cos x
+      y_matrix[2] = Math.sin x
+      y_matrix[8] = -1 * Math.sin(x)
+      y_matrix[10] = Math.cos x
+      z_matrix = unified.clone
+      z_matrix[0] = Math.cos z
+      z_matrix[1] = -1 * Math.sin(z)
+      z_matrix[4] = Math.sin z
+      z_matrix[5] = Math.cos z
+      m_1 = BlackBook.multiply_matrices_4by4 m, x_matrix
+      m_2 = BlackBook.multiply_matrices_4by4 m_1, y_matrix
+      m_3 = BlackBook.multiply_matrices_4by4 m_2, z_matrix
+      m_3[12], m_3[13], m_3[14] = @pos.x, @pos.y, @pos_z
+      @left.set m_3[0], m_3[1], m_3[2], m_3[3]
+      @dir.set m_3[4], m_3[5], m_3[6], m_3[7]
+      @up.set m_3[8], m_3[9], m_3[10], m_3[11]
+      m_3
     end
   end
 

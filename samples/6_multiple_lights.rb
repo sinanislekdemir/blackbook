@@ -101,15 +101,12 @@ module BlackBook
       obj_4.material.color.set(0.0, 1.0, 0.0, 1.0)
       obj_5.material.color.set(0.0, 1.0, 1.0, 0.7)
 
-      obj_2.position.x = 8.0
-      obj_3.position.y = 5.0
-      obj_3.position.z = 6.7
-      obj_3.roll = 45
-      obj_4.position.z = -4.0
-      obj_4.pitch = 45
-      obj_4.yaw = 39
-      obj_5.position.y = 9.0
-      obj_5.position.z = 3.0
+      obj_2.matrix.pos.x = 8.0
+      obj_3.matrix.pos.y = 5.0
+      obj_3.matrix.pos.z = 6.7
+      obj_4.matrix.pos.z = -4.0
+      obj_5.matrix.pos.y = 9.0
+      obj_5.matrix.pos.z = 3.0
     end
 
     def render

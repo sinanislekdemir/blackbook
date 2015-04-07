@@ -113,10 +113,7 @@ module BlackBook
     def add_object(options)
       obj = B3DObject.new
       obj.load_raw(options[:filename]) if options.key?(:filename)
-      obj.roll = options[:roll] if options.key?(:roll)
-      obj.pitch = options[:pitch] if options.key?(:pitch)
-      obj.yaw = options[:yaw] if options.key?(:yaw)
-      obj.position = options[:position] if options.key?(:position)
+      obj.matrix.position = options[:position] if options.key?(:position)
       obj.time = options[:time] if options.key?(:time)
       name = options.key?(:name) ? options[:name] : SecureRandom.uuid
       obj.name = name

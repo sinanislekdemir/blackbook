@@ -110,10 +110,10 @@ module BlackBook
     def engine_loop
       @main_window.make_context_current
       until @main_window.should_close?
-        Glfw.wait_events
         GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
         render
         @main_window.swap_buffers
+        Glfw.poll_events
       end
       engine_end
     end

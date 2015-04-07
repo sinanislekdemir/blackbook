@@ -27,13 +27,16 @@
 require 'BlackBook/b3dobject'
 require 'BlackBook/functions'
 require 'BlackBook/physics/physics'
+require 'BlackBook/physics/collision'
 require 'json'
 
 module BlackBook
   # Newton physics
   class Newton < Physics
-    attr_accessor :ground_plane, :start, :duration, :keys, :space
-    attr_writer :ground_plane, :start, :duration, :keys, :space
+    attr_accessor :ground_plane, :start, :duration, :keys, :space, :thread,
+                  :collisions
+    attr_writer :ground_plane, :start, :duration, :keys, :space, :thread,
+                :collisions
 
     # Gravitational Constant
     G = 6.67e-11
@@ -45,6 +48,7 @@ module BlackBook
       @space = space
       @ground_plane = nil
       @variables = []
+      @collisions = []
     end
 
     # calculate positions for given miliseconds
@@ -174,12 +178,40 @@ module BlackBook
       result
     end
 
+    def kill
+      @thread.kill
+    end
+
+    def run(time_step)
+      @thread = Thread.new do
+        loop do
+          if @global_time.calc_time > time_step
+            time_step = @global_time.step
+            step(time_step)
+            @global_time.reset_time
+          end
+        end
+      end
+    end
+
     def step(time_lapse)
       return false if @space.nil?
       return false if time_lapse == 0
+      c = Collision.new
+      @collisions = []
       # Everything leads to position changes
       # From acceleration to velocity, from velocity to displacement
       @space.items[:objects].each do |name, obj|
+        @space.items[:objects].each do |name2, obj2|
+          if name2 != name
+            if c.test(obj, obj2)
+              obj.material.color.set(1.0, 1.0, 1.0, 1.0)
+              obj2.material.color.set(1.0, 1.0, 1.0, 1.0)
+              @collisions << c
+            end
+          end
+        end
+        next if obj.mass == 0
         total_acceleration = get_linear_acceleration(obj)
         total_velocity     = get_linear_velocty(obj)
         total_velocity     = total_velocity.add(
@@ -190,7 +222,7 @@ module BlackBook
         total_displacement.y = total_velocity.y * time_lapse
         total_displacement.z = total_velocity.z * time_lapse
         obj.linear_velocity.vector = total_velocity
-        obj.position = obj.position.add(total_displacement)
+        obj.matrix.pos = obj.matrix.pos.add(total_displacement)
       end
     end
   end
