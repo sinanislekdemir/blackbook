@@ -118,19 +118,22 @@ module BlackBook
       # physics.run(1)
     end
 
+    def mouse_move(x, y, right, left, middle)
+      super
+      @space.mouse_move(
+        x,
+        y,
+        right,
+        left,
+        middle)
+    end
+
     def render
       super
       # Initialize space if gl is not active
       @space.init_gl unless @space.gl_active
       @physics.step(@physics.global_time.step)
       @space.render
-      # Enable mouse events
-      @space.mouse_move(
-        @main_window.cursor_pos[0],
-        @main_window.cursor_pos[1],
-        @right,
-        @left,
-        @middle)
       @physics.global_time.reset_time
     end
   end

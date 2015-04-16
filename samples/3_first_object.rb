@@ -72,10 +72,20 @@ module BlackBook
       light = @space.create_light
       light.position.set(10.0, 5.0, 10.0)
       # Add our object file
-      o = @space.add_object(
+      @space.add_object(
         filename: '../data/cube.raw',
         name: 'cube_object'
         )
+    end
+
+    def mouse_move(x, y, right, left, middle)
+      super
+      @space.mouse_move(
+        x,
+        y,
+        right,
+        left,
+        middle)
     end
 
     def render
@@ -83,13 +93,6 @@ module BlackBook
       # Initialize space if gl is not active
       @space.init_gl unless @space.gl_active
       @space.render
-      # Enable mouse events
-      @space.mouse_move(
-        @main_window.cursor_pos[0],
-        @main_window.cursor_pos[1],
-        @right,
-        @left,
-        @middle)
     end
   end
 end

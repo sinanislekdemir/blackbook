@@ -103,6 +103,11 @@ module BlackBook
     def render
     end
 
+    # Mouse move meta func
+    # @return [nil]
+    def mouse_move(x, y, right, left, middle)
+    end
+
     #
     # Engine Main Loop
     #
@@ -110,6 +115,11 @@ module BlackBook
     def engine_loop
       @main_window.make_context_current
       until @main_window.should_close?
+        mouse_move(@main_window.cursor_pos[0],
+          @main_window.cursor_pos[1],
+          @right,
+          @left,
+          @middle)
         GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
         render
         @main_window.swap_buffers

@@ -87,18 +87,21 @@ module BlackBook
       obj.add_face [-1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
     end
 
+    def mouse_move(x, y, right, left, middle)
+      super
+      @space.mouse_move(
+        x,
+        y,
+        right,
+        left,
+        middle)
+    end
+
     def render
       super
       # Initialize space if gl is not active
       @space.init_gl unless @space.gl_active
       @space.render
-      # Enable mouse events
-      @space.mouse_move(
-        @main_window.cursor_pos[0],
-        @main_window.cursor_pos[1],
-        @right,
-        @left,
-        @middle)
     end
   end
 end

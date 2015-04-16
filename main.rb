@@ -48,57 +48,63 @@ module BlackBook
       BlackBook::Registry.instance.write('grid_count', 10)
       BlackBook::Registry.instance.write('grid_size', 3)
 
-      @space = Space.new(@window_width * w_m, @window_height * h_m, w_m)
-      @space.add_camera(
+      @space = Space.new(
+        @window_width * w_multiplier,
+        @window_height * h_multiplier)
+      c = @space.add_camera(
         eye_position: CVector.new(10.0, 10.0, 10.0),
         up: CVector.new(0.0, 0.0, 1.0),
         target_position: CVector.new(0, 0, 0)
         )
       light = @space.create_light
       light.position.set(5.0, 5.0, 5.0)
-      @space.add_object(
-        filename: 'data/wings.raw',
-        name: 'idontknow'
+      # @space.add_object(
+      #   filename: 'data/wings.raw',
+      #   name: 'idontknow'
+      #   )
+      o = @space.add_object(
+        filename: 'data/ground.raw',
+        name: 'idontknowground'
         )
-      # o = @space.add_object(
-      #   filename: 'data/ground.raw',
-      #   name: 'idontknowground'
-      #   )
-      # o.position.z = -0.5
-      # ui = @space.create_ui
-      # w = ui.add_window(
-      #   x: 10, y: 10, z: 1, w: 1000, h: 400, title: 'Deneme', name: 'test'
-      #   )
-      # label = w.create_label(x: 10, y: 60, title: 'Object Position')
-      # # e = w.create_edit(x: 10, y: 100, w: 200, value: 'testing', name: 'ed')
-      # b = w.create_button(x: 10, y: 150, w: 200, title: 'buton', name: 'bt')
-      # b.click = -> do
-      #   ui.add_window(
-      #     x: 10, y: 400, z: 1, w: 1000, h: 400, title: 'Subw', name: 'sub'
-      #   )
-      # end
-      # on_update = -> (camera, x, y, obj) do
-      #   v = camera.world_to_screen(CVector.new(2, 2, 0))
-      #   obj.text = v[0].to_s + ' ' + v[1].to_s
-      # end
-      # cam.on_update = [on_update, label]
-      @space.create_dynamics
+      o.matrix.pos.z = -0.5
+      ui = @space.create_ui
+      w = ui.add_window(
+        x: 10, y: 10, z: 1, w: 1000, h: 400, title: 'Deneme', name: 'test'
+        )
+      label = w.create_label(x: 10, y: 60, title: 'Object Position')
+      # e = w.create_edit(x: 10, y: 100, w: 200, value: 'testing', name: 'ed')
+      b = w.create_button(x: 10, y: 150, w: 200, title: 'buton', name: 'bt')
+      b.click = -> do
+        ui.add_window(
+          x: 10, y: 400, z: 1, w: 1000, h: 400, title: 'Subw', name: 'sub'
+        )
+      end
+      on_update = -> (camera, x, y, obj) do
+        v = camera.world_to_screen(CVector.new(2, 2, 0))
+        obj.text = v[0].to_s + ' ' + v[1].to_s
+      end
+      c.on_update = [on_update, label]
     end
 
     def load(file)
       # @space.load file
     end
 
+    def mouse_move(x, y, right, left, middle)
+      super
+      @space.mouse_move(
+        x,
+        y,
+        right,
+        left,
+        middle)
+    end
+
+
     def render
       super
       @space.init_gl if @space.gl_active == false
       @space.render
-      @space.mouse_move(
-        @main_window.cursor_pos[0],
-        @main_window.cursor_pos[1],
-        @right,
-        @left,
-        @middle)
     end
   end
 end
