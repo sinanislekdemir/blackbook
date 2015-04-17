@@ -98,6 +98,7 @@ module BlackBook
       obj_3.material.color.set(1.0, 0.0, 1.0, 0.5)
       obj_4.material.color.set(0.0, 1.0, 0.0, 1.0)
       obj_5.material.color.set(0.0, 1.0, 1.0, 0.7)
+      obj_1.material.load_texture('../data/texture/t.jpg')
       obj_2.matrix.pos.x = 8.0
       obj_3.matrix.pos.y = 5.0
       obj_3.matrix.pos.z = 6.7

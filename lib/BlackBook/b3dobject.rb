@@ -231,7 +231,7 @@ module BlackBook
     # @param vertex_array [Array] Array of face data. (Creates a QUAD)
     #
     # @return [Boolean]
-    def add_face(vertex_array)
+    def add_face(vertex_array, texcoords = [])
       @faces.push(vertex_array)
     end
 
@@ -285,8 +285,9 @@ module BlackBook
     def build_list
       shader = BlackBook::Registry.instance.read('shader')
       shader = 'displaylist' if shader.nil?
-      v1, v2 = CVector.new(0, 0, 0, 1), CVector.new(0, 0, 0, 1)
-      v3 = CVector.new(0, 0, 0, 1)
+      v1 = CVector.new(0, 0, 0, 1)
+      v2 = v1.clone
+      v3 = v1.clone
       case shader
       when 'displaylist'
         @index = GL.GenLists(1)

@@ -43,7 +43,7 @@ module BlackBook
 
     def initialize(w, h, title, w_multiplier = 1, h_multiplier = 1)
       super
-      BlackBook::Registry.instance.write('shader', 'vbo')
+      BlackBook::Registry.instance.write('shader', 'displaylist')
       BlackBook::Registry.instance.write('grid', true)
       BlackBook::Registry.instance.write('grid_count', 10)
       BlackBook::Registry.instance.write('grid_size', 3)
@@ -58,10 +58,10 @@ module BlackBook
         )
       light = @space.create_light
       light.position.set(5.0, 5.0, 5.0)
-      # @space.add_object(
-      #   filename: 'data/wings.raw',
-      #   name: 'idontknow'
-      #   )
+      @space.add_object(
+        filename: 'data/wings.raw',
+        name: 'idontknow'
+        )
       o = @space.add_object(
         filename: 'data/ground.raw',
         name: 'idontknowground'
@@ -99,7 +99,6 @@ module BlackBook
         left,
         middle)
     end
-
 
     def render
       super
