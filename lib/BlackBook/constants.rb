@@ -235,6 +235,13 @@ module BlackBook
     def to_array
       [x, y, z, w]
     end
+
+    #
+    # Convert CVector into string
+    # @return [String] Array
+    def to_s
+      to_array.to_s
+    end
   end
 
   # CMatrix Class
@@ -292,6 +299,25 @@ module BlackBook
       @dir.set m_3[4], m_3[5], m_3[6], m_3[7]
       @up.set m_3[8], m_3[9], m_3[10], m_3[11]
       m_3
+    end
+  end
+
+  # Keep vertices and texcoords together at indices
+  class CIndice
+    attr_writer :v1, :v2, :v3, :t1, :t2, :t3
+    attr_accessor :v1, :v2, :v3, :t1, :t2, :t3
+
+    def initialize(v1, v2, v3, t1, t2, t3)
+      @v1, @v2, @v3, @t1, @t2, @t3 = v1, v2, v3, t1, t2, t3
+    end
+
+    def to_s
+      v1.to_s + '-' +
+        v2.to_s + '-' +
+        v3.to_s + '|' +
+        t1.to_s + '-' +
+        t2.to_s + '-' +
+        t3.to_s
     end
   end
 

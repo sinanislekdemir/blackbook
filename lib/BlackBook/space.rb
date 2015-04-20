@@ -112,7 +112,15 @@ module BlackBook
     # @return [BB3DObject] 3D Object
     def add_object(options)
       obj = B3DObject.new
-      obj.load_raw(options[:filename]) if options.key?(:filename)
+      if options.key?(:filename)
+        ext = File.extname(options[:filename])
+        case ext
+        when '.raw'
+          obj.load_raw(options[:filename])
+        when '.obj'
+          obj.load_obj(options[:filename])
+        end
+      end
       obj.matrix.position = options[:position] if options.key?(:position)
       obj.time = options[:time] if options.key?(:time)
       name = options.key?(:name) ? options[:name] : SecureRandom.uuid

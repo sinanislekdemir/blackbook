@@ -75,7 +75,9 @@ module BlackBook
     #
     # @return [BB3DObject] return self
     def initialize
-      @faces = []
+      @vertices = []
+      @indices = []
+      @texcoords = []
       @mass, @roll, @pitch, @yaw = 0.0, 0.0, 0.0, 0.0
       @position     = CVector.new(0, 0, 0, 1)
       @scale        = CVector.new(1, 1, 1, 1)
@@ -231,8 +233,15 @@ module BlackBook
     # @param vertex_array [Array] Array of face data. (Creates a QUAD)
     #
     # @return [Boolean]
-    def add_face(vertex_array, texcoords = [])
-      @faces.push(vertex_array)
+    def add_face(v_array)
+      index = @vertices.count
+      v_1 = CVector.new(v_array[0], v_array[1], v_array[2])
+      v_2 = CVector.new(v_array[3], v_array[4], v_array[5])
+      v_3 = CVector.new(v_array[6], v_array[7], v_array[8])
+      @vertices << v_1
+      @vertices << v_2
+      @vertices << v_3
+      @indices << CIndice.new(index, index + 1, index + 2, -1, -1, -1)
     end
 
     #
@@ -293,39 +302,61 @@ module BlackBook
         @index = GL.GenLists(1)
         GL.NewList(@index, GL::COMPILE)
         GL.LineWidth(2)
-        @faces.each do |face|
-          vertex_count = face.count / 3
-          v1.x, v1.y, v1.z = face[0], face[1], face[2]
-          v2.x, v2.y, v2.z = face[3], face[4], face[5]
-          v3.x, v3.y, v3.z = face[6], face[7], face[8]
-          normal = BlackBook.calc_plane_normal(v1, v2, v3)
-          GL.Begin(GL::TRIANGLES)
-          1.upto(vertex_count) do |index|
-            i = (index - 1) * 3
-            GL.Normal3f(normal.x, normal.y, normal.z)
-            GL.Vertex3f(face[i], face[i + 1], face[i + 2])
+        i = 0
+        @indices.each do |indice|
+          v1 = @vertices[indice.v1]
+          v2 = @vertices[indice.v2]
+          v3 = @vertices[indice.v3]
+          tex = false
+          if indice.t1 + indice.t2 + indice.t3 >= 0
+            t1 = @texcoords[indice.t1]
+            t2 = @texcoords[indice.t2]
+            t3 = @texcoords[indice.t3]
+            tex = true
           end
+
+          normal = BlackBook.calc_plane_normal(v1, v2, v3)
+          GL.Begin(GL::QUADS)
+          GL.Normal3f(normal.x, normal.y, normal.z)
+          GL.TexCoord2f(t1.x, t1.y) if tex
+          GL.Vertex3f(v1.x, v1.y, v1.z)
+
+          GL.Normal3f(normal.x, normal.y, normal.z)
+          GL.TexCoord2f(t2.x, t2.y) if tex
+          GL.Vertex3f(v2.x, v2.y, v2.z)
+
+          GL.Normal3f(normal.x, normal.y, normal.z)
+          GL.TexCoord2f(t3.x, t3.y) if tex
+          GL.Vertex3f(v3.x, v3.y, v3.z)
+          GL.Normal3f(normal.x, normal.y, normal.z)
+          GL.TexCoord2f(t1.x, t1.y) if tex
+          GL.Vertex3f(v1.x, v1.y, v1.z)
           GL.End
           update_min_max(v1)
           update_min_max(v2)
           update_min_max(v3)
+          i += 1
         end
         GL.EndList
       when 'vbo'
         @index = GL.GenBuffers(2)
         data = []
         normals = []
-        @faces.each do |face|
-          vertex_count = face.count / 3
-          v1.x, v1.y, v1.z = face[0], face[1], face[2]
-          v2.x, v2.y, v2.z = face[3], face[4], face[5]
-          v3.x, v3.y, v3.z = face[6], face[7], face[8]
+        @indices.each do |indice|
+          v1 = @vertices[indice.v1]
+          v2 = @vertices[indice.v2]
+          v3 = @vertices[indice.v3]
           normal = BlackBook.calc_plane_normal(v1, v2, v3)
-          1.upto(vertex_count) do |index|
-            i = (index - 1) * 3
-            data << face[i]
-            data << face[i + 1]
-            data << face[i + 2]
+          data << v1.x
+          data << v1.y
+          data << v1.z
+          data << v2.x
+          data << v2.y
+          data << v2.z
+          data << v3.x
+          data << v3.y
+          data << v3.z
+          1.upto(3) do |index|
             normals << normal.x
             normals << normal.y
             normals << normal.z
@@ -362,6 +393,7 @@ module BlackBook
 
       GL.PushMatrix
       GL.MultMatrixf(@matrix.to_array)
+
 
       shader = BlackBook::Registry.instance.read('shader')
       shader = 'displaylist' if shader.nil?
@@ -405,6 +437,41 @@ module BlackBook
         add_face f_items
       end
       true
+    end
+
+    #
+    # Load Text based Wavefront Object
+    # This is the obj file type of Blender software (http://www.blender.org/)
+    # @param [String] filename
+    #
+    # @return [Boolean] Return true on success
+    def load_obj(filename)
+      @vertices = []
+      @texcoords = []
+      @indices = []
+      buffer = File.read filename
+      buffer = buffer.split("\n")
+      buffer.each do |line|
+        items = line.split(' ')
+        case items[0]
+        when 'v'
+          @vertices << CVector.new(items[1].to_f, items[2].to_f, items[3].to_f)
+        when 'vt'
+          @texcoords << CVector.new(items[1].to_f, items[2].to_f, 0)
+        when 'f'
+          p1 = items[1].split('/')
+          p2 = items[2].split('/')
+          p3 = items[3].split('/')
+          @indices << CIndice.new(
+            p1[0].to_i - 1,
+            p2[0].to_i - 1,
+            p3[0].to_i - 1,
+            p1[1].to_i - 1,
+            p2[1].to_i - 1,
+            p3[1].to_i - 1
+            )
+        end
+      end
     end
   end
 end

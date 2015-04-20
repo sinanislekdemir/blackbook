@@ -82,6 +82,7 @@ module BlackBook
         BlackBook.draw_circle(@light_draw_radius, 10)
         GL.Rotatef(90.0, 1.0, 0, 0)
         BlackBook.draw_circle(@light_draw_radius, 10)
+        BlackBook.apply_color(CVector.new(255, 255, 255, 1))
         GL.PopMatrix
         GL.Enable(GL::LIGHTING)
       end
