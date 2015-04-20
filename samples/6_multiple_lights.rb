@@ -50,6 +50,7 @@ module BlackBook
       BlackBook::Registry.instance.write('grid', true)
       BlackBook::Registry.instance.write('grid_count', 10)
       BlackBook::Registry.instance.write('grid_size', 3)
+      BlackBook::Registry.instance.write('shader', 'vbo')
       # Create 3D space
       @space = Space.new(
         @window_width * w_multiplier,
@@ -76,11 +77,11 @@ module BlackBook
       # Add our objects
       # You have to give each object a UNIQUE NAME!!!
       obj_1 = @space.add_object(
-        filename: '../data/cube.raw',
+        filename: '../data/cube.obj',
         name: 'cube_object_1'
         )
       obj_2 = @space.add_object(
-        filename: '../data/cube.raw',
+        filename: '../data/cube.obj',
         name: 'cube_object_2'
         )
       obj_3 = @space.add_object(
@@ -96,7 +97,9 @@ module BlackBook
         name: 'cube_object_5'
         )
       obj_1.material.color.set(1.0, 0.0, 0.0, 0.9)
+      obj_1.material.load_texture('../data/texture/t.jpg')
       obj_2.material.color.set(1.0, 1.0, 0.0, 0.3)
+      obj_2.material.load_texture('../data/texture/t.jpg')
       obj_3.material.color.set(1.0, 0.0, 1.0, 0.5)
       obj_4.material.color.set(0.0, 1.0, 0.0, 1.0)
       obj_5.material.color.set(0.0, 1.0, 1.0, 0.7)
@@ -107,6 +110,7 @@ module BlackBook
       obj_4.matrix.pos.z = -4.0
       obj_5.matrix.pos.y = 9.0
       obj_5.matrix.pos.z = 3.0
+
     end
 
     def mouse_move(x, y, right, left, middle)

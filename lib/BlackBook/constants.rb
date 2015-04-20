@@ -304,20 +304,16 @@ module BlackBook
 
   # Keep vertices and texcoords together at indices
   class CIndice
-    attr_writer :v1, :v2, :v3, :t1, :t2, :t3
-    attr_accessor :v1, :v2, :v3, :t1, :t2, :t3
+    attr_writer :vertice_index, :texcoord_index
+    attr_accessor :texcoord_index, :vertice_index
 
-    def initialize(v1, v2, v3, t1, t2, t3)
-      @v1, @v2, @v3, @t1, @t2, @t3 = v1, v2, v3, t1, t2, t3
+    def initialize
+      @vertice_index = []
+      @texcoord_index = []
     end
 
     def to_s
-      v1.to_s + '-' +
-        v2.to_s + '-' +
-        v3.to_s + '|' +
-        t1.to_s + '-' +
-        t2.to_s + '-' +
-        t3.to_s
+      @vertice_index.to_s + '-' + @texcoord_index.to_s
     end
   end
 

@@ -241,7 +241,12 @@ module BlackBook
       @vertices << v_1
       @vertices << v_2
       @vertices << v_3
-      @indices << CIndice.new(index, index + 1, index + 2, -1, -1, -1)
+      indice = CIndice.new
+      indice.vertice_index << index
+      indice.vertice_index << index + 1
+      indice.vertice_index << index + 2
+      indice.vertice_index << index
+      @indices << indice
     end
 
     #
@@ -302,64 +307,51 @@ module BlackBook
         @index = GL.GenLists(1)
         GL.NewList(@index, GL::COMPILE)
         GL.LineWidth(2)
-        i = 0
         @indices.each do |indice|
-          v1 = @vertices[indice.v1]
-          v2 = @vertices[indice.v2]
-          v3 = @vertices[indice.v3]
-          tex = false
-          if indice.t1 + indice.t2 + indice.t3 >= 0
-            t1 = @texcoords[indice.t1]
-            t2 = @texcoords[indice.t2]
-            t3 = @texcoords[indice.t3]
-            tex = true
-          end
-
+          v1 = @vertices[indice.vertice_index[0]]
+          v2 = @vertices[indice.vertice_index[1]]
+          v3 = @vertices[indice.vertice_index[2]]
           normal = BlackBook.calc_plane_normal(v1, v2, v3)
+          tex = indice.texcoord_index.count > 0
           GL.Begin(GL::QUADS)
-          GL.Normal3f(normal.x, normal.y, normal.z)
-          GL.TexCoord2f(t1.x, t1.y) if tex
-          GL.Vertex3f(v1.x, v1.y, v1.z)
+          0.upto(indice.vertice_index.count - 1) do |i|
+            t = indice.texcoord_index.count > 0
+            vertex = @vertices[indice.vertice_index[i]]
+            texcrd = @texcoords[indice.texcoord_index[i]] if t
 
-          GL.Normal3f(normal.x, normal.y, normal.z)
-          GL.TexCoord2f(t2.x, t2.y) if tex
-          GL.Vertex3f(v2.x, v2.y, v2.z)
-
-          GL.Normal3f(normal.x, normal.y, normal.z)
-          GL.TexCoord2f(t3.x, t3.y) if tex
-          GL.Vertex3f(v3.x, v3.y, v3.z)
-          GL.Normal3f(normal.x, normal.y, normal.z)
-          GL.TexCoord2f(t1.x, t1.y) if tex
-          GL.Vertex3f(v1.x, v1.y, v1.z)
+            GL.Normal3f(normal.x, normal.y, normal.z)
+            GL.TexCoord2f(texcrd.x, texcrd.y) if t
+            GL.Vertex3f(vertex.x, vertex.y, vertex.z)
+          end
           GL.End
           update_min_max(v1)
           update_min_max(v2)
           update_min_max(v3)
-          i += 1
         end
         GL.EndList
       when 'vbo'
-        @index = GL.GenBuffers(2)
+        @index = GL.GenBuffers(3)
         data = []
         normals = []
+        textures = []
         @indices.each do |indice|
-          v1 = @vertices[indice.v1]
-          v2 = @vertices[indice.v2]
-          v3 = @vertices[indice.v3]
+          v1 = @vertices[indice.vertice_index[0]]
+          v2 = @vertices[indice.vertice_index[1]]
+          v3 = @vertices[indice.vertice_index[2]]
           normal = BlackBook.calc_plane_normal(v1, v2, v3)
-          data << v1.x
-          data << v1.y
-          data << v1.z
-          data << v2.x
-          data << v2.y
-          data << v2.z
-          data << v3.x
-          data << v3.y
-          data << v3.z
-          1.upto(3) do |index|
+          tex = indice.texcoord_index.count > 0
+          0.upto(indice.vertice_index.count - 1) do |i|
+            @t = indice.texcoord_index.count > 0
+            vertex = @vertices[indice.vertice_index[i]]
+            texcrd = @texcoords[indice.texcoord_index[i]] if @t
+            data << vertex.x
+            data << vertex.y
+            data << vertex.z
             normals << normal.x
             normals << normal.y
             normals << normal.z
+            textures << texcrd.x if @t
+            textures << texcrd.y if @t
           end
           update_min_max(v1)
           update_min_max(v2)
@@ -379,6 +371,12 @@ module BlackBook
           normals.pack('f*'),
           GL::GL_STATIC_DRAW
           )
+        GL.BindBuffer(GL::GL_ARRAY_BUFFER, @index[2])
+        GL.BufferData(
+          GL::GL_ARRAY_BUFFER,
+          textures.length * 4,
+          textures.pack('f*'),
+          GL::GL_STATIC_DRAW)
       end
     end
 
@@ -403,14 +401,18 @@ module BlackBook
       when 'vbo'
         GL.EnableClientState(GL::GL_VERTEX_ARRAY)
         GL.EnableClientState(GL::GL_NORMAL_ARRAY)
+        GL.EnableClientState(GL::GL_TEXTURE_COORD_ARRAY)
         GL.BindBuffer(GL::GL_ARRAY_BUFFER, @index[0])
         GL.VertexPointer(3, GL::GL_FLOAT, 0, 0)
         GL.BindBuffer(GL::GL_ARRAY_BUFFER, @index[1])
         GL.NormalPointer(GL::GL_FLOAT, 0, 0)
-        GL.DrawArrays(GL::GL_TRIANGLES, 0, @data_size / 3)
+        GL.BindBuffer(GL::GL_ARRAY_BUFFER, @index[2])
+        GL.TexCoordPointer(2, GL::GL_FLOAT, 0, 0)
+        GL.DrawArrays(GL::GL_QUADS, 0, @data_size / 3)
         # GL.DrawElements(GL::TRIANGLES, @data_size / 3, GL::UNSIGNED_SHORT, 0)
         GL.DisableClientState(GL::GL_VERTEX_ARRAY)
         GL.DisableClientState(GL::GL_NORMAL_ARRAY)
+        GL.DisableClientState(GL::GL_TEXTURE_COORD_ARRAY)
         GL.Flush
       end
 
@@ -459,17 +461,14 @@ module BlackBook
         when 'vt'
           @texcoords << CVector.new(items[1].to_f, items[2].to_f, 0)
         when 'f'
-          p1 = items[1].split('/')
-          p2 = items[2].split('/')
-          p3 = items[3].split('/')
-          @indices << CIndice.new(
-            p1[0].to_i - 1,
-            p2[0].to_i - 1,
-            p3[0].to_i - 1,
-            p1[1].to_i - 1,
-            p2[1].to_i - 1,
-            p3[1].to_i - 1
-            )
+          indice = CIndice.new
+          items.each do |item|
+            next if item == 'f'
+            p = item.split '/'
+            indice.vertice_index << p[0].to_i - 1
+            indice.texcoord_index << p[1].to_i - 1
+          end
+          @indices << indice
         end
       end
     end

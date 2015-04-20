@@ -77,11 +77,11 @@ module BlackBook
       # Add our objects
       # You have to give each object a UNIQUE NAME!!!
       @space.add_object(
-        filename: '../data/cube.raw',
+        filename: '../data/cube.obj',
         name: 'cube_object_1'
         )
       obj_2 = @space.add_object(
-        filename: '../data/cube.raw',
+        filename: '../data/cube.obj',
         name: 'cube_object_2'
         )
       obj_3 = @space.add_object(
