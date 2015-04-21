@@ -83,6 +83,7 @@ module BlackBook
     #
     # @return [Boolean]
     def engine_start
+      Glfw::Window.window_hint(Glfw::SAMPLES, 4)
       @main_window = Glfw::Window.new(@window_width, @window_height, @title)
       fail 'Unable to create window' if @main_window.nil?
       @main_window.close_callback = -> (window) { window.should_close = true }

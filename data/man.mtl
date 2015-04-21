@@ -9,4 +9,4 @@ Ks 0.500000 0.500000 0.500000
 Ni 1.000000
 d 1.000000
 illum 2
-map_Kd /Users/sinan/Downloads/231b6be3d61c8db18f63728cc888c2b0/CMAN0004.TIF
+map_Kd texture/man.png

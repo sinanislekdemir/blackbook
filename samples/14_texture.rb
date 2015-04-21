@@ -58,11 +58,11 @@ module BlackBook
         )
       # Add camera to space
       # Eye position
-      eye = CVector.new 20.0, 20.0, 20.0
+      eye = CVector.new 13.0, 13.0, 13.0
       # Camera UP is Z
       up  = CVector.new 0.0, 0.0, 1.0
       # Camera target is origin
-      target = CVector.new 0.0, 0.0, 0.0
+      target = CVector.new 0.0, 0.0, 4.0
       @space.add_camera(
         eye_position: eye,
         up: up,
@@ -70,49 +70,18 @@ module BlackBook
         )
       # Add a light to scene
       light = @space.create_light
-      light.position.set(10.0, 5.0, 10.0)
+      light.position.set(-10.0, -15.0, 10.0)
 
       light_2 = @space.create_light
-      light_2.position.set(-10.0, -5.0, 10.0)
+      light_2.position.set(5.0, -5.0, 10.0)
       # Add our objects
       # You have to give each object a UNIQUE NAME!!!
       obj_1 = @space.add_object(
-        filename: '../data/cube.obj',
+        filename: '../data/man.obj',
         name: 'cube_object_1'
         )
-      obj_2 = @space.add_object(
-        filename: '../data/cube.obj',
-        name: 'cube_object_2'
-        )
-      obj_3 = @space.add_object(
-        filename: '../data/cube.obj',
-        name: 'cube_object_3'
-        )
-      obj_4 = @space.add_object(
-        filename: '../data/cube.obj',
-        name: 'cube_object_4'
-        )
-      obj_5 = @space.add_object(
-        filename: '../data/cube.obj',
-        name: 'cube_object_5'
-        )
-      obj_1.material.color.set(1.0, 0.0, 0.0, 0.9)
-      obj_1.material.load_texture('../data/texture/wood.png')
-      obj_2.material.color.set(1.0, 1.0, 0.0, 0.3)
-      obj_2.material.load_texture('../data/texture/wood.png')
-      obj_3.material.color.set(1.0, 0.0, 1.0, 0.5)
-      obj_3.material.load_texture('../data/texture/wood.png')
-      obj_4.material.color.set(0.0, 1.0, 0.0, 1.0)
-      obj_4.material.load_texture('../data/texture/wood.png')
-      obj_5.material.color.set(0.0, 1.0, 1.0, 0.7)
-      obj_5.material.load_texture('../data/texture/wood.png')
-
-      obj_2.matrix.pos.x = 8.0
-      obj_3.matrix.pos.y = 5.0
-      obj_3.matrix.pos.z = 6.7
-      obj_4.matrix.pos.z = -4.0
-      obj_5.matrix.pos.y = 9.0
-      obj_5.matrix.pos.z = 3.0
+      obj_1.material.color.set(1.0, 1.0, 1.0, 1.0)
+      obj_1.material.load_texture('../data/texture/man.png')
     end
 
     def mouse_move(x, y, right, left, middle)

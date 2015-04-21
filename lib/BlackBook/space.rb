@@ -188,6 +188,7 @@ module BlackBook
       GL.ClearDepth(1.0)
       GL.DepthFunc(GL::LESS)
       GL.Enable(GL::DEPTH_TEST)
+      GL.Enable(GL::MULTISAMPLE)
       GL.ShadeModel(GL::SMOOTH)
       GL.MatrixMode(GL::PROJECTION)
       GL.LoadIdentity

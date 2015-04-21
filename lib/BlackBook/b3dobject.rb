@@ -312,8 +312,7 @@ module BlackBook
           v2 = @vertices[indice.vertice_index[1]]
           v3 = @vertices[indice.vertice_index[2]]
           normal = BlackBook.calc_plane_normal(v1, v2, v3)
-          tex = indice.texcoord_index.count > 0
-          GL.Begin(GL::QUADS)
+          GL.Begin(GL::TRIANGLES)
           0.upto(indice.vertice_index.count - 1) do |i|
             t = indice.texcoord_index.count > 0
             vertex = @vertices[indice.vertice_index[i]]
@@ -339,7 +338,6 @@ module BlackBook
           v2 = @vertices[indice.vertice_index[1]]
           v3 = @vertices[indice.vertice_index[2]]
           normal = BlackBook.calc_plane_normal(v1, v2, v3)
-          tex = indice.texcoord_index.count > 0
           0.upto(indice.vertice_index.count - 1) do |i|
             @t = indice.texcoord_index.count > 0
             vertex = @vertices[indice.vertice_index[i]]
@@ -377,6 +375,12 @@ module BlackBook
           textures.length * 4,
           textures.pack('f*'),
           GL::GL_STATIC_DRAW)
+        data.clear
+        normals.clear
+        textures.clear
+        @indices.clear
+        @texcoords.clear
+        @vertices.clear
       end
     end
 
@@ -391,7 +395,6 @@ module BlackBook
 
       GL.PushMatrix
       GL.MultMatrixf(@matrix.to_array)
-
 
       shader = BlackBook::Registry.instance.read('shader')
       shader = 'displaylist' if shader.nil?

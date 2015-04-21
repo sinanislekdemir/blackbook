@@ -7,6 +7,8 @@ About the project
 BlackBook is a pure Ruby 3D Library that aims developers to write their 3D applications with ease of Ruby. Please keep in mind that, this project is still a **work in progress** and is **not suitable to use** I suppose. But try it for yourself. Feel free to fix it, improve it and be a contributor for the project.
 
 
+![alt tag](https://raw.github.com/sinanislekdemir/blackbook/master/sample.png)
+
 Documents
 -------------
 
