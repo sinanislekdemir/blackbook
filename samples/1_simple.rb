@@ -43,13 +43,13 @@ module BlackBook
     attr_accessor :space
     attr_writer :space
 
-    def initialize(w, h, title, w_multiplier = 1, h_multiplier = 1)
+    def initialize(w, h, title)
       # First initialize BlackBook Engine
       super
       # Create 3D space
       @space = Space.new(
-        @window_width * w_multiplier,
-        @window_height * h_multiplier
+        @viewport_x,
+        @viewport_y
         )
     end
 
@@ -62,4 +62,4 @@ module BlackBook
   end
 end
 
-BlackBook::Main.new(800, 600, 'BlackBook Sample').engine_start
+BlackBook::Main.new(800, 600, 'BlackBook Sample').engine_loop

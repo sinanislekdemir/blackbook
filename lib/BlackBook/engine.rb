@@ -49,10 +49,12 @@ module BlackBook
   # @attr spaces [Array] Array Of BBSpace
   #
   class Engine < Base
-    attr_accessor :window_width, :window_height, :title, :w_m, :h_m,
-                  :left, :right, :middle, :main_window, :spaces
-    attr_writer :window_width, :window_height, :title, :w_m, :h_m,
-                :left, :right, :middle, :main_window, :spaces
+    attr_accessor :window_width, :window_height, :title,
+                  :left, :right, :middle, :main_window, :spaces,
+                  :viewport_x, :viewport_y
+    attr_writer :window_width, :window_height, :title,
+                :left, :right, :middle, :main_window, :spaces,
+                :viewport_x, :viewport_y
 
     #
     # Initialize BBEngine
@@ -69,12 +71,11 @@ module BlackBook
       @window_width = w
       @window_height = h
       @title = title
-      @h_m = h_m
-      @w_m = w_m
       @left = 0
       @right = 0
       @middle = 0
       @spaces = []
+      engine_start
       true
     end
 
@@ -85,6 +86,8 @@ module BlackBook
     def engine_start
       Glfw::Window.window_hint(Glfw::SAMPLES, 4)
       @main_window = Glfw::Window.new(@window_width, @window_height, @title)
+      @viewport_x = @main_window.framebuffer_size[0]
+      @viewport_y = @main_window.framebuffer_size[1]
       fail 'Unable to create window' if @main_window.nil?
       @main_window.close_callback = -> (window) { window.should_close = true }
       @main_window.mouse_button_callback = lambda { |_window, r, l, m|
@@ -93,7 +96,6 @@ module BlackBook
       @main_window.char_callback = -> (window, char) do
         puts char.chr
       end
-      engine_loop
       true
     end
 

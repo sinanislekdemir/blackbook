@@ -43,7 +43,7 @@ module BlackBook
     attr_accessor :space
     attr_writer :space
 
-    def initialize(w, h, title, w_multiplier = 1, h_multiplier = 1)
+    def initialize(w, h, title)
       # First initialize BlackBook Engine
       super
       # Enable GRID for the scene
@@ -53,8 +53,8 @@ module BlackBook
 
       # Create 3D space
       @space = Space.new(
-        @window_width * w_multiplier,
-        @window_height * h_multiplier
+        @viewport_x,
+        @viewport_y
         )
       # Add camera to space
       # Eye position
@@ -98,7 +98,7 @@ module BlackBook
       obj_3.material.color.set(1.0, 0.0, 1.0, 1.0)
       obj_4.material.color.set(0.0, 1.0, 0.0, 1.0)
       obj_5.material.color.set(0.0, 1.0, 1.0, 1.0)
-      obj_1.material.load_texture('../data/texture/t.jpg')
+      obj_1.material.load_texture('../data/texture/x.jpg')
       obj_2.matrix.pos.x = 8.0
       obj_3.matrix.pos.y = 5.0
       obj_3.matrix.pos.z = 6.7
@@ -111,8 +111,8 @@ module BlackBook
     def mouse_move(x, y, right, left, middle)
       super
       @space.mouse_move(
-        x,
-        y,
+        x * (@viewport_x / @window_width),
+        y * (@viewport_y / @window_height),
         right,
         left,
         middle)
@@ -127,15 +127,8 @@ module BlackBook
   end
 end
 
-# On Macbook Pro, window multipliers has to be set to 2
-# On other systems set it to 1
-# Can someone please explain this and show me how to fix that?
-window_multiplier_x = 2
-window_multiplier_y = 2
 BlackBook::Main.new(
   800,
   600,
-  'BlackBook Sample',
-  window_multiplier_x,
-  window_multiplier_y
-  ).engine_start
+  'BlackBook Sample'
+  ).engine_loop
