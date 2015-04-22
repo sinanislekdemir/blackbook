@@ -41,7 +41,7 @@ module BlackBook
     attr_accessor :space, :space2
     attr_writer :space, :space2
 
-    def initialize(w, h, title, w_multiplier = 1, h_multiplier = 1)
+    def initialize(w, h, title)
       super
       BlackBook::Registry.instance.write('shader', 'displaylist')
       BlackBook::Registry.instance.write('grid', true)
@@ -49,8 +49,8 @@ module BlackBook
       BlackBook::Registry.instance.write('grid_size', 3)
 
       @space = Space.new(
-        @window_width * w_multiplier,
-        @window_height * h_multiplier)
+        @viewport_x,
+        @viewport_y)
       c = @space.add_camera(
         eye_position: CVector.new(10.0, 10.0, 10.0),
         up: CVector.new(0.0, 0.0, 1.0),
@@ -93,8 +93,8 @@ module BlackBook
     def mouse_move(x, y, right, left, middle)
       super
       @space.mouse_move(
-        x,
-        y,
+        x * (@viewport_x / @window_width),
+        y * (@viewport_y / @window_height),
         right,
         left,
         middle)
@@ -110,7 +110,7 @@ end
 
 # buffer = File.read('data/engine_conf.json')
 # d = JSON.parse buffer
-w = BlackBook::Main.new(800, 600, 'BlackBook Project', 2, 2)
+w = BlackBook::Main.new(800, 600, 'BlackBook Project')
 # w.load d['load']
 
-w.engine_start
+w.engine_loop
