@@ -27,9 +27,9 @@ Registry
 There are some global variables that you might need to define in your application setup;
 
     BlackBook::Registry.instance.write('grid', true)            # Draw grid
-    BlackBook::Registry.instance.write('grid_count', 100)      # Grid line count
-    BlackBook::Registry.instance.write('grid_size', 2)      # Grid line count
-    BlackBook::Registry.instance.write('data_path', '../data') # Data path, especially needed for fonts.
+    BlackBook::Registry.instance.write('grid_count', 100)       # Grid line count
+    BlackBook::Registry.instance.write('grid_size', 2)          # Grid line size
+    BlackBook::Registry.instance.write('data_path', '../data')  # Data path, especially needed for fonts.
     BlackBook::Registry.instance.write('shader', 'vbo')         # Set object shading to Virtual Buffer Objects
     BlackBook::Registry.instance.write('shader', 'displaylist') # Set object shading to display lists
 
@@ -38,6 +38,14 @@ There are some global variables that you might need to define in your applicatio
 RAW Object Files
 ----------------
 3D Raw Object files are simply exports from Blender3D as raw text format.
+
+OBJ Object Files
+----------------
+Wavefront Object files are simply exports from Blender3D as Wavefront Obj format.
+
+**Do not forget to set Front and Up axis for export!**
+
+![alt tag](https://raw.github.com/sinanislekdemir/blackbook/master/obj_export.png)
 
 
 Syntax Control
