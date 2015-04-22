@@ -469,7 +469,7 @@ module BlackBook
             next if item == 'f'
             p = item.split '/'
             indice.vertice_index << p[0].to_i - 1
-            indice.texcoord_index << p[1].to_i - 1
+            indice.texcoord_index << p[1].to_i - 1 unless p[1].nil?
           end
           @indices << indice
         end
