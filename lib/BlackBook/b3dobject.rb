@@ -117,11 +117,8 @@ module BlackBook
     # @param [CMatrix] Absolute Matrix
     # @return [CVector] Absolute Vector
     def local_to_absolute(v)
-      # @matrix[3][0] = @position.x
-      # @matrix[3][1] = @position.y
-      # @matrix[3][2] = @position.z
-      # v = BlackBook.vector_transform(v, @matrix)
-      # v
+      v = BlackBook.vector_transform(v, @matrix.to_f)
+      v
     end
 
     # rotate object

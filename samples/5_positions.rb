@@ -98,14 +98,15 @@ module BlackBook
       obj_3.material.color.set(1.0, 0.0, 1.0, 1.0)
       obj_4.material.color.set(0.0, 1.0, 0.0, 1.0)
       obj_5.material.color.set(0.0, 1.0, 1.0, 1.0)
-      obj_1.material.load_texture('../data/texture/x.jpg')
+      obj_1.material.load_texture('../data/texture/wood.png')
       obj_2.matrix.pos.x = 8.0
       obj_3.matrix.pos.y = 5.0
       obj_3.matrix.pos.z = 6.7
       obj_4.matrix.pos.z = -4.0
       obj_5.matrix.pos.y = 9.0
       obj_5.matrix.pos.z = 3.0
-      obj_1.rotate(180, 90, 0)
+      obj_1.rotate(0, 0, 90)
+      puts obj_1.local_to_absolute(CVector.new(10, 0, 0))
     end
 
     def mouse_move(x, y, right, left, middle)

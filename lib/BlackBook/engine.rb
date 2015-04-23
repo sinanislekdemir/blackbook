@@ -94,9 +94,12 @@ module BlackBook
         @right, @left, @middle = r, l, m
       }
       @main_window.char_callback = -> (window, char) do
-        puts char.chr
+        keypress(char.chr)
       end
       true
+    end
+
+    def keypress(chr)
     end
 
     #

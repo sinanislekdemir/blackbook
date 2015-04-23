@@ -53,6 +53,10 @@ module BlackBook
       @start = Time.now.to_f
     end
 
+    def reset_lasttime
+      @last_time = Time.now.to_f
+    end
+
     # calculate time dilation caused by velocity
     def time_dilation(velocity)
       calc_time

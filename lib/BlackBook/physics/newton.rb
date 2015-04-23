@@ -201,14 +201,17 @@ module BlackBook
       @collisions = []
       # Everything leads to position changes
       # From acceleration to velocity, from velocity to displacement
-      @space.items[:objects].each do |name, obj|
-        @space.items[:objects].each do |name2, obj2|
-          if name2 != name
-            if c.test(obj, obj2)
-              obj.material.color.set(1.0, 1.0, 1.0, 1.0)
-              obj2.material.color.set(1.0, 1.0, 1.0, 1.0)
-              @collisions << c
-            end
+      keys = @space.items[:objects].keys
+      @space.items[:objects].map { |name, obj| obj.material.color.set(0.2, 0.2, 0.2, 1) }
+      0.upto(keys.count - 1) do |i|
+        obj = @space.items[:objects][keys[i]]
+        (i + 1).upto(keys.count - 1) do |j|
+          obj2 = @space.items[:objects][keys[j]]
+          if c.test(obj, obj2)
+            puts [i, j].to_s
+            obj.material.color.set(1.0, 1.0, 1.0, 1.0)
+            obj2.material.color.set(1.0, 1.0, 1.0, 1.0)
+            @collisions << c
           end
         end
         next if obj.mass == 0

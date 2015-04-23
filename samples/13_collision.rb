@@ -46,10 +46,12 @@ module BlackBook
     def initialize(w, h, title)
       # First initialize BlackBook Engine
       super
+      @animate = false
       # Enable GRID for the scene
       BlackBook::Registry.instance.write('grid', true)
       BlackBook::Registry.instance.write('grid_count', 10)
       BlackBook::Registry.instance.write('grid_size', 3)
+      BlackBook::Registry.instance.write('collision_algorithm', 'AABB')
 
       # Create 3D space
       @space = Space.new(
@@ -77,10 +79,6 @@ module BlackBook
         filename: '../data/cube.raw',
         name: 'cube_object_1'
         )
-      obj_2 = @space.add_object(
-        filename: '../data/cube.raw',
-        name: 'cube_object_2'
-        )
       obj_3 = @space.add_object(
         filename: '../data/cube.raw',
         name: 'cube_object_3'
@@ -89,25 +87,13 @@ module BlackBook
         filename: '../data/cube.raw',
         name: 'cube_object_4'
         )
-      obj_5 = @space.add_object(
-        filename: '../data/cube.raw',
-        name: 'cube_object_5'
-        )
       obj_1.material.color.set(1.0, 0.0, 0.0, 0.9)
-      obj_2.material.color.set(1.0, 1.0, 0.0, 0.3)
       obj_3.material.color.set(1.0, 0.0, 1.0, 0.5)
       obj_4.material.color.set(0.0, 1.0, 0.0, 1.0)
-      obj_5.material.color.set(0.0, 1.0, 1.0, 0.7)
       obj_1.mass = 0.0
-      obj_2.mass = 1.0
       obj_3.mass = 1.0
       obj_4.mass = 1.0
-      obj_5.mass = 1.0
-      obj_2.matrix.pos.x = 8.0
-      obj_3.matrix.pos.y = 5.0
-      obj_3.matrix.pos.z = 6.7
-      obj_5.matrix.pos.y = 9.0
-      obj_5.matrix.pos.z = 3.0
+      obj_4.matrix.pos.z = 7.0
       @physics = BlackBook::Newton.new(@space)
       gravity = -0.80665
       @physics.add_variable(
@@ -132,9 +118,14 @@ module BlackBook
       super
       # Initialize space if gl is not active
       @space.init_gl unless @space.gl_active
-      @physics.step(@physics.global_time.step)
+      @physics.step(@physics.global_time.step) if @animate
       @space.render
-      @physics.global_time.reset_time
+      @physics.global_time.reset_time if @animate
+    end
+
+    def keypress(chr)
+      @animate = !@animate if chr == ' '
+      @physics.global_time.reset_lasttime
     end
   end
 end

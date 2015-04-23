@@ -262,6 +262,10 @@ module BlackBook
       m.flatten
     end
 
+    def to_f
+      [left.to_array, dir.to_array, up.to_array, pos.to_array]
+    end
+
     def rotate(x, y, z)
       m = to_array
       x = BlackBook.deg_to_rad x
