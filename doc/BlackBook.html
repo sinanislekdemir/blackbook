@@ -111,7 +111,7 @@
     
   
     
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="BlackBook/B3DObject.html" title="BlackBook::B3DObject (class)">B3DObject</a></span>, <span class='object_link'><a href="BlackBook/Base.html" title="BlackBook::Base (class)">Base</a></span>, <span class='object_link'><a href="BlackBook/CAcceleration.html" title="BlackBook::CAcceleration (class)">CAcceleration</a></span>, <span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span>, <span class='object_link'><a href="BlackBook/CVelocity.html" title="BlackBook::CVelocity (class)">CVelocity</a></span>, <span class='object_link'><a href="BlackBook/Camera.html" title="BlackBook::Camera (class)">Camera</a></span>, <span class='object_link'><a href="BlackBook/Collision.html" title="BlackBook::Collision (class)">Collision</a></span>, <span class='object_link'><a href="BlackBook/Engine.html" title="BlackBook::Engine (class)">Engine</a></span>, <span class='object_link'><a href="BlackBook/Light.html" title="BlackBook::Light (class)">Light</a></span>, <span class='object_link'><a href="BlackBook/Logger.html" title="BlackBook::Logger (class)">Logger</a></span>, <span class='object_link'><a href="BlackBook/Material.html" title="BlackBook::Material (class)">Material</a></span>, <span class='object_link'><a href="BlackBook/Newton.html" title="BlackBook::Newton (class)">Newton</a></span>, <span class='object_link'><a href="BlackBook/Physics.html" title="BlackBook::Physics (class)">Physics</a></span>, <span class='object_link'><a href="BlackBook/Registry.html" title="BlackBook::Registry (class)">Registry</a></span>, <span class='object_link'><a href="BlackBook/STime.html" title="BlackBook::STime (class)">STime</a></span>, <span class='object_link'><a href="BlackBook/Space.html" title="BlackBook::Space (class)">Space</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="BlackBook/B3DObject.html" title="BlackBook::B3DObject (class)">B3DObject</a></span>, <span class='object_link'><a href="BlackBook/Base.html" title="BlackBook::Base (class)">Base</a></span>, <span class='object_link'><a href="BlackBook/CAcceleration.html" title="BlackBook::CAcceleration (class)">CAcceleration</a></span>, <span class='object_link'><a href="BlackBook/CIndice.html" title="BlackBook::CIndice (class)">CIndice</a></span>, <span class='object_link'><a href="BlackBook/CMatrix.html" title="BlackBook::CMatrix (class)">CMatrix</a></span>, <span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span>, <span class='object_link'><a href="BlackBook/CVelocity.html" title="BlackBook::CVelocity (class)">CVelocity</a></span>, <span class='object_link'><a href="BlackBook/Camera.html" title="BlackBook::Camera (class)">Camera</a></span>, <span class='object_link'><a href="BlackBook/Collision.html" title="BlackBook::Collision (class)">Collision</a></span>, <span class='object_link'><a href="BlackBook/Engine.html" title="BlackBook::Engine (class)">Engine</a></span>, <span class='object_link'><a href="BlackBook/Light.html" title="BlackBook::Light (class)">Light</a></span>, <span class='object_link'><a href="BlackBook/Logger.html" title="BlackBook::Logger (class)">Logger</a></span>, <span class='object_link'><a href="BlackBook/Material.html" title="BlackBook::Material (class)">Material</a></span>, <span class='object_link'><a href="BlackBook/Newton.html" title="BlackBook::Newton (class)">Newton</a></span>, <span class='object_link'><a href="BlackBook/Physics.html" title="BlackBook::Physics (class)">Physics</a></span>, <span class='object_link'><a href="BlackBook/Registry.html" title="BlackBook::Registry (class)">Registry</a></span>, <span class='object_link'><a href="BlackBook/STime.html" title="BlackBook::STime (class)">STime</a></span>, <span class='object_link'><a href="BlackBook/Space.html" title="BlackBook::Space (class)">Space</a></span>
     
   
 </p>
@@ -630,7 +630,7 @@ usage.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#raycase_plane_intersect-instance_method" title="#raycase_plane_intersect (instance method)">- (Hash) <strong>raycase_plane_intersect</strong>(ray_start, ray_vector, plane_point, plane_normal) </a>
+      <a href="#raycast_plane_intersect-instance_method" title="#raycast_plane_intersect (instance method)">- (Hash) <strong>raycast_plane_intersect</strong>(ray_start, ray_vector, plane_point, plane_normal) </a>
     
 
     
@@ -694,6 +694,30 @@ usage.</p>
   
     <span class="summary_desc"><div class='inline'>
 <p>Vector combine.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#vector_transform-instance_method" title="#vector_transform (instance method)">- (Object) <strong>vector_transform</strong>(v, m) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Transform vector by matrix.</p>
 </div></span>
   
 </li>
@@ -3309,9 +3333,9 @@ usage</p>
 </div>
     
       <div class="method_details ">
-  <h3 class="signature " id="raycase_plane_intersect-instance_method">
+  <h3 class="signature " id="raycast_plane_intersect-instance_method">
   
-    - (<tt>Hash</tt>) <strong>raycase_plane_intersect</strong>(ray_start, ray_vector, plane_point, plane_normal) 
+    - (<tt>Hash</tt>) <strong>raycast_plane_intersect</strong>(ray_start, ray_vector, plane_point, plane_normal) 
   
 
   
@@ -3425,7 +3449,7 @@ usage</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 642</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_raycase_plane_intersect'>raycase_plane_intersect</span><span class='lparen'>(</span><span class='id identifier rubyid_ray_start'>ray_start</span><span class='comma'>,</span> <span class='id identifier rubyid_ray_vector'>ray_vector</span><span class='comma'>,</span> <span class='id identifier rubyid_plane_point'>plane_point</span><span class='comma'>,</span> <span class='id identifier rubyid_plane_normal'>plane_normal</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_raycast_plane_intersect'>raycast_plane_intersect</span><span class='lparen'>(</span><span class='id identifier rubyid_ray_start'>ray_start</span><span class='comma'>,</span> <span class='id identifier rubyid_ray_vector'>ray_vector</span><span class='comma'>,</span> <span class='id identifier rubyid_plane_point'>plane_point</span><span class='comma'>,</span> <span class='id identifier rubyid_plane_normal'>plane_normal</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
   <span class='id identifier rubyid_result'>result</span><span class='lbracket'>[</span><span class='symbol'>:point</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>0</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_e2'>e2</span> <span class='op'>=</span> <span class='float'>1e-30</span>
@@ -3767,12 +3791,89 @@ usage</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="vector_transform-instance_method">
+  
+    - (<tt>Object</tt>) <strong>vector_transform</strong>(v, m) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Transform vector by matrix</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>Vector</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="BlackBook/CVector.html" title="BlackBook::CVector (class)">CVector</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>Matrix</span>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+686
+687
+688
+689
+690
+691
+692
+693</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/functions.rb', line 686</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_vector_transform'>vector_transform</span><span class='lparen'>(</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>CVector</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='comma'>,</span> <span class='float'>0.0</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_w'>w</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_w'>w</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_w'>w</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_w'>w</span> <span class='op'>=</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_x'>x</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_y'>y</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_z'>z</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>2</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_v'>v</span><span class='period'>.</span><span class='id identifier rubyid_w'>w</span> <span class='op'>*</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='int'>3</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Thu Apr  2 22:26:01 2015 by
+  Generated on Sat Apr 25 16:00:35 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

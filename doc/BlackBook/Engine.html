@@ -327,6 +327,60 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#viewport_x-instance_method" title="#viewport_x (instance method)">- (Object) <strong>viewport_x</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute viewport_x.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#viewport_y-instance_method" title="#viewport_y (instance method)">- (Object) <strong>viewport_y</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute viewport_y.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#w_m-instance_method" title="#w_m (instance method)">- (Integer) <strong>w_m</strong> </a>
     
 
@@ -524,6 +578,52 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#keypress-instance_method" title="#keypress (instance method)">- (Object) <strong>keypress</strong>(chr) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mouse_move-instance_method" title="#mouse_move (instance method)">- (nil) <strong>mouse_move</strong>(x, y, right, left, middle) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Mouse move meta func.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#render-instance_method" title="#render (instance method)">- (Object) <strong>render</strong> </a>
     
 
@@ -671,8 +771,6 @@
       <pre class="lines">
 
 
-66
-67
 68
 69
 70
@@ -684,10 +782,11 @@
 76
 77
 78
-79</pre>
+79
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_w'>w</span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span><span class='comma'>,</span> <span class='id identifier rubyid_title'>title</span><span class='comma'>,</span> <span class='id identifier rubyid_w_m'>w_m</span> <span class='op'>=</span> <span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_h_m'>h_m</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -695,12 +794,11 @@
   <span class='ivar'>@window_width</span> <span class='op'>=</span> <span class='id identifier rubyid_w'>w</span>
   <span class='ivar'>@window_height</span> <span class='op'>=</span> <span class='id identifier rubyid_h'>h</span>
   <span class='ivar'>@title</span> <span class='op'>=</span> <span class='id identifier rubyid_title'>title</span>
-  <span class='ivar'>@h_m</span> <span class='op'>=</span> <span class='id identifier rubyid_h_m'>h_m</span>
-  <span class='ivar'>@w_m</span> <span class='op'>=</span> <span class='id identifier rubyid_w_m'>w_m</span>
   <span class='ivar'>@left</span> <span class='op'>=</span> <span class='int'>0</span>
   <span class='ivar'>@right</span> <span class='op'>=</span> <span class='int'>0</span>
   <span class='ivar'>@middle</span> <span class='op'>=</span> <span class='int'>0</span>
   <span class='ivar'>@spaces</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_engine_start'>engine_start</span>
   <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1141,6 +1239,92 @@
 </div>
     
       
+      <span id="viewport_x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="viewport_x-instance_method">
+  
+    - (<tt>Object</tt>) <strong>viewport_x</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute viewport_x</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_viewport_x'>viewport_x</span>
+  <span class='ivar'>@viewport_x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="viewport_y=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="viewport_y-instance_method">
+  
+    - (<tt>Object</tt>) <strong>viewport_y</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute viewport_y</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_viewport_y'>viewport_y</span>
+  <span class='ivar'>@viewport_y</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
       <span id="w_m=-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="w_m-instance_method">
@@ -1374,13 +1558,13 @@
       <pre class="lines">
 
 
-125
-126
-127
-128</pre>
+142
+143
+144
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 125</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 142</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_engine_end'>engine_end</span>
   <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
@@ -1435,27 +1619,39 @@
       <pre class="lines">
 
 
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119</pre>
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_engine_loop'>engine_loop</span>
   <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_make_context_current'>make_context_current</span>
   <span class='kw'>until</span> <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_should_close?'>should_close?</span>
-    <span class='const'>Glfw</span><span class='period'>.</span><span class='id identifier rubyid_wait_events'>wait_events</span>
+    <span class='id identifier rubyid_mouse_move'>mouse_move</span><span class='lparen'>(</span>
+      <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_cursor_pos'>cursor_pos</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_cursor_pos'>cursor_pos</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='ivar'>@right</span><span class='comma'>,</span>
+      <span class='ivar'>@left</span><span class='comma'>,</span>
+      <span class='ivar'>@middle</span><span class='rparen'>)</span>
     <span class='const'>GL</span><span class='period'>.</span><span class='const'>Clear</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>COLOR_BUFFER_BIT</span> <span class='op'>|</span> <span class='const'>GL</span><span class='op'>::</span><span class='const'>DEPTH_BUFFER_BIT</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_render'>render</span>
     <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_swap_buffers'>swap_buffers</span>
+    <span class='const'>Glfw</span><span class='period'>.</span><span class='id identifier rubyid_poll_events'>poll_events</span>
   <span class='kw'>end</span>
   <span class='id identifier rubyid_engine_end'>engine_end</span>
 <span class='kw'>end</span></pre>
@@ -1503,7 +1699,6 @@
       <pre class="lines">
 
 
-85
 86
 87
 88
@@ -1515,23 +1710,108 @@
 94
 95
 96
-97</pre>
+97
+98
+99
+100</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_engine_start'>engine_start</span>
+  <span class='const'>Glfw</span><span class='op'>::</span><span class='const'>Window</span><span class='period'>.</span><span class='id identifier rubyid_window_hint'>window_hint</span><span class='lparen'>(</span><span class='const'>Glfw</span><span class='op'>::</span><span class='const'>SAMPLES</span><span class='comma'>,</span> <span class='int'>4</span><span class='rparen'>)</span>
   <span class='ivar'>@main_window</span> <span class='op'>=</span> <span class='const'>Glfw</span><span class='op'>::</span><span class='const'>Window</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@window_width</span><span class='comma'>,</span> <span class='ivar'>@window_height</span><span class='comma'>,</span> <span class='ivar'>@title</span><span class='rparen'>)</span>
+  <span class='ivar'>@viewport_x</span> <span class='op'>=</span> <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_framebuffer_size'>framebuffer_size</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='ivar'>@viewport_y</span> <span class='op'>=</span> <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_framebuffer_size'>framebuffer_size</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
   <span class='id identifier rubyid_fail'>fail</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Unable to create window</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
   <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_close_callback'>close_callback</span> <span class='op'>=</span> <span class='tlambda'>-&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_window'>window</span><span class='rparen'>)</span> <span class='tlambeg'>{</span> <span class='id identifier rubyid_window'>window</span><span class='period'>.</span><span class='id identifier rubyid_should_close'>should_close</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
   <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_mouse_button_callback'>mouse_button_callback</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__window'>_window</span><span class='comma'>,</span> <span class='id identifier rubyid_r'>r</span><span class='comma'>,</span> <span class='id identifier rubyid_l'>l</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
     <span class='ivar'>@right</span><span class='comma'>,</span> <span class='ivar'>@left</span><span class='comma'>,</span> <span class='ivar'>@middle</span> <span class='op'>=</span> <span class='id identifier rubyid_r'>r</span><span class='comma'>,</span> <span class='id identifier rubyid_l'>l</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span>
   <span class='rbrace'>}</span>
   <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_char_callback'>char_callback</span> <span class='op'>=</span> <span class='tlambda'>-&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_window'>window</span><span class='comma'>,</span> <span class='id identifier rubyid_char'>char</span><span class='rparen'>)</span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_char'>char</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span>
+    <span class='id identifier rubyid_keypress'>keypress</span><span class='lparen'>(</span><span class='id identifier rubyid_char'>char</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-  <span class='id identifier rubyid_engine_loop'>engine_loop</span>
   <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="keypress-instance_method">
+  
+    - (<tt>Object</tt>) <strong>keypress</strong>(chr) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_keypress'>keypress</span><span class='lparen'>(</span><span class='id identifier rubyid_chr'>chr</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mouse_move-instance_method">
+  
+    - (<tt>nil</tt>) <strong>mouse_move</strong>(x, y, right, left, middle) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Mouse move meta func</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 114</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mouse_move'>mouse_move</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_right'>right</span><span class='comma'>,</span> <span class='id identifier rubyid_left'>left</span><span class='comma'>,</span> <span class='id identifier rubyid_middle'>middle</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1582,11 +1862,11 @@
       <pre class="lines">
 
 
-103
-104</pre>
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span>
 <span class='kw'>end</span></pre>
@@ -1600,7 +1880,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Apr  2 22:26:02 2015 by
+  Generated on Sat Apr 25 16:00:37 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.2.2).
 </div>

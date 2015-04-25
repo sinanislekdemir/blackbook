@@ -229,7 +229,9 @@ module BlackBook
           end
         end
         # Handle on collide
-        @on_collide.call(@collisions) if @collisions.count > 0 && @on_collide != nil
+        if @collisions.count > 0 && @on_collide.nil?
+          @on_collide.call(@collisions)
+        end
         # Resolve collisions
         next if obj.mass == 0
         total_acceleration = get_linear_acceleration(obj)
