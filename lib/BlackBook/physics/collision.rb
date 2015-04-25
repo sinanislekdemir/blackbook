@@ -34,6 +34,12 @@ module BlackBook
     attr_accessor :hit_point, :hit_normal, :result, :penetration
     attr_writer :hit_point, :hit_normal, :result, :penetration
 
+    def initialize
+      @penetration  = CVector.new(0, 0, 0)
+      @hit_point    = CVector.new(0, 0, 0)
+      @hit_normal   = CVector.new(0, 0, 0)
+    end
+
     # Test object collision
     def test(source, target)
       # Spherical collision check for faster control.
@@ -80,10 +86,30 @@ module BlackBook
       x_b = (max_target.x - min_target.x) / 2.0
       y_b = (max_target.y - min_target.y) / 2.0
       z_b = (max_target.z - min_target.z) / 2.0
-      c_x = dist_x - (x_a + x_b) <= 0
-      c_y = dist_y - (y_a + y_b) <= 0
-      c_z = dist_z - (z_a + z_b) <= 0
-      return c_x && c_y && c_z
+      p_x = dist_x - (x_a + x_b)
+      p_y = dist_y - (y_a + y_b)
+      p_z = dist_z - (z_a + z_b)
+      c_x = p_x <= 0
+      c_y = p_y <= 0
+      c_z = p_z <= 0
+      result = c_x && c_y && c_z
+      if result
+        @penetration.set(p_x, p_y, p_z)
+        d = (max_source.x - min_source.x).abs / 2.0
+        e = (max_target.x - min_target.x).abs / 2.0
+        r = d / (d + e)
+        @hit_point.x = dist_x * r
+        d = (max_source.y - min_source.y).abs / 2.0
+        e = (max_target.y - min_target.y).abs / 2.0
+        r = d / (d + e)
+        @hit_point.y = dist_y * r
+        d = (max_source.z - min_source.z).abs / 2.0
+        e = (max_target.z - min_target.z).abs / 2.0
+        r = d / (d + e)
+        @hit_point.z = dist_z * r
+        @hit_point = source.local_to_absolute(@hit_point)
+      end
+      result
     end
   end
 end

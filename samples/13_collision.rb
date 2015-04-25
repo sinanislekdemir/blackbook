@@ -101,6 +101,9 @@ module BlackBook
           CVector.new(0, 0, gravity), 'gravity'
           )
         )
+      @physics.on_collide = -> (colls) do
+        puts "Total collisions: " + colls.count.to_s
+      end
       # physics.run(1)
     end
 

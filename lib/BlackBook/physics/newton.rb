@@ -34,21 +34,32 @@ module BlackBook
   # Newton physics
   class Newton < Physics
     attr_accessor :ground_plane, :start, :duration, :keys, :space, :thread,
-                  :collisions
+                  :collisions, :medium_density, :on_collide
     attr_writer :ground_plane, :start, :duration, :keys, :space, :thread,
-                :collisions
+                :collisions, :medium_density, :on_collide
 
     # Gravitational Constant
     G = 6.67e-11
     MASS_EARTH = 5.97219e24
     RADIUS_EARTH = 6378100
 
+    #
+    # Define the space to create the newton inside.
+    # @example Create a custom collision handler
+    #   @physics = Newton.new(@space)
+    #   @physics.on_collide = (collisions) { puts collisions.count.to_s }
     def initialize(space)
       super
       @space = space
       @ground_plane = nil
+      # Constant variables like wind, gravity, etc.
       @variables = []
+      # Collision array
       @collisions = []
+      # medium density 1000 for water
+      @medium_density = 1.2
+      # On collide handler
+      @on_collide = nil
     end
 
     # calculate positions for given miliseconds
@@ -194,6 +205,8 @@ module BlackBook
       end
     end
 
+    # Step the physics engine by given time_lapse in seconds.
+    # @param [Float] Time lapse
     def step(time_lapse)
       return false if @space.nil?
       return false if time_lapse == 0
@@ -202,18 +215,22 @@ module BlackBook
       # Everything leads to position changes
       # From acceleration to velocity, from velocity to displacement
       keys = @space.items[:objects].keys
-      @space.items[:objects].map { |name, obj| obj.material.color.set(0.2, 0.2, 0.2, 1) }
       0.upto(keys.count - 1) do |i|
         obj = @space.items[:objects][keys[i]]
         (i + 1).upto(keys.count - 1) do |j|
           obj2 = @space.items[:objects][keys[j]]
           if c.test(obj, obj2)
-            puts [i, j].to_s
-            obj.material.color.set(1.0, 1.0, 1.0, 1.0)
-            obj2.material.color.set(1.0, 1.0, 1.0, 1.0)
-            @collisions << c
+            collision = {
+              source:     keys[i],
+              target:     keys[j],
+              collision:  c
+            }
+            @collisions << collision
           end
         end
+        # Handle on collide
+        @on_collide.call(@collisions) if @collisions.count > 0 && @on_collide != nil
+        # Resolve collisions
         next if obj.mass == 0
         total_acceleration = get_linear_acceleration(obj)
         total_velocity     = get_linear_velocty(obj)

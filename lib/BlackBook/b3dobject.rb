@@ -51,16 +51,16 @@ module BlackBook
   class B3DObject < Base
     attr_writer :faces, :mass, :roll, :pitch, :yaw,
                 :time, :name, :scale, :index,
-                :min, :max, :data_size, :normal_index,
+                :min, :max, :data_size, :normal_index, :elasticity,
                 :kinetic_energy, :potential, :type, :angular_velocity,
                 :angular_acceleration, :linear_velocity, :linear_acceleration,
-                :material, :matrix, :radius
+                :material, :matrix, :radius, :drag_coeffecient
     attr_accessor :faces, :mass, :roll, :pitch, :yaw,
                   :time, :name, :scale, :index,
-                  :min, :max, :data_size, :normal_index,
+                  :min, :max, :data_size, :normal_index, :elasticity,
                   :kinetic_energy, :potential, :type, :angular_velocity,
                   :angular_acceleration, :linear_velocity, :linear_acceleration,
-                  :material, :matrix, :radius
+                  :material, :matrix, :radius, :drag_coeffecient
 
     PARTICLE = 0
     SOLID_CUBE = 1
@@ -93,6 +93,8 @@ module BlackBook
       @radius       = 0.0
       @min          = CVector.new(9999999, 9999999, 9999999)
       @max          = CVector.new(-9999999, -9999999, -9999999)
+      # 1 => Pure elastic, 0 => Pure inelastic
+      @elasticity   = 0.5
       @angular_velocity     = CVelocity.new(
         CVector.new(0, 0, 0, 1),
         '',
@@ -110,6 +112,7 @@ module BlackBook
       @linear_acceleration  = CAcceleration.new(CVector.new(0, 0, 0, 1))
       @linear_velocity      = CVelocity.new(CVector.new(0, 0, 0, 1))
       @material = Material.new
+      @drag_coeffecient = 0.47
     end
 
     # Convert local vector to absolute coordinates
