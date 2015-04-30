@@ -56,15 +56,4 @@ Please use **check\_syntax.sh** for syntax control and do not change .rubocop_to
 Notes about known bugs
 -----------------------
 
-If you come accross a situation where things seem not to fit the screen, you may need to change
-
-    w = BlackBook::Main.new(800, 600, 'BlackBook Project', 2, 2)
-
-to
-
-    w = BlackBook::Main.new(800, 600, 'BlackBook Project', 1, 1)
-
-There is something weird about screen occupation and I still don't know why :)
-
-
 Seems like, I broke the Physics Engine during my structure renewal. Sorry :) I will fix it ASAP and also fix the 8_physics.rb sample.
