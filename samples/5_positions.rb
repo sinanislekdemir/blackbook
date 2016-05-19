@@ -55,7 +55,7 @@ module BlackBook
       @space = Space.new(
         @viewport_x,
         @viewport_y
-        )
+      )
       # Add camera to space
       # Eye position
       eye = CVector.new 20.0, 20.0, 20.0
@@ -67,7 +67,7 @@ module BlackBook
         eye_position: eye,
         up: up,
         target_position: target
-        )
+      )
       # Add a light to scene
       light = @space.create_light
       light.position.set(10.0, 5.0, 10.0)
@@ -76,23 +76,23 @@ module BlackBook
       obj_1 = @space.add_object(
         filename: '../data/cube.obj',
         name: 'cube_object_1'
-        )
+      )
       obj_2 = @space.add_object(
         filename: '../data/cube.obj',
         name: 'cube_object_2'
-        )
+      )
       obj_3 = @space.add_object(
         filename: '../data/cube.obj',
         name: 'cube_object_3'
-        )
+      )
       obj_4 = @space.add_object(
         filename: '../data/cube.obj',
         name: 'cube_object_4'
-        )
+      )
       obj_5 = @space.add_object(
         filename: '../data/cube.obj',
         name: 'cube_object_5'
-        )
+      )
       obj_1.material.color.set(1.0, 1.0, 1.0, 1.0)
       obj_2.material.color.set(1.0, 1.0, 0.0, 1.0)
       obj_3.material.color.set(1.0, 0.0, 1.0, 1.0)
@@ -132,4 +132,4 @@ BlackBook::Main.new(
   800,
   600,
   'BlackBook Sample'
-  ).engine_loop
+).engine_loop

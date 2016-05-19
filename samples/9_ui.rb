@@ -57,7 +57,7 @@ module BlackBook
       @space = Space.new(
         @viewport_x,
         @viewport_y
-        )
+      )
       # Add camera to space
       # Eye position
       eye = CVector.new 20.0, 20.0, 20.0
@@ -69,7 +69,7 @@ module BlackBook
         eye_position: eye,
         up: up,
         target_position: target
-        )
+      )
       # Add a light to scene
       light = @space.create_light
       light.position.set(10.0, 5.0, 10.0)
@@ -78,23 +78,23 @@ module BlackBook
       @space.add_object(
         filename: '../data/cube.obj',
         name: 'cube_object_1'
-        )
+      )
       obj_2 = @space.add_object(
         filename: '../data/cube.obj',
         name: 'cube_object_2'
-        )
+      )
       obj_3 = @space.add_object(
         filename: '../data/cube.raw',
         name: 'cube_object_3'
-        )
+      )
       obj_4 = @space.add_object(
         filename: '../data/cube.raw',
         name: 'cube_object_4'
-        )
+      )
       obj_5 = @space.add_object(
         filename: '../data/cube.raw',
         name: 'cube_object_5'
-        )
+      )
       obj_2.matrix.pos.x = 8.0
       obj_3.matrix.pos.y = 5.0
       obj_3.matrix.pos.z = 6.7
@@ -105,11 +105,11 @@ module BlackBook
       ui = @space.create_ui
       window = ui.add_window(
         x: 10, y: 10, z: 1, w: 500, h: 400, title: 'Window Title', name: 'w1'
-        )
+      )
       window.create_label(x: 10, y: 60, title: 'UI Sample')
       button = window.create_button(
         x: 10, y: 150, w: 200, title: 'Quit', name: 's_button'
-        )
+      )
       button.click = lambda do
         exit
       end
@@ -138,4 +138,4 @@ BlackBook::Main.new(
   800,
   600,
   'BlackBook Sample'
-  ).engine_loop
+).engine_loop

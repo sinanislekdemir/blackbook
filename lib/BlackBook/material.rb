@@ -62,7 +62,7 @@ module BlackBook
       GL.TexImage2D(
         GL::TEXTURE_2D, 0, GL::RGBA, @image_w,
         @image_h, 0, GL::RGBA, GL::UNSIGNED_BYTE, @texture_data.pack('C*')
-        )
+      )
       @loaded = true
     end
 

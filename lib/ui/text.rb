@@ -43,8 +43,6 @@ module UI
   # @author [sinan islekdemir]
   #
   class Char < BlackBook::Base
-    attr_writer :index, :char, :width, :font_path, :faces, :position,
-                :min, :max
     attr_accessor :index, :char, :width, :font_path, :faces, :position,
                   :min, :max
 
@@ -56,7 +54,8 @@ module UI
       @index = -1
       @position = BlackBook::CVector.new(0, 0, 0, 1)
       @faces = []
-      @min, @max = nil, nil
+      @min = nil
+      @max = nil
       super
     end
 
@@ -72,8 +71,12 @@ module UI
 
     def get_width
       @width = 0.0
-      min_x, min_y, min_z = 999999, 999999, 999999
-      max_x, max_y, max_z = -999999, -999999, -999999
+      min_x = 9e10
+      min_y = 9e10
+      min_z = 9e10
+      max_x = -9e10
+      max_y = -9e10
+      max_z = -9e10
       @faces.each do |face|
         dx = [face[0], face[3], face[6]].minmax
         dy = [face[1], face[4], face[7]].minmax
@@ -95,8 +98,12 @@ module UI
     def build_list
       @index = GL.GenLists(1)
       @width = 0.0
-      min_x, min_y, min_z = 999999, 999999, 999999
-      max_x, max_y, max_z = -999999, -999999, -999999
+      min_x = 9e10
+      min_y = 9e10
+      min_z = 9e10
+      max_x = -9e10
+      max_y = -9e10
+      max_z = -9e10
       v1 = BlackBook::CVector.new(0, 0, 0, 1)
       v2 = BlackBook::CVector.new(0, 0, 0, 1)
       v3 = BlackBook::CVector.new(0, 0, 0, 1)
@@ -104,9 +111,15 @@ module UI
       GL.LineWidth(2)
       @faces.each do |face|
         vertex_count = face.count / 3
-        v1.x, v1.y, v1.z = face[0], face[1], face[2]
-        v2.x, v2.y, v2.z = face[3], face[4], face[5]
-        v3.x, v3.y, v3.z = face[6], face[7], face[8]
+        v1.x = face[0]
+        v1.y = face[1]
+        v1.z = face[2]
+        v2.x = face[3]
+        v2.y = face[4]
+        v2.z = face[5]
+        v3.x = face[6]
+        v3.y = face[7]
+        v3.z = face[8]
         dx = [face[0], face[3], face[6]].minmax
         dy = [face[1], face[4], face[7]].minmax
         dz = [face[2], face[5], face[8]].minmax
@@ -245,8 +258,8 @@ module UI
       GL.Translate(
         @position.x,
         @position.y,
-        @d == 2 ?  1 / (10000 - @position.z.to_f) : @position.z
-        )
+        @d == 2 ? 1 / (10000 - @position.z.to_f) : @position.z
+      )
 
       total_forward = 0
 

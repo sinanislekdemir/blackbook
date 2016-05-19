@@ -61,7 +61,8 @@ module BlackBook
       super
       @muliplier = m
       @gl_active = false
-      @width, @height = w, h
+      @width = w
+      @height = h
       @items = {
         cameras: [],
         lights:  [],
@@ -91,7 +92,7 @@ module BlackBook
         eye_position: CVector.new(10.0, 10.0, 10.0),
         target_position: CVector.new(0, 0, 0),
         up: CVector.new(0.0, 0.0, 1.0)
-        )
+      )
       @items[:cameras].push camera
     end
 

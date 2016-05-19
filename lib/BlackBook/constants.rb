@@ -88,7 +88,19 @@ module BlackBook
     #
     # @return [CVector] Self
     def set(x, y, z, w = 1)
-      @x, @y, @z, @w = x, y, z, w
+      @x = x
+      @y = y
+      @z = z
+      @w = w
+    end
+
+    # Set vector from array
+    # @param arr [Array] set of elements
+    def from_array(arr)
+      @x = arr[0] if arr.count > 0
+      @y = arr[1] if arr.count > 1
+      @z = arr[2] if arr.count > 2
+      @w = arr[3] if arr.count > 3
     end
 
     #
@@ -297,7 +309,9 @@ module BlackBook
       m_1 = BlackBook.multiply_matrices_4by4 m, x_matrix
       m_2 = BlackBook.multiply_matrices_4by4 m_1, y_matrix
       m_3 = BlackBook.multiply_matrices_4by4 m_2, z_matrix
-      m_3[12], m_3[13], m_3[14] = @pos.x, @pos.y, @pos_z
+      m_3[12] = @pos.x
+      m_3[13] = @pos.y
+      m_3[14] = @pos_z
       @left.set m_3[0], m_3[1], m_3[2], m_3[3]
       @dir.set m_3[4], m_3[5], m_3[6], m_3[7]
       @up.set m_3[8], m_3[9], m_3[10], m_3[11]

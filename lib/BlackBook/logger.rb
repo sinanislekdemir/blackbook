@@ -50,7 +50,7 @@ module BlackBook
         Time.now.to_s,
         'WARNING',
         message
-        ) unless @file.nil?
+      ) unless @file.nil?
       printf "%-10s : %s\n", 'WARNING', message if @stdout
     end
 
@@ -60,7 +60,7 @@ module BlackBook
         Time.now.to_s,
         'ERROR',
         message
-        ) unless @file.nil?
+      ) unless @file.nil?
       printf "%-10s : %s\n", 'ERROR', message if @stdout
     end
 
@@ -70,7 +70,7 @@ module BlackBook
         Time.now.to_s,
         'INFORM',
         message
-        ) unless @file.nil?
+      ) unless @file.nil?
       printf "%-10s : %s\n", 'INFORM', message if @stdout
     end
 

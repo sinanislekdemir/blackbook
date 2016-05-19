@@ -37,7 +37,9 @@ module UI
     def initialize(w, h, scale = 10)
       super
       @items = {}
-      @w, @h, @scale = w, h, scale
+      @w = w
+      @h = h
+      @scale = scale
       @depth = 0
     end
 

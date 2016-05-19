@@ -39,10 +39,10 @@ module BlackBook
   # Main Application handler
   class Main < BlackBook::Engine
     attr_accessor :space, :space2
-    attr_writer :space, :space2
 
     def initialize(w, h, title)
       super
+      n = Time.now.to_f
       BlackBook::Registry.instance.write('shader', 'displaylist')
       BlackBook::Registry.instance.write('grid', true)
       BlackBook::Registry.instance.write('grid_count', 10)
@@ -55,22 +55,22 @@ module BlackBook
         eye_position: CVector.new(10.0, 10.0, 10.0),
         up: CVector.new(0.0, 0.0, 1.0),
         target_position: CVector.new(0, 0, 0)
-        )
+      )
       light = @space.create_light
       light.position.set(5.0, 5.0, 5.0)
       @space.add_object(
         filename: 'data/wings.raw',
         name: 'idontknow'
-        )
+      )
       o = @space.add_object(
         filename: 'data/ground.raw',
         name: 'idontknowground'
-        )
+      )
       o.matrix.pos.z = -0.5
       ui = @space.create_ui
       w = ui.add_window(
         x: 10, y: 10, z: 1, w: 1000, h: 400, title: 'Deneme', name: 'test'
-        )
+      )
       label = w.create_label(x: 10, y: 60, title: 'Object Position')
       # e = w.create_edit(x: 10, y: 100, w: 200, value: 'testing', name: 'ed')
       b = w.create_button(x: 10, y: 150, w: 200, title: 'buton', name: 'bt')
@@ -84,6 +84,8 @@ module BlackBook
         obj.text = v[0].to_s + ' ' + v[1].to_s
       end
       c.on_update = [on_update, label]
+      d = Time.now.to_f - n
+      puts "Init: #{d} sec\n"
     end
 
     def load(file)

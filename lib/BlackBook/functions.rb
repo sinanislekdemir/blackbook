@@ -129,7 +129,7 @@ module BlackBook
   #
   # @return [Integer] Array index
   def _mat(x, y)
-    y * 4 + (x)
+    y * 4 + x
   end
 
   #
@@ -150,7 +150,10 @@ module BlackBook
   # @return [Array] Inverted matrix
   def glh_invert_matrix_f2(m)
     out = []
-    r0, r1, r2, r3 = [], [], [], []
+    r0 = []
+    r1 = []
+    r2 = []
+    r3 = []
     r0[0] = mat(m, 0, 0)
     r0[1] = mat(m, 0, 1)
     r0[2] = mat(m, 0, 2)
@@ -389,9 +392,9 @@ module BlackBook
   # @param zfar [Float] Far Plane
   #
   # @return [Boolean] Success
-  def perspective(fovY, aspect, znear, zfar)
+  def perspective(fov_y, aspect, znear, zfar)
     pi = 3.1415926535897932384626433832795
-    fh = Math.tan((fovY / 2) / 180 * pi) * znear
+    fh = Math.tan((fov_y / 2) / 180 * pi) * znear
     fw = fh * aspect
     GL.Frustum(-fw, fw, -fh, fh, znear, zfar)
   end
@@ -458,7 +461,7 @@ module BlackBook
       g,
       b,
       color_vector.w
-      )
+    )
   end
 
   #
@@ -621,7 +624,7 @@ module BlackBook
           ray_start,
           ray_vector,
           t
-          )
+        )
         result[:normal] = v1.cross(v2)
         result[:normal].normalize
       else

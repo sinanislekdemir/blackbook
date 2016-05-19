@@ -78,17 +78,17 @@ module BlackBook
         options[:eye_position].x,
         options[:eye_position].y,
         options[:eye_position].z
-        )
+      )
       @target = CVector.new(
         options[:target_position].x,
         options[:target_position].y,
         options[:target_position].z
-        )
+      )
       @up_vector = CVector.new(
         options[:up].x,
         options[:up].y,
         options[:up].z
-        )
+      )
       @on_update = nil
       @frame_x = options.key?(:frame_x) ? options[:frame_x] : 0
       @frame_y = options.key?(:frame_y) ? options[:frame_y] : 0
@@ -148,7 +148,7 @@ module BlackBook
         GL.Viewport(@frame_x, @frame_y, @frame_width, @frame_height)
         BlackBook.perspective(
           30.0, @frame_width.to_f / @frame_height.to_f, 1.0, 1000.0
-          )
+        )
       end
       GL.LoadIdentity
       BlackBook.look_at(
@@ -184,19 +184,23 @@ module BlackBook
     # @param middle_b [Integer] Middle Mouse Button
     #
     def mouse_move(x, y, _right_b, left_b, _middle_b)
-      @pos_x, @pos_y = x, y if @pos_x.nil?
+      if @pos_x.nil?
+        @pos_x = x
+        @pos_y = y
+      end
       if left_b == 1
         diff = @eye_position.sub(@target)
         diff.update_spherical
         diff.phi = diff.phi - BlackBook.deg_to_rad((x.to_f - @pos_x.to_f).to_f)
         diff.theta = diff.theta - BlackBook.deg_to_rad(
           (y.to_f - @pos_y.to_f).to_f
-          )
+        )
         diff.update_cartesian
         @eye_position = @target.add(diff)
         @modified = true
       end
-      @pos_x, @pos_y = x, y
+      @pos_x = x
+      @pos_y = y
     end
   end
 end

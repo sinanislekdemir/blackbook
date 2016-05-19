@@ -56,7 +56,7 @@ module BlackBook
       @space = Space.new(
         @viewport_x,
         @viewport_y
-        )
+      )
       # Add camera to space
       # Eye position
       eye = CVector.new 10.0, 10.0, 10.0
@@ -68,7 +68,7 @@ module BlackBook
         eye_position: eye,
         up: up,
         target_position: target
-        )
+      )
     end
 
     def mouse_move(x, y, right, left, middle)
@@ -96,4 +96,4 @@ BlackBook::Main.new(
   800,
   600,
   'BlackBook Sample'
-  ).engine_loop
+).engine_loop

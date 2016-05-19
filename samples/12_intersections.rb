@@ -57,7 +57,8 @@ puts 'Hit point: ' + res[:point].to_array.to_s
 puts 'Hit normal: ' + res[:normal].to_array.to_s
 
 puts 'Point on line control'
-if BlackBook.point_on_line(res[:point], ray_start, BlackBook::CVector.new(2.0, 2.0, 0))
+if BlackBook.point_on_line(res[:point], ray_start,
+                           BlackBook::CVector.new(2.0, 2.0, 0))
   puts 'Point hits the line'
 else
   puts 'Point misses line'

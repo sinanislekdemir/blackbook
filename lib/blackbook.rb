@@ -38,5 +38,5 @@ require 'BlackBook/material'
 # BlackBook main module definition
 module BlackBook
   extend self
-  VERSION = '0.0.1'
+  VERSION = '0.0.1'.freeze
 end

@@ -69,10 +69,15 @@ module BlackBook
       @vertices     = []
       @indices      = []
       @texcoords    = []
-      @mass, @roll, @pitch, @yaw = 0.0, 0.0, 0.0, 0.0
+      @mass         = 0.0
+      @roll         = 0.0
+      @pitch        = 0.0
+      @yaw          = 0.0
       @position     = CVector.new(0, 0, 0, 1)
       @scale        = CVector.new(1, 1, 1, 1)
-      @min, @max, @index = nil, nil, -1
+      @min          = nil
+      @max          = nil
+      @index        = -1
       @time         = STime.new
       @vertex_data  = []
       @data_size    = 0
@@ -81,7 +86,7 @@ module BlackBook
       @radius       = 0.0
       @min          = CVector.new(9999999, 9999999, 9999999)
       @max          = CVector.new(-9999999, -9999999, -9999999)
-      @material = Material.new
+      @material     = Material.new
     end
 
     # Convert local vector to absolute coordinates
@@ -200,8 +205,7 @@ module BlackBook
       when 3
         load_raw data['filename']
       end
-      x, y, z = data['scale'][0], data['scale'][1], data['scale'][2]
-      @scale.set(x, y, z) if data.key?('scale')
+      @scale.from_array(data['scale']) if data.key?('scale')
     end
 
     #
@@ -224,11 +228,22 @@ module BlackBook
     #
     # @return [Float] Bounding radius of the object
     def build_list
+      n = Time.now.to_f
       shader = BlackBook::Registry.instance.read('shader')
       shader = 'displaylist' if shader.nil?
       v1 = CVector.new(0, 0, 0, 1)
       v2 = v1.clone
       v3 = v1.clone
+      x = @vertices.map { |v| v.x }.minmax
+      y = @vertices.map { |v| v.y }.minmax
+      z = @vertices.map { |v| v.z }.minmax
+      @min.x = x[0]
+      @max.x = x[1]
+      @min.y = y[0]
+      @max.y = y[1]
+      @min.z = z[0]
+      @max.z = z[1]
+
       case shader
       when 'displaylist'
         @index = GL.GenLists(1)
@@ -250,9 +265,6 @@ module BlackBook
             GL.Vertex3f(vertex.x, vertex.y, vertex.z)
           end
           GL.End
-          update_min_max(v1)
-          update_min_max(v2)
-          update_min_max(v3)
         end
         GL.EndList
       when 'vbo'
@@ -295,7 +307,7 @@ module BlackBook
           normals.length * 4,
           normals.pack('f*'),
           GL::GL_STATIC_DRAW
-          )
+        )
         GL.BindBuffer(GL::GL_ARRAY_BUFFER, @index[2])
         GL.BufferData(
           GL::GL_ARRAY_BUFFER,
@@ -309,6 +321,8 @@ module BlackBook
         @texcoords.clear
         @vertices.clear
       end
+      d = Time.now.to_f - n
+      puts "Build: #{d}\n"
     end
 
     #
@@ -359,13 +373,8 @@ module BlackBook
     # @return [Boolean] Return true on success
     def load_raw(filename)
       buffer = File.read filename
-      buffer = buffer.split("\n")
-      buffer.each do |line|
-        items = line.split(' ')
-        f_items = []
-        items.each do |item|
-          f_items.push item.to_f
-        end
+      buffer.split("\n").each do |line|
+        f_items = line.split(' ').map { |x| x.to_f }
         add_face f_items
       end
       true

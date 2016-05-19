@@ -79,7 +79,7 @@ puts ''
 puts 'Multiply Matrix_1 by Vector 1'
 puts 'matrix_1 x v1         = ' + BlackBook.multiply_matrix_by_vector(
   matrix_1, v1.to_array
-  ).to_s
+).to_s
 puts ''
 puts 'Vector 1:               ' + v1.to_array.to_s
 puts 'Vector 2:               ' + v2.to_array.to_s
