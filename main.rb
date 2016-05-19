@@ -74,12 +74,12 @@ module BlackBook
       label = w.create_label(x: 10, y: 60, title: 'Object Position')
       # e = w.create_edit(x: 10, y: 100, w: 200, value: 'testing', name: 'ed')
       b = w.create_button(x: 10, y: 150, w: 200, title: 'buton', name: 'bt')
-      b.click = -> do
+      b.click = lambda do
         ui.add_window(
           x: 10, y: 400, z: 1, w: 1000, h: 400, title: 'Subw', name: 'sub'
         )
       end
-      on_update = -> (camera, x, y, obj) do
+      on_update = lambda do |camera, x, y, obj|
         v = camera.world_to_screen(CVector.new(2, 2, 0))
         obj.text = v[0].to_s + ' ' + v[1].to_s
       end

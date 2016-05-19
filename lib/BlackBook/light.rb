@@ -43,8 +43,6 @@ module BlackBook
   class Light < Base
     attr_accessor :index, :self_index, :position, :draw_light, :diffuse,
                   :light_draw_radius
-    attr_writer :index, :self_index, :position, :draw_light, :diffuse,
-                :light_draw_radius
 
     @@index = 0
     #

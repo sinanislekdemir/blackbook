@@ -110,7 +110,7 @@ module BlackBook
       button = window.create_button(
         x: 10, y: 150, w: 200, title: 'Quit', name: 's_button'
         )
-      button.click = -> do
+      button.click = lambda do
         exit
       end
     end

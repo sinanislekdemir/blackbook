@@ -52,9 +52,6 @@ module BlackBook
     attr_accessor :window_width, :window_height, :title,
                   :left, :right, :middle, :main_window, :spaces,
                   :viewport_x, :viewport_y
-    attr_writer :window_width, :window_height, :title,
-                :left, :right, :middle, :main_window, :spaces,
-                :viewport_x, :viewport_y
 
     #
     # Initialize BBEngine
@@ -89,11 +86,13 @@ module BlackBook
       @viewport_x = @main_window.framebuffer_size[0]
       @viewport_y = @main_window.framebuffer_size[1]
       fail 'Unable to create window' if @main_window.nil?
-      @main_window.close_callback = -> (window) { window.should_close = true }
+      @main_window.close_callback = lambda do |window|
+        window.should_close = true
+      end
       @main_window.mouse_button_callback = lambda { |_window, r, l, m|
         @right, @left, @middle = r, l, m
       }
-      @main_window.char_callback = -> (window, char) do
+      @main_window.char_callback = lambda do |window, char|
         keypress(char.chr)
       end
       true

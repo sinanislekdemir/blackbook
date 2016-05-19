@@ -28,8 +28,6 @@ module BlackBook
   class STime
     attr_accessor :year, :days, :seconds, :scale, :start, :diff,
                   :last_time
-    attr_writer :year, :days, :seconds, :scale, :start, :diff,
-                :last_time
 
     # start timer
     def initialize

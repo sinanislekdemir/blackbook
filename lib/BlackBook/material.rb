@@ -32,7 +32,6 @@ require 'BlackBook/constants'
 module BlackBook
   # BlackBook Material
   class Material
-    attr_writer :color, :texture_data, :image_w, :image_h
     attr_accessor :color, :texture_data, :image_w, :image_h
 
     # Initialize material

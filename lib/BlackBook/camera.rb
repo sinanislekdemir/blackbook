@@ -52,8 +52,6 @@ module BlackBook
   class Camera < Base
     attr_accessor :eye_position, :target, :up_vector, :frame_x, :frame_y,
                   :frame_width, :frame_height, :fov, :znear, :zfar, :on_update
-    attr_writer :eye_position, :target, :up_vector, :frame_x, :frame_y,
-                :frame_width, :frame_height, :fov, :znear, :zfar, :on_update
 
     # options -> :eye_position, :target_position, :up, :fov, :znear, :zfar
     #            :frame_x, :frame_y, :frame_width, :frame_height

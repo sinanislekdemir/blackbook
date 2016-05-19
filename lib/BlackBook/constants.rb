@@ -42,7 +42,6 @@ module BlackBook
   class CVector < Base
     # phi dikey, theta yatay aci| r orijine mesafe - yaricap
     attr_accessor :x, :y, :z, :w, :phi, :theta, :r
-    attr_writer :x, :y, :z, :w, :phi, :theta, :r
 
     #
     # Initialize Vector
@@ -318,40 +317,6 @@ module BlackBook
 
     def to_s
       @vertice_index.to_s + '-' + @texcoord_index.to_s
-    end
-  end
-
-  # Acceleration class
-  class CAcceleration
-    attr_writer :vector, :start, :end, :name, :direction
-    attr_accessor :vector, :start, :end, :name, :direction
-    LINEAR = 0
-    ANGULAR = 1
-
-    # Direction 0 - linear | 1 - angular
-    def initialize(vector, name = '', start_time = 0, end_time = 0, d = 0)
-      @vector = vector
-      @name = name
-      @start = start_time
-      @end = end_time
-      @direction = d
-    end
-  end
-
-  # Velocity class
-  class CVelocity
-    attr_writer :vector, :start, :end, :name, :direction
-    attr_accessor :vector, :start, :end, :name, :direction
-    LINEAR = 0
-    ANGULAR = 1
-
-    # Direction 0 - linear | 1 - angular
-    def initialize(vector, name = '', start_time = 0, end_time = 0, d = 0)
-      @vector = vector
-      @name = name
-      @start = start_time
-      @end = end_time
-      @direction = d
     end
   end
 end

@@ -35,7 +35,6 @@ require 'BlackBook/camera'
 require 'BlackBook/base'
 require 'BlackBook/light'
 require 'ui/ui'
-require 'BlackBook/physics/physics'
 
 module BlackBook
   #
@@ -52,8 +51,8 @@ module BlackBook
   # @attr items [Hash] Hash of items
   #
   class Space < Base
-    attr_accessor :width, :height, :physics, :gl_active, :muliplier, :items
-    attr_writer :width, :height, :physics, :gl_active, :muliplier, :items
+    attr_accessor :width, :height, :gl_active, :muliplier, :items
+    attr_writer :width, :height, :gl_active, :muliplier, :items
 
     # Initialize scene,
     # set lights, init opengl
@@ -61,7 +60,6 @@ module BlackBook
     def initialize(w, h, m = 1)
       super
       @muliplier = m
-      @physics = []
       @gl_active = false
       @width, @height = w, h
       @items = {
@@ -173,13 +171,6 @@ module BlackBook
     end
 
     #
-    # Create Physics Dynamics Engine
-    # @return [BlackBookPhysics] BlackBook Physics Object
-    def create_dynamics
-      @physics << BlackBook::Newton.new(self)
-    end
-
-    #
     # Initialize OpenGL
     #
     # @return [Boolean] Initialize main OpenGL Variables
@@ -277,7 +268,7 @@ module BlackBook
     end
 
     def save(filename)
-      space_json = JSON.generate(@physics)
+      space_json = JSON.generate(@items)
       File.open(filename, 'w') { |file| file.write(space_json) }
     end
   end

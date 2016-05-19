@@ -49,35 +49,26 @@ module BlackBook
   # @attr max [CVector] Maximum coordinates
   #
   class B3DObject < Base
-    attr_writer :faces, :mass, :roll, :pitch, :yaw,
-                :time, :name, :scale, :index,
-                :min, :max, :data_size, :normal_index, :elasticity,
-                :kinetic_energy, :potential, :type, :angular_velocity,
-                :angular_acceleration, :linear_velocity, :linear_acceleration,
-                :material, :matrix, :radius, :drag_coeffecient
-    attr_accessor :faces, :mass, :roll, :pitch, :yaw,
-                  :time, :name, :scale, :index,
+    attr_accessor :faces, :roll, :pitch, :yaw, :time, :name, :scale, :index,
                   :min, :max, :data_size, :normal_index, :elasticity,
-                  :kinetic_energy, :potential, :type, :angular_velocity,
-                  :angular_acceleration, :linear_velocity, :linear_acceleration,
-                  :material, :matrix, :radius, :drag_coeffecient
+                  :type, :material, :matrix, :radius
 
-    PARTICLE = 0
-    SOLID_CUBE = 1
-    SOLID_SPHERE = 2
-    SOLID_MESH = 3
-    SOFT_CUBE = 4
-    SOFT_SPHERE = 5
-    SOFT_MESH = 6
+    PARTICLE      = 0
+    SOLID_CUBE    = 1
+    SOLID_SPHERE  = 2
+    SOLID_MESH    = 3
+    SOFT_CUBE     = 4
+    SOFT_SPHERE   = 5
+    SOFT_MESH     = 6
 
     #
     # Initialize basic variables with default.
     #
     # @return [BB3DObject] return self
     def initialize
-      @vertices = []
-      @indices = []
-      @texcoords = []
+      @vertices     = []
+      @indices      = []
+      @texcoords    = []
       @mass, @roll, @pitch, @yaw = 0.0, 0.0, 0.0, 0.0
       @position     = CVector.new(0, 0, 0, 1)
       @scale        = CVector.new(1, 1, 1, 1)
@@ -85,34 +76,12 @@ module BlackBook
       @time         = STime.new
       @vertex_data  = []
       @data_size    = 0
-      # Physics Related
-      @kinetic_energy = 0.0
-      @potential    = 0.0
       @type         = PARTICLE
       @matrix       = CMatrix.new
       @radius       = 0.0
       @min          = CVector.new(9999999, 9999999, 9999999)
       @max          = CVector.new(-9999999, -9999999, -9999999)
-      # 1 => Pure elastic, 0 => Pure inelastic
-      @elasticity   = 0.5
-      @angular_velocity     = CVelocity.new(
-        CVector.new(0, 0, 0, 1),
-        '',
-        0,
-        0,
-        CVelocity::ANGULAR
-        )
-      @angular_acceleration = CAcceleration.new(
-        CVector.new(0, 0, 0, 1),
-        '',
-        0,
-        0,
-        CAcceleration::ANGULAR
-        )
-      @linear_acceleration  = CAcceleration.new(CVector.new(0, 0, 0, 1))
-      @linear_velocity      = CVelocity.new(CVector.new(0, 0, 0, 1))
       @material = Material.new
-      @drag_coeffecient = 0.47
     end
 
     # Convert local vector to absolute coordinates
@@ -130,15 +99,6 @@ module BlackBook
     # @param [Float] z axis
     def rotate(x, y, z)
       @matrix.rotate x, y, z
-    end
-
-    #
-    # Load Mass Data
-    # @param data [Hash] Load Data hash. (Recursive scene loading from json)
-    #
-    # @return [Float] Mass
-    def load_mass(data)
-      @mass = data['mass'] if data.key?('mass')
     end
 
     #
@@ -174,34 +134,6 @@ module BlackBook
 
     def load_type(data)
       @type = data['type'] if data.key?('type')
-    end
-
-    def load_linear_velocity(data)
-      return unless data.key?('linear_velocity')
-      @linear_velocity.vector.x = data['linear_velocity'][0]
-      @linear_velocity.vector.y = data['linear_velocity'][1]
-      @linear_velocity.vector.z = data['linear_velocity'][2]
-    end
-
-    def load_linear_acceleration(data)
-      return unless data.key?('linear_acceleration')
-      @linear_acceleration.vector.x = data['linear_acceleration'][0]
-      @linear_acceleration.vector.y = data['linear_acceleration'][1]
-      @linear_acceleration.vector.z = data['linear_acceleration'][2]
-    end
-
-    def load_angular_velocity(data)
-      return unless data.key?('angular_velocity')
-      @angular_velocity.vector.x = data['angular_velocity'][0]
-      @angular_velocity.vector.y = data['angular_velocity'][1]
-      @angular_velocity.vector.z = data['angular_velocity'][2]
-    end
-
-    def load_angular_acceleration(data)
-      return unless data.key?('angular_acceleration')
-      @angular_acceleration.vector.x = data['angular_acceleration'][0]
-      @angular_acceleration.vector.y = data['angular_acceleration'][1]
-      @angular_acceleration.vector.z = data['angular_acceleration'][2]
     end
 
     #
@@ -256,15 +188,10 @@ module BlackBook
     #
     # @return [Boolean] Last operation is load_time and returns its result
     def load(data)
-      load_mass data
       load_position data
       load_rotation data
       load_time data
       load_type data
-      load_linear_velocity data
-      load_linear_acceleration data
-      load_angular_velocity data
-      load_angular_acceleration data
       case @type
       when 1
         create_cube

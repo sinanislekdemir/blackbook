@@ -30,7 +30,6 @@ module BlackBook
   # BlackBook Base Class
   class Base
     attr_accessor :logger, :registry
-    attr_writer :logger, :registry
 
     def initialize(*_args)
       logging_params = { filename: 'debug.log', stdout: true }
