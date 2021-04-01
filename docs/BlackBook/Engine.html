@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Class: BlackBook::Engine
+  
+    &mdash; Documentation by YARD 0.9.26
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "BlackBook::Engine";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../BlackBook.html" title="BlackBook (module)">BlackBook</a></span></span>
+     &raquo; 
+    <span class="title">Engine</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Class: BlackBook::Engine
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd>
+      <span class="inheritName"><span class='object_link'><a href="Base.html" title="BlackBook::Base (class)">Base</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="Base.html" title="BlackBook::Base (class)">Base</a></span></li>
+          
+            <li class="next">BlackBook::Engine</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+    </dd>
+  </dl>
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/BlackBook/engine.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>BlackBook Engine Class. Creates and handles OpenGL Window - GLF3</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Author:</p>
+<ul class="author">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'><dl class="rdoc-list label-list"><dt>sinan islekdemir
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small><a href="#" class="summary_toggle">collapse</a></small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#h_m-instance_method" title="#h_m (instance method)">#<strong>h_m</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Window - Viewport Height Multiplier.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#left-instance_method" title="#left (instance method)">#<strong>left</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Left Mouse Button.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#main_window-instance_method" title="#main_window (instance method)">#<strong>main_window</strong>  &#x21d2; Glfw::Window </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Main GLFW Window.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#middle-instance_method" title="#middle (instance method)">#<strong>middle</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Middle Mouse Button.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#right-instance_method" title="#right (instance method)">#<strong>right</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Right Mouse Button.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#spaces-instance_method" title="#spaces (instance method)">#<strong>spaces</strong>  &#x21d2; Array </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Array Of BBSpace.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#title-instance_method" title="#title (instance method)">#<strong>title</strong>  &#x21d2; String </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Window Title.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#viewport_x-instance_method" title="#viewport_x (instance method)">#<strong>viewport_x</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute viewport_x.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#viewport_y-instance_method" title="#viewport_y (instance method)">#<strong>viewport_y</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute viewport_y.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#w_m-instance_method" title="#w_m (instance method)">#<strong>w_m</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Window - Viewport Width Multiplier.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#window_height-instance_method" title="#window_height (instance method)">#<strong>window_height</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Window Height.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#window_width-instance_method" title="#window_width (instance method)">#<strong>window_width</strong>  &#x21d2; Integer </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Window Width.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+  
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="Base.html" title="BlackBook::Base (class)">Base</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Base.html#logger-instance_method" title="BlackBook::Base#logger (method)">#logger</a></span>, <span class='object_link'><a href="Base.html#registry-instance_method" title="BlackBook::Base#registry (method)">#registry</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#engine_end-instance_method" title="#engine_end (instance method)">#<strong>engine_end</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Engine End - Window destroyer.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#engine_loop-instance_method" title="#engine_loop (instance method)">#<strong>engine_loop</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Engine Main Loop.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#engine_start-instance_method" title="#engine_start (instance method)">#<strong>engine_start</strong>  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Start Engine and Create the main window.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(w, h, title, w_m = 1, h_m = 1)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize BBEngine.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#keypress-instance_method" title="#keypress (instance method)">#<strong>keypress</strong>(chr)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#keypress_special-instance_method" title="#keypress_special (instance method)">#<strong>keypress_special</strong>(chr, code, action, mods)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mouse_move-instance_method" title="#mouse_move (instance method)">#<strong>mouse_move</strong>(x, y, right, left, middle)  &#x21d2; nil </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Mouse move meta func.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#render-instance_method" title="#render (instance method)">#<strong>render</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Render Meta Func.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(w, h, title, w_m = 1, h_m = 1)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize BBEngine</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>w</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>description
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>h</span>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>description
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>title</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><dl class="rdoc-list label-list"><dt>description
+<dd></dd></dl>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>w_m</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<h1 id="label-1+-5BInteger-5D+Window+-+Viewport+Multiplier+for+Width">1 [Integer] Window - Viewport Multiplier for Width</h1>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>h_m</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>1</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<h1 id="label-1+-5BInteger-5D+Window+-+Viewport+Multiplier+for+Height">1 [Integer] Window - Viewport Multiplier for Height</h1>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 65</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_w'>w</span><span class='comma'>,</span> <span class='id identifier rubyid_h'>h</span><span class='comma'>,</span> <span class='id identifier rubyid_title'>title</span><span class='comma'>,</span> <span class='id identifier rubyid_w_m'>w_m</span> <span class='op'>=</span> <span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_h_m'>h_m</span> <span class='op'>=</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
+  <span class='const'>Glfw</span><span class='period'>.</span><span class='id identifier rubyid_init'>init</span>
+  <span class='ivar'>@window_width</span> <span class='op'>=</span> <span class='id identifier rubyid_w'>w</span>
+  <span class='ivar'>@window_height</span> <span class='op'>=</span> <span class='id identifier rubyid_h'>h</span>
+  <span class='ivar'>@title</span> <span class='op'>=</span> <span class='id identifier rubyid_title'>title</span>
+  <span class='ivar'>@left</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='ivar'>@right</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='ivar'>@middle</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='ivar'>@spaces</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_engine_start'>engine_start</span>
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="h_m=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="h_m-instance_method">
+  
+    #<strong>h_m</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Window - Viewport Height Multiplier</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of h_m</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_h_m'>h_m</span>
+  <span class='ivar'>@h_m</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="left=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="left-instance_method">
+  
+    #<strong>left</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Left Mouse Button</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of left</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_left'>left</span>
+  <span class='ivar'>@left</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="main_window=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="main_window-instance_method">
+  
+    #<strong>main_window</strong>  &#x21d2; <tt>Glfw::Window</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Main GLFW Window</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Glfw::Window</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of main_window</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_main_window'>main_window</span>
+  <span class='ivar'>@main_window</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="middle=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="middle-instance_method">
+  
+    #<strong>middle</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Middle Mouse Button</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of middle</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_middle'>middle</span>
+  <span class='ivar'>@middle</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="right=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="right-instance_method">
+  
+    #<strong>right</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Right Mouse Button</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of right</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_right'>right</span>
+  <span class='ivar'>@right</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="spaces=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="spaces-instance_method">
+  
+    #<strong>spaces</strong>  &#x21d2; <tt>Array</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Array Of BBSpace</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of spaces</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_spaces'>spaces</span>
+  <span class='ivar'>@spaces</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="title=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="title-instance_method">
+  
+    #<strong>title</strong>  &#x21d2; <tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Window Title</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../String.html" title="String (class)">String</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of title</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_title'>title</span>
+  <span class='ivar'>@title</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="viewport_x=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="viewport_x-instance_method">
+  
+    #<strong>viewport_x</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute viewport_x.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_viewport_x'>viewport_x</span>
+  <span class='ivar'>@viewport_x</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="viewport_y=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="viewport_y-instance_method">
+  
+    #<strong>viewport_y</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the value of attribute viewport_y.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_viewport_y'>viewport_y</span>
+  <span class='ivar'>@viewport_y</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="w_m=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="w_m-instance_method">
+  
+    #<strong>w_m</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Window - Viewport Width Multiplier</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of w_m</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_w_m'>w_m</span>
+  <span class='ivar'>@w_m</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="window_height=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="window_height-instance_method">
+  
+    #<strong>window_height</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Window Height</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of window_height</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_window_height'>window_height</span>
+  <span class='ivar'>@window_height</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="window_width=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="window_width-instance_method">
+  
+    #<strong>window_width</strong>  &#x21d2; <tt>Integer</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Window Width</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Integer</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current value of window_width</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_window_width'>window_width</span>
+  <span class='ivar'>@window_width</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="engine_end-instance_method">
+  
+    #<strong>engine_end</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Engine End - Window destroyer</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Success</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+153
+154
+155
+156</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 153</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_engine_end'>engine_end</span>
+  <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
+  <span class='const'>Glfw</span><span class='period'>.</span><span class='id identifier rubyid_terminate'>terminate</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="engine_loop-instance_method">
+  
+    #<strong>engine_loop</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Engine Main Loop</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Success</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 132</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_engine_loop'>engine_loop</span>
+  <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_make_context_current'>make_context_current</span>
+  <span class='kw'>until</span> <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_should_close?'>should_close?</span>
+    <span class='id identifier rubyid_mouse_move'>mouse_move</span><span class='lparen'>(</span>
+      <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_cursor_pos'>cursor_pos</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_cursor_pos'>cursor_pos</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span>
+      <span class='ivar'>@right</span><span class='comma'>,</span>
+      <span class='ivar'>@left</span><span class='comma'>,</span>
+      <span class='ivar'>@middle</span><span class='rparen'>)</span>
+    <span class='const'>GL</span><span class='period'>.</span><span class='const'>Clear</span><span class='lparen'>(</span><span class='const'>GL</span><span class='op'>::</span><span class='const'>COLOR_BUFFER_BIT</span> <span class='op'>|</span> <span class='const'>GL</span><span class='op'>::</span><span class='const'>DEPTH_BUFFER_BIT</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_render'>render</span>
+    <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_swap_buffers'>swap_buffers</span>
+    <span class='const'>Glfw</span><span class='period'>.</span><span class='id identifier rubyid_poll_events'>poll_events</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_engine_end'>engine_end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="engine_start-instance_method">
+  
+    #<strong>engine_start</strong>  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Start Engine and Create the main window</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 83</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_engine_start'>engine_start</span>
+  <span class='const'>Glfw</span><span class='op'>::</span><span class='const'>Window</span><span class='period'>.</span><span class='id identifier rubyid_window_hint'>window_hint</span><span class='lparen'>(</span><span class='const'>Glfw</span><span class='op'>::</span><span class='const'>SAMPLES</span><span class='comma'>,</span> <span class='int'>4</span><span class='rparen'>)</span>
+  <span class='ivar'>@main_window</span> <span class='op'>=</span> <span class='const'>Glfw</span><span class='op'>::</span><span class='const'>Window</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='ivar'>@window_width</span><span class='comma'>,</span> <span class='ivar'>@window_height</span><span class='comma'>,</span> <span class='ivar'>@title</span><span class='rparen'>)</span>
+  <span class='ivar'>@viewport_x</span> <span class='op'>=</span> <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_framebuffer_size'>framebuffer_size</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='ivar'>@viewport_y</span> <span class='op'>=</span> <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_framebuffer_size'>framebuffer_size</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Unable to create window</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_close_callback'>close_callback</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_window'>window</span><span class='op'>|</span>
+    <span class='id identifier rubyid_window'>window</span><span class='period'>.</span><span class='id identifier rubyid_should_close'>should_close</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_mouse_button_callback'>mouse_button_callback</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__window'>_window</span><span class='comma'>,</span> <span class='id identifier rubyid_r'>r</span><span class='comma'>,</span> <span class='id identifier rubyid_l'>l</span><span class='comma'>,</span> <span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+    <span class='ivar'>@right</span> <span class='op'>=</span> <span class='id identifier rubyid_r'>r</span>
+    <span class='ivar'>@left</span> <span class='op'>=</span> <span class='id identifier rubyid_l'>l</span>
+    <span class='ivar'>@middle</span> <span class='op'>=</span> <span class='id identifier rubyid_m'>m</span>
+  <span class='rbrace'>}</span>
+  <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_char_callback'>char_callback</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_window'>window</span><span class='comma'>,</span> <span class='id identifier rubyid_char'>char</span><span class='op'>|</span>
+    <span class='id identifier rubyid_keypress'>keypress</span><span class='lparen'>(</span><span class='id identifier rubyid_char'>char</span><span class='period'>.</span><span class='id identifier rubyid_chr'>chr</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@main_window</span><span class='period'>.</span><span class='id identifier rubyid_set_key_callback'>set_key_callback</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_window'>window</span><span class='comma'>,</span> <span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='id identifier rubyid_mods'>mods</span><span class='op'>|</span>
+<span class='id identifier rubyid_window'>window</span><span class='period'>.</span><span class='id identifier rubyid_should_close'>should_close</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span> <span class='op'>==</span> <span class='const'>Glfw</span><span class='op'>::</span><span class='const'>KEY_ESCAPE</span>
+		<span class='comment'>#puts &quot; == #{key.chr} #{code} #{action} #{mods} == &quot;
+</span><span class='kw'>if</span> <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>&gt;=</span> <span class='int'>256</span>
+  <span class='id identifier rubyid_keypress_special'>keypress_special</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='id identifier rubyid_mods'>mods</span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+	  <span class='kw'>end</span>
+
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="keypress-instance_method">
+  
+    #<strong>keypress</strong>(chr)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_keypress'>keypress</span><span class='lparen'>(</span><span class='id identifier rubyid_chr'>chr</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="keypress_special-instance_method">
+  
+    #<strong>keypress_special</strong>(chr, code, action, mods)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+111
+112</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 111</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_keypress_special'>keypress_special</span><span class='lparen'>(</span><span class='id identifier rubyid_chr'>chr</span><span class='comma'>,</span> <span class='id identifier rubyid_code'>code</span><span class='comma'>,</span> <span class='id identifier rubyid_action'>action</span><span class='comma'>,</span> <span class='id identifier rubyid_mods'>mods</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mouse_move-instance_method">
+  
+    #<strong>mouse_move</strong>(x, y, right, left, middle)  &#x21d2; <tt>nil</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Mouse move meta func</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>nil</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mouse_move'>mouse_move</span><span class='lparen'>(</span><span class='id identifier rubyid_x'>x</span><span class='comma'>,</span> <span class='id identifier rubyid_y'>y</span><span class='comma'>,</span> <span class='id identifier rubyid_right'>right</span><span class='comma'>,</span> <span class='id identifier rubyid_left'>left</span><span class='comma'>,</span> <span class='id identifier rubyid_middle'>middle</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="render-instance_method">
+  
+    #<strong>render</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Render Meta Func.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>nil</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/BlackBook/engine.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_render'>render</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Mon Feb 22 21:23:53 2021 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.26 (ruby-2.5.8).
+</div>
+
+    </div>
+  </body>
+</html>
