@@ -26,6 +26,57 @@
 require 'BlackBook/logger'
 require 'BlackBook/registry'
 
+$FOLDER = []
+def dir_make(name)
+ begin
+  if not File.directory?(name)
+     Dir.mkdir(name)
+     return 1, name # create ok
+  else
+	 return 2, name #already exists
+  end
+   rescue Exception=>e
+	 return 0, name
+  ensure
+   end
+end
+
+def dir_del(dirPath)
+  begin
+ if File.directory?(dirPath)
+   Dir.foreach(dirPath) do |subFile|
+     if subFile != '.' and subFile != '..'
+       dir_del(File.join(dirPath, subFile))
+     end
+   end
+     Dir.rmdir(dirPath)
+  else
+     File.delete(dirPath)
+  end
+ rescue Exception=>e
+    #puts "dir_name err: #{e}"
+    return 0
+ ensure
+
+  end
+  return 1
+end
+
+def folder_gen() # year-mon-day-min-sec-nsec
+  t = Time.now
+  tmp = ENV["temp"]
+  ss = t.year.to_s+"-"+t.month.to_s+"-"+t.day.to_s+"-"+t.hour.to_s+"-"+
+       t.min.to_s+"-"+t.sec.to_s+"-"+t.nsec.to_s
+	return tmp+"/"+ss
+end
+
+def clear_temp()
+  $FOLDER.each do |f|
+     #puts "del folder #{f}"
+     dir_del(f)
+  end
+end
+
 module BlackBook
   # BlackBook Base Class
   class Base

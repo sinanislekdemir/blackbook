@@ -1,4 +1,4 @@
-##############################################################################
+ ##############################################################################
 #    BlackBook 3D Engine
 #    Copyright (C) 2015  Sinan ISLEKDEMIR
 #
@@ -411,5 +411,39 @@ module BlackBook
         end
       end
     end
+
+    #
+    # Load Text based Wavefront Object
+    # This is the obj file type of Blender software (http://www.blender.org/)
+    # @param [String] buffer
+    #
+    # @return [Boolean] Return true on success
+    def load_obj_from_mem(buffer)
+      @vertices = []
+      @texcoords = []
+      @indices = []
+      #buffer = File.read filename
+      buffer = buffer.split("\n")
+      buffer.each do |line|
+        items = line.split(' ')
+        case items[0]
+        when 'v'
+          @vertices << CVector.new(items[1].to_f, items[2].to_f, items[3].to_f)
+        when 'vt'
+          @texcoords << CVector.new(items[1].to_f, items[2].to_f, 0)
+        when 'f'
+          indice = CIndice.new
+          items.each do |item|
+            next if item == 'f'
+            p = item.split '/'
+            indice.vertice_index << p[0].to_i - 1
+            indice.texcoord_index << p[1].to_i - 1 unless p[1].nil?
+          end
+          @indices << indice
+        end
+      end
+    end
+
+
   end
 end

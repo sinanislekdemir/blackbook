@@ -36,6 +36,8 @@ require 'BlackBook/base'
 require 'BlackBook/light'
 require 'ui/ui'
 
+require 'thread'
+
 module BlackBook
   #
   # BB Space Class. Holds main scene elements.
@@ -50,15 +52,18 @@ module BlackBook
   # @attr multiplier [Float] Viewport - Window Multiplier
   # @attr items [Hash] Hash of items
   #
+
   class Space < Base
     attr_accessor :width, :height, :gl_active, :muliplier, :items
     attr_writer :width, :height, :gl_active, :muliplier, :items
-
+    attr_accessor :counter
     # Initialize scene,
     # set lights, init opengl
     # set perspective
     def initialize(w, h, m = 1)
       super
+      @counter = 0 #added darkspy
+
       @muliplier = m
       @gl_active = false
       @width = w
@@ -68,7 +73,8 @@ module BlackBook
         lights:  [],
         objects: {},
         uis:     [],
-        plugins: []
+        plugins: [],
+        frames: {} # darkspy added
       }
     end
 
@@ -129,6 +135,46 @@ module BlackBook
       obj
     end
 
+    def add_object_anim(options) #
+      anim_obj = options[:anim]
+      objs = []
+      lc =0
+      osave = ''
+      anim_obj.frames.each do |fname|
+        obj = B3DObject.new
+
+        ext = File.extname(fname)
+        case ext
+        when '.raw'
+          obj.load_raw(fname)
+        when '.obj'
+          obj.load_obj(fname)
+        end
+
+      obj.matrix.position = options[:position] if options.key?(:position)
+      obj.time = options[:time] if options.key?(:time)
+      name = options.key?(:name) ? options[:name] : SecureRandom.uuid
+      
+      name = "___anim_"+name 
+      obj.name = name
+      obj.scale = options[:scale] if options.key?(:scale)
+      if lc == 0
+        obj.material.load_texture(options[:texture]) if options.key?(:texture)
+        osave = obj
+      else
+        obj.material = osave.material
+      end
+      
+      @items[:frames][name] = obj
+      @items[:frames][lc] = obj
+      lc += 1
+      objs << obj
+      #puts "#{fname} loaded"
+      end #end of do
+      @items[:frames]["max"] = lc
+      
+      objs
+    end
     #
     # Create a dummy object
     #
@@ -219,6 +265,16 @@ module BlackBook
       end
     end
 
+  def render_anim window=nil 
+      last = @items[:frames]["max"]
+      @items[:frames][@counter].render
+      
+      if @counter >= last-1
+         @counter = 0
+      else
+        @counter+=1
+      end
+  end
     #
     # General Render Method
     # 1. Render Lights
@@ -232,8 +288,9 @@ module BlackBook
     # 6. Call ui Methods of Plugins
     #
     # @return [type] [description]
-    def render
+    def render window=nil
       # Render Plugin Cameras
+      vx, vy, vw, vh=0,0,0,0
       @items[:plugins].each do |plugin|
         plugin.camera if plugin.respond_to?('camera')
       end
@@ -242,6 +299,8 @@ module BlackBook
         cam.begin_render
         grid = BlackBook::Registry.instance.read('grid')
         BlackBook.draw_grid if grid
+        vx, vy, vw, vh =
+         cam.frame_x, cam.frame_y, cam.frame_width, cam.frame_height
         # Render Lights
         @items[:lights].each do |light|
           light.render
@@ -252,7 +311,6 @@ module BlackBook
         end
         @items[:objects].each do |name, obj|
           obj.render
-          # Render Plugins
           @items[:plugins].each do |plugin|
             plugin.render if plugin.respond_to?('render')
           end
