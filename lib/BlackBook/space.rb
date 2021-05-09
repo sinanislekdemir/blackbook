@@ -37,6 +37,21 @@ require 'BlackBook/light'
 require 'ui/ui'
 
 require 'thread'
+class AkumaThread
+  attr_accessor :thread_id
+  @@funcs = []
+  def initialize()
+
+  end
+
+  def func_register ( func, param )
+    @@funcs << Thread.new { func.call(param) }
+  end
+
+  def get_threads()
+    @@funcs
+  end
+end
 
 module BlackBook
   #
@@ -154,25 +169,27 @@ module BlackBook
       obj.matrix.position = options[:position] if options.key?(:position)
       obj.time = options[:time] if options.key?(:time)
       name = options.key?(:name) ? options[:name] : SecureRandom.uuid
-      
-      name = "___anim_"+name 
+      #puts "name generated #{name}"
+      #name = "___anim_"+name #added darkspy
       obj.name = name
       obj.scale = options[:scale] if options.key?(:scale)
       if lc == 0
-        obj.material.load_texture(options[:texture]) if options.key?(:texture)
+        #obj.material.load_texture(options[:texture]) if options.key?(:texture)
+        obj.material.load_texture(anim_obj.texture_name) if anim_obj.texture_name.length > 0
         osave = obj
       else
         obj.material = osave.material
       end
       
-      @items[:frames][name] = obj
+      @items[:frames][name] = obj#tmp #[name] = obj
       @items[:frames][lc] = obj
+      #@items[:frames][index] = obj
       lc += 1
       objs << obj
-      #puts "#{fname} loaded"
+      puts "#{fname} loaded"
       end #end of do
       @items[:frames]["max"] = lc
-      
+      puts "gen animate over"
       objs
     end
     #
@@ -265,7 +282,8 @@ module BlackBook
       end
     end
 
-  def render_anim window=nil 
+  def render_anim window=nil #added darkspy
+      # Render Plugin Cameras
       last = @items[:frames]["max"]
       @items[:frames][@counter].render
       
@@ -310,6 +328,12 @@ module BlackBook
           plugin.light if plugin.respond_to?('light')
         end
         @items[:objects].each do |name, obj|
+          #GL.Enable(GL::SCISSOR_TEST)
+          #GL.Scissor(0, 0, 0, 0)
+          #GL.Clear(GL::COLOR_BUFFER_BIT)
+          #GL.Disable(GL::SCISSOR_TEST)
+          #if name.index("__anim") == nil #added darkspy
+
           obj.render
           @items[:plugins].each do |plugin|
             plugin.render if plugin.respond_to?('render')

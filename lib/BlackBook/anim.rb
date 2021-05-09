@@ -37,7 +37,7 @@ module BlackBook
     class Anim < B3DObject
         attr_accessor :num_frames, :_loop, :_time, :fps, :_frame, :_path
         attr_accessor :_from_frame, :_to_frame, :_active_framecount, :_frame_period, :animate, :animations, :frames
-
+        attr_accessor :texture_name
 
         def initialize(fps=30)
               @frames = []
@@ -54,7 +54,7 @@ module BlackBook
               @animate = true
               @animations = {} #: Dict[str, Tuple[int, int]] = {}
               @objects = []
-              
+              @texture_name=''
         end
 
         def start()
@@ -95,6 +95,10 @@ module BlackBook
             self.set_range(@animations[name][0], @animations[name][1])
         end
 
+        def load_texture(texture) #added
+            @texture_name = texture # for lazy load. just save it
+        end
+
         def load_file(filename)
             if not FileTest::exist?(filename)
                 return "File not found: {filename}"
@@ -119,9 +123,17 @@ module BlackBook
               $FOLDER << dname
             end
             while f < max_frame
+                #progress(f, max_frame - 1)
+                #wobj = B3DObject.new()
+                #wobj.path = @_path
+                #data = archive.read("#{f.to_s}.obj")
+                #material = archive.read("#{f.to_s}.mtl")
+
+                #wobj.material.load_texture(material)
+                #wobj.load_obj_from_mem(data)
                 objs = archive.write(dname, "#{f.to_s}.obj")
                 archive.write(dname, "#{f.to_s}.mtl")
-                
+                #puts "objs #{objs}"
                 @frames << objs
                 f += 1
               end
