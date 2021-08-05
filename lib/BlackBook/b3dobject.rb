@@ -52,7 +52,6 @@ module BlackBook
     attr_accessor :faces, :roll, :pitch, :yaw, :time, :name, :scale, :index,
                   :min, :max, :data_size, :normal_index, :elasticity,
                   :type, :material, :matrix, :radius
-
     PARTICLE      = 0
     SOLID_CUBE    = 1
     SOLID_SPHERE  = 2
@@ -222,7 +221,6 @@ module BlackBook
       @max.z = v.z if v.z > @max.z
       @radius = @min.distance(@max) / 2.0
     end
-
     #
     # Build OpenGL List from faces
     #
@@ -323,6 +321,7 @@ module BlackBook
       end
       d = Time.now.to_f - n
       puts "Build: #{d}\n"
+       
     end
 
     #

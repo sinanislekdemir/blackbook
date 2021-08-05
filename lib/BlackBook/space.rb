@@ -150,11 +150,28 @@ module BlackBook
       obj
     end
 
+    #
+    # Add new animation object
+    # export from export tool for blender > 2.9
+    # named: exporter.py
+    # @param options [Hash] Options of new object
+    #                :filename => Raw file, filename
+    #                :roll     => Roll angle
+    #                :pitch    => Pitch angle
+    #                :yaw      => Yaw angle
+    #                :position => CVector
+    #                :time     => Time float
+    #                :name     => Name of the object
+    #                :scale    => Scale CVector
+    #
+    # @return [BB3DObject] 3D Object
+    
     def add_object_anim(options) #
       anim_obj = options[:anim]
       objs = []
       lc =0
       osave = ''
+      @anim_frame_max = anim_obj.frames.length
       anim_obj.frames.each do |fname|
         obj = B3DObject.new
 
@@ -186,7 +203,7 @@ module BlackBook
       #@items[:frames][index] = obj
       lc += 1
       objs << obj
-      puts "#{fname} loaded"
+      puts "#{fname} loaded , #{lc-1} of #{@anim_frame_max}"
       end #end of do
       @items[:frames]["max"] = lc
       puts "gen animate over"
@@ -285,6 +302,7 @@ module BlackBook
   def render_anim window=nil #added darkspy
       # Render Plugin Cameras
       last = @items[:frames]["max"]
+      #puts @counter, last
       @items[:frames][@counter].render
       
       if @counter >= last-1
@@ -333,8 +351,8 @@ module BlackBook
           #GL.Clear(GL::COLOR_BUFFER_BIT)
           #GL.Disable(GL::SCISSOR_TEST)
           #if name.index("__anim") == nil #added darkspy
-
           obj.render
+          
           @items[:plugins].each do |plugin|
             plugin.render if plugin.respond_to?('render')
           end
