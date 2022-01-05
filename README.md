@@ -1,3 +1,13 @@
+CODE REFACTORING
+=================
+I made some changes to simplify the code, without breaking anything. Currently working on some minor changes, in near future I will work on major ones, too.
+I still need to understand OpenGL better, and to update gems to latest versions. For now, all I know is that this work with Ruby 3.
+
+Added:
+ - BlackBook::Registry.setup( grid: true,  grid_count: 30, grid_size: 1 ) - Registry#instance.write
+ - BlackBook.loop( w: 800, h:600, t: 'My Title' ) - start Main#engine_loop
+
+
 Project BlackBook
 ===================
 

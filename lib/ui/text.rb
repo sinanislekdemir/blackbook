@@ -66,7 +66,7 @@ module UI
     # @return [Boolean] Success
     def add_face(vertex_array)
       @faces.push(vertex_array)
-      true
+      return true
     end
 
     def get_width
@@ -192,30 +192,26 @@ module UI
   class Text < UiElement
     attr_accessor :font, :position, :roll, :pitch, :yaw, :scale, :d, :text,
                   :color, :gl_active
-    attr_writer :font, :position, :roll, :pitch, :yaw, :scale, :d, :text,
-                :color, :gl_active
 
     #
     # Initialize BBText
     # @param options [Hash] (x, y, z, w, h, title)
     #
     # @return [type] [description]
-    def initialize(options)
+    def initialize( opts = {} )
       super
-      text = options[:title]
-      @font = {}
       @d = 3
+      @text = opts[:title]
+      @font = {}
       @position = BlackBook::CVector.new(0, 0, 0, 1)
       @scale = BlackBook::CVector.new(1, 1, 1, 1)
-      @scale.multiply(options.key?(:h) ? options[:h] : 30)
+      @scale.multiply(opts[:h] || 30)
       @color = BlackBook::CVector.new(1, 1, 1, 1)
-      @roll = 0.0
+      @roll  = 0.0
       @pitch = 0.0
-      @yaw = 0.0
-      @text = text
+      @yaw   = 0.0
       @gl_active = false
-      data_path = BlackBook::Registry.instance.read('data_path')
-      data_path = './data' if data_path.nil?
+      data_path = BlackBook::Registry.instance.read('data_path') || './data'
       chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' \
               '01234567890!\'^+%&/()=?-_.'
       chars.each_char do |c|

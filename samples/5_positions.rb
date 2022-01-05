@@ -41,7 +41,7 @@ module BlackBook
   # Application object
   class Main < BlackBook::Engine
     attr_accessor :space
-    attr_writer :space
+
 
     def initialize(w, h, title)
       # First initialize BlackBook Engine
@@ -50,7 +50,6 @@ module BlackBook
       BlackBook::Registry.instance.write('grid', true)
       BlackBook::Registry.instance.write('grid_count', 10)
       BlackBook::Registry.instance.write('grid_size', 3)
-
       # Create 3D space
       @space = Space.new(
         @viewport_x,

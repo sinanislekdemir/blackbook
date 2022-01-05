@@ -37,22 +37,20 @@ def dir_make(name)
   end
   rescue Exception=>e
     return 0, name
-  end
 end
 
 def dir_del(dir_path)
   if File.directory?(dir_path)
     Dir.foreach(dir_path) do |sub_file|
-      dir_del(File.join(dir_path, sub_file)) unless sub_file == ('.' or '..')
+      dir_del(File.join(dir_path, sub_file)) unless ['.', '..'].include? sub_file
     end
     Dir.rmdir(dir_path)
   else
     File.delete(dir_path)
   end
-  rescue Exception => e
-    return 0
-  end
   return 1
+  rescue Exception => e
+  return 0
 end
 
 def folder_gen() # year-mon-day-min-sec-nsec

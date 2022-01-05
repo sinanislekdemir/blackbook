@@ -53,12 +53,9 @@ module BlackBook
     # @return [Boolean] Success
     def initialize(x, y, z, w = 1)
       super
-      @x = x
-      @y = y
-      @z = z
-      @w = w
+      @x, @y, @z, @w = x, y, z, w
       update_spherical
-      true
+      return true
     end
 
     #
@@ -88,19 +85,16 @@ module BlackBook
     #
     # @return [CVector] Self
     def set(x, y, z, w = 1)
-      @x = x
-      @y = y
-      @z = z
-      @w = w
+      @x, @y, @z, @w = x, y, z, w
     end
 
     # Set vector from array
     # @param arr [Array] set of elements
-    def from_array(arr)
-      @x = arr[0] if arr.count > 0
-      @y = arr[1] if arr.count > 1
-      @z = arr[2] if arr.count > 2
-      @w = arr[3] if arr.count > 3
+    def from_array(arr = [])
+      @x = arr[0] if arr[0]
+      @y = arr[1] if arr[1]
+      @z = arr[2] if arr[2]
+      @w = arr[3] if arr[3]
     end
 
     #
@@ -111,7 +105,7 @@ module BlackBook
       @r = length
       @theta = Math.acos(@z / r)
       @phi = Math.atan2(@y, @x)
-      true
+      return true
     end
 
     #
@@ -122,7 +116,7 @@ module BlackBook
       @x = @r * Math.sin(@theta) * Math.cos(@phi)
       @y = @r * Math.sin(@theta) * Math.sin(@phi)
       @z = @r * Math.cos(@theta)
-      true
+      return true
     end
 
     #
@@ -131,11 +125,11 @@ module BlackBook
     # @return [Boolean] Success
     def normalize
       d = length
-      d = d < 0 ? -1 * d : d
+      d *= -1 if d.negative?
       @x /= d
       @y /= d
       @z /= d
-      self
+      return self
     end
 
     #
@@ -175,8 +169,7 @@ module BlackBook
     #
     # @return [Float] Distance
     def distance(vector)
-      diff = sub(vector)
-      diff.length
+      sub(vector).length
     end
 
     #
@@ -190,7 +183,7 @@ module BlackBook
       c = Math.cos(angle)
       @y = c * @y + s * @z
       @z = c * @z - s * @y
-      true
+      return true
     end
 
     #
@@ -204,7 +197,7 @@ module BlackBook
       c = Math.cos(angle)
       @x = c * @x + s * @z
       @z = c * @z - s * @x
-      true
+      return true
     end
 
     #
@@ -213,12 +206,12 @@ module BlackBook
     #
     # @return [Float] Success
     def rotate_around_z(angle)
-      angle = angle * Math::PI / 180
+      angle *= Math::PI / 180
       s = Math.sin(angle)
       c = Math.cos(angle)
       @x = c * @x + s * @y
       @y = c * @y - s * @x
-      true
+      return true
     end
 
     #
@@ -244,7 +237,7 @@ module BlackBook
     #
     # @return [type] [description]
     def to_array
-      [x, y, z, w]
+      [@x, @y, @z, @w]
     end
 
     #
@@ -257,7 +250,6 @@ module BlackBook
 
   # CMatrix Class
   class CMatrix
-    attr_writer :left, :dir, :up, :pos
     attr_accessor :left, :dir, :up, :pos
 
     # initialize
@@ -269,12 +261,12 @@ module BlackBook
     end
 
     def to_array
-      m = [left.to_array, dir.to_array, up.to_array, pos.to_array]
+      m = [@left.to_array, @dir.to_array, @up.to_array, @pos.to_array]
       m.flatten
     end
 
     def to_f
-      [left.to_array, dir.to_array, up.to_array, pos.to_array]
+      [@left.to_array, @dir.to_array, @up.to_array, @pos.to_array]
     end
 
     def rotate(x, y, z)
@@ -321,7 +313,6 @@ module BlackBook
 
   # Keep vertices and texcoords together at indices
   class CIndice
-    attr_writer :vertice_index, :texcoord_index
     attr_accessor :texcoord_index, :vertice_index
 
     def initialize

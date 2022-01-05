@@ -41,21 +41,19 @@ module UI
   class Edit < UiElement
     attr_accessor :value, :on_keypress, :font_size, :max_chars, :focus,
                   :text
-    attr_writer :value, :on_keypress, :font_size, :max_chars, :focus,
-                :text
 
     #
     # Initialize BBEdit Element
     # @param options [Hash] (x,y,z,w,h,value,font_size)
     #
     # @return [Boolean] Focus
-    def initialize(options)
+    def initialize( opts = {} )
       super
-      @font_size = options.key?(:font_size) ? options[:font_size] : 30
+      @font_size = opts[:font_size] || 30
+      @max_chars = opts[:max_chars] || 255
+      @value     = opts[:value]     || ''
+      @focus     = opts[:focus]     || false
       @on_keypress = nil
-      @max_chars = options.key?(:max_chars) ? options[:max_chars] : 255
-      @value = options.key?(:value) ? options[:value] : ''
-      @focus = options.key?(:focus) ? options[:focus] : false
       @text = Text.new(x: 0, y: 0, h: @font_size, title: value)
       @text.color.set(200, 200, 200)
       @text.d = 2
@@ -101,7 +99,7 @@ module UI
     end
 
     def key(char)
-      value += char
+      @value += char
     end
   end
 end

@@ -62,18 +62,22 @@ module BlackBook
     # @param h_m = 1 [Integer] Window - Viewport Multiplier for Height
     #
     # @return [Boolean] Success
-    def initialize(w, h, title, w_m = 1, h_m = 1)
+    def initialize(width, height, title, w_m = 1, h_m = 1)
+      raise "#{title} must be String" unless title.is_a? String
+      [width, height, w_m, h_m].map do |x|
+        raise "#{x} must be Integer" unless x.is_a? Integer
+      end
       super
       Glfw.init
-      @window_width = w
-      @window_height = h
-      @title = title
-      @left = 0
-      @right = 0
+      @window_width  = width
+      @window_height = height
+      @title  = title
+      @left   = 0
+      @right  = 0
       @middle = 0
       @spaces = []
       engine_start
-      true
+      return true
     end
 
     #
@@ -97,7 +101,7 @@ module BlackBook
       @main_window.char_callback = lambda do |window, char|
         keypress(char.chr)
       end
-      true
+      return true
     end
 
     def keypress(chr)

@@ -72,31 +72,31 @@ module BlackBook
     #                :on_update
     #
     # @return [type] [description]
-    def initialize(options)
+    def initialize( opts = {} )
       super
       @eye_position = CVector.new(
-        options[:eye_position].x,
-        options[:eye_position].y,
-        options[:eye_position].z
+        opts[:eye_position].x,
+        opts[:eye_position].y,
+        opts[:eye_position].z
       )
       @target = CVector.new(
-        options[:target_position].x,
-        options[:target_position].y,
-        options[:target_position].z
+        opts[:target_position].x,
+        opts[:target_position].y,
+        opts[:target_position].z
       )
       @up_vector = CVector.new(
-        options[:up].x,
-        options[:up].y,
-        options[:up].z
+        opts[:up].x,
+        opts[:up].y,
+        opts[:up].z
       )
       @on_update = nil
-      @frame_x = options.key?(:frame_x) ? options[:frame_x] : 0
-      @frame_y = options.key?(:frame_y) ? options[:frame_y] : 0
-      @frame_width = options.key?(:frame_width) ? options[:frame_width] : 0
-      @frame_height = options.key?(:frame_height) ? options[:frame_height] : 0
-      @fov = options.key?(:fov) ? options[:fov] : 30.0
-      @znear = options.key?(:znear) ? options[:znear] : 1.0
-      @zfar = options.key?(:zfar) ? options[:zfar] : 1000.0
+      @frame_x   = opts[:frame_x] || 0
+      @frame_y   = opts[:frame_y] || 0
+      @frame_width  = opts[:frame_width]  || 0
+      @frame_height = opts[:frame_height] || 0
+      @fov   = opts[:fov]   || 30.0
+      @znear = opts[:znear] || 1.0
+      @zfar  = opts[:zfar]  || 1000.0
       @modified = false
     end
 
@@ -172,7 +172,7 @@ module BlackBook
       return false until framed
       GL.Disable(GL::SCISSOR_TEST)
       GL.PopAttrib
-      true
+      return true
     end
 
     #
@@ -184,10 +184,7 @@ module BlackBook
     # @param middle_b [Integer] Middle Mouse Button
     #
     def mouse_move(x, y, _right_b, left_b, _middle_b)
-      if @pos_x.nil?
-        @pos_x = x
-        @pos_y = y
-      end
+      @pos_x, @pos_y = x, y if @pos_x.nil?
       if left_b == 1
         diff = @eye_position.sub(@target)
         diff.update_spherical
@@ -199,8 +196,7 @@ module BlackBook
         @eye_position = @target.add(diff)
         @modified = true
       end
-      @pos_x = x
-      @pos_y = y
+      @pos_x, @pos_y = x, y
     end
   end
 end

@@ -50,19 +50,14 @@ module BlackBook
     # @param options [Hash] Options (:position, :draw_light, :diffuse...)
     #
     # @return [Boolean] Success
-    def initialize(options)
+    def initialize( opts = {} )
+      @light_draw_radius = opts[:light_draw_raidus] || 1.0
       @self_index = @@index
       @draw_light = true
-      @position = CVector.new(0.0, 0.0, 10.0)
-      @light_draw_radius = 1.0
-      @diffuse = CVector.new(1.0, 1.0, 1.0, 1.0)
-      @position = options[:position] if options.key?(:position)
-      @draw_light = options[:draw_light] if options.key?(:draw_light)
-      @diffuse = options[:diffuse] if options.key?(:diffuse)
-      if options.key?(:light_draw_radius)
-        @light_draw_radius = options(:light_draw_radius)
-      end
-      @@index += 1
+      @position   = opts[:position]   || CVector.new(0.0, 0.0, 10.0)
+      @diffuse    = opts[:diffuse]    || CVector.new(1.0, 1.0, 1.0, 1.0)
+      @draw_light = opts[:draw_light] || true
+      @@index    += 1
     end
 
     #
@@ -90,7 +85,7 @@ module BlackBook
       GL.Enable(light)
       GL.Enable(GL::LIGHTING)
       GL.Enable(GL::DEPTH_TEST)
-      true
+      return true
     end
   end
 end

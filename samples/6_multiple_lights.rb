@@ -41,16 +41,29 @@ module BlackBook
   # Application object
   class Main < BlackBook::Engine
     attr_accessor :space
-    attr_writer :space
 
     def initialize(w, h, title)
       # First initialize BlackBook Engine
       super
+      # TO-DO:
+      # Allow registry instance write with block or hash (or both?)
+      #
+      #  BlackBook::Registry.setup do
+      #    :grid = true
+      #    :grid_count = 10
+      #  end
+      #
       # Enable GRID for the scene
-      BlackBook::Registry.instance.write('grid', true)
-      BlackBook::Registry.instance.write('grid_count', 10)
-      BlackBook::Registry.instance.write('grid_size', 3)
-      BlackBook::Registry.instance.write('shader', 'displaylist')
+      #BlackBook::Registry.instance.write('grid', true)
+      #BlackBook::Registry.instance.write('grid_count', 10)
+      #BlackBook::Registry.instance.write('grid_size', 3)
+      #BlackBook::Registry.instance.write('shader', 'displaylist')
+      BlackBook::Registry.setup(
+        grid: true,
+        grid_count: 10,
+        grid_size: 3,
+        shader: 'displaylist'
+      )
       # Create 3D space
       @space = Space.new(
         @viewport_x,
@@ -96,7 +109,7 @@ module BlackBook
       #   filename: '../data/cube.obj',
       #   name: 'cube_object_5'
       #   )
-      obj_1.material.color.set(1.0, 1.0, 1.0, 1.0)
+       obj_1.material.color.set(1.0, 1.0, 1.0, 1.0)
       # obj_1.material.load_texture('../data/texture/wood.png')
       # obj_2.material.color.set(1.0, 1.0, 0.0, 0.3)
       # obj_2.material.load_texture('../data/texture/wood.png')

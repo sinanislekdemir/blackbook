@@ -85,6 +85,7 @@ module BlackBook
   #
   # @return [Array] Result array
   def multiply_matrices_4by4(m1, m2)
+    raise 'Matrices must be array' unless m1.is_a?(Array) && m2.is_a?(Array)
     r = []
     r[0]  = m1[0] * m2[0]  + m1[4] * m2[1]  + m1[8]  * m2[2]  + m1[12] * m2[3]
     r[4]  = m1[0] * m2[4]  + m1[4] * m2[5]  + m1[8]  * m2[6]  + m1[12] * m2[7]
@@ -113,8 +114,9 @@ module BlackBook
   # @param v [Array] Vector
   #
   # @return [Array] Result
-  def multiply_matrix_by_vector(m, v)
-    r = []
+  def multiply_matrix_by_vector( matrix, vector )
+    [matrix, vector].map { |x| raise "#{x} must be array" unless x.is_a? Array}
+    m, v, r = matrix, vector, []
     r[0] = m[0] * v[0] + m[4] * v[1] + m[8] * v[2] + m[12] * v[3]
     r[1] = m[1] * v[0] + m[5] * v[1] + m[9] * v[2] + m[13] * v[3]
     r[2] = m[2] * v[0] + m[6] * v[1] + m[10] * v[2] + m[14] * v[3]
@@ -129,6 +131,7 @@ module BlackBook
   #
   # @return [Integer] Array index
   def _mat(x, y)
+    raise 'Coords must be Integer' unless x.is_a?(Integer) && y.is_a?(Integer)
     y * 4 + x
   end
 
@@ -140,6 +143,7 @@ module BlackBook
   #
   # @return [type] [description]
   def mat(m, x, y)
+    raise 'Matrix must be array' unless m.is_a? Array
     m[_mat(x, y)]
   end
 
@@ -149,6 +153,7 @@ module BlackBook
   #
   # @return [Array] Inverted matrix
   def glh_invert_matrix_f2(m)
+    raise "Matrix must be array" unless m.is_a? Array
     out = []
     r0 = []
     r1 = []
@@ -178,126 +183,73 @@ module BlackBook
     r3[3] = mat(m, 3, 3)
     r3[7] = 1.0
     r3[4] = r3[5] = r3[6] = 0.0
-    r3, r2 = r2, r3 if r3[0].abs > r2[0]
-    r2, r1 = r1, r2 if r2[0].abs > r1[0]
-    r1, r0 = r0, r1 if r1[0].abs > r0[0]
+    
+    case
+      when r3[0].abs > r2[0] then r3, r2 = r2, r3
+      when r2[0].abs > r1[0] then r2, r1 = r1, r2
+      when r1[0].abs > r0[0] then r1, r0 = r0, r1
+    end
+
     return 0 if r0[0] == 0.0
+        
     m1 = r1[0] / r0[0]
     m2 = r2[0] / r0[0]
     m3 = r3[0] / r0[0]
-    s = r0[1]
-    r1[1] -= m1 * s
-    r2[1] -= m2 * s
-    r3[1] -= m3 * s
-    s = r0[2]
-    r1[2] -= m1 * s
-    r2[2] -= m2 * s
-    r3[2] -= m3 * s
-    s = r0[3]
-    r1[3] -= m1 * s
-    r2[3] -= m2 * s
-    r3[3] -= m3 * s
-    s = r0[4]
-    if s != 0.0
-      r1[4] -= m1 * s
-      r2[4] -= m2 * s
-      r3[4] -= m3 * s
+        
+    [1, 2, 3].map do |x|
+      r1[x] -= m1 * r0[x]
+      r2[x] -= m2 * r0[x]
+      r3[x] -= m3 * r0[x]
     end
-    s = r0[5]
-    if s != 0.0
-      r1[5] -= m1 * s
-      r2[5] -= m2 * s
-      r3[5] -= m3 * s
+        
+    [4, 5, 6, 7].map do |x|
+      unless x == 0.0
+        r1[x] -= m1 * r0[x]
+        r2[x] -= m2 * r0[x]
+        r3[x] -= m3 * r0[x]
+      end
     end
-    s = r0[6]
-    if s != 0.0
-      r1[6] -= m1 * s
-      r2[6] -= m2 * s
-      r3[6] -= m3 * s
-    end
-    s = r0[7]
-    if s != 0.0
-      r1[7] -= m1 * s
-      r2[7] -= m2 * s
-      r3[7] -= m3 * s
-    end
+  
     r3, r2 = r2, r3 if r3[1].abs > r2[1].abs
-    r2, r1 = r1, r2 if r2[1].abs > r1[1].abs
+    r2, r1 = r1, r2 if r2[1].abs > r1[1].abs  
+      
     return 0 if r1[1] == 0.0
+      
     m2 = r2[1] / r1[1]
     m3 = r3[1] / r1[1]
+      
     r2[2] -= m2 * r1[2]
     r3[2] -= m3 * r1[2]
     r2[3] -= m2 * r1[3]
     r3[3] -= m3 * r1[3]
-    s = r1[4]
-    if 0.0 != s
-      r2[4] -= m2 * s
-      r3[4] -= m3 * s
+      
+    [4, 5, 6, 7].map do |x|
+      unless r1[x] == 0.0
+        r2[x] -= m2 * r1[x]
+        r3[x] -= m3 * r1[x]
+      end
     end
-    s = r1[5]
-    if 0.0 != s
-      r2[5] -= m2 * s
-      r3[5] -= m3 * s
-    end
-    s = r1[6]
-    if 0.0 != s
-      r2[6] -= m2 * s
-      r2[6] -= m3 * s
-    end
-    s = r1[7]
-    if 0.0 != s
-      r2[7] -= m2 * s
-      r3[7] -= m3 * s
-    end
-    r3, r2 = r2, r3 if r3[2].abs > r2[2].abs
+    
+    r3, r2 = r2, r3 if r3[2].abs > r2[2].abs 
+    
     return 0 if r2[2] == 0.0
-    m3 = r3[2] / r2[2]
-    r3[3] -= m3 * r2[3]
-    r3[4] -= m3 * r2[4]
-    r3[5] -= m3 * r2[5]
-    r3[6] -= m3 * r2[6]
-    r3[7] -= m3 * r2[7]
+    
+    [3, 4, 5, 6, 7].map do |x|
+      r3[x] -= r3[2] / r2[2] * r2[x]
+    end
+    
     return 0 if 0.0 == r3[3]
-    s = 1.0 / r3[3]
-    r3[4] *= s
-    r3[5] *= s
-    r3[6] *= s
-    r3[7] *= s
-    m2 = r2[3]
-    s = 1.0 / r2[2]
-    r2[4] = s * (r2[4] - r3[4] * m2)
-    r2[5] = s * (r2[5] - r3[5] * m2)
-    r2[6] = s * (r2[6] - r3[6] * m2)
-    r2[7] = s * (r2[7] - r3[7] * m2)
-    m1 = r1[3]
-    r1[4] -= r3[4] * m1
-    r1[5] -= r3[5] * m1
-    r1[6] -= r3[6] * m1
-    r1[7] -= r3[7] * m1
-    m0 = r0[3]
-    r0[4] -= r3[4] * m0
-    r0[5] -= r3[5] * m0
-    r0[6] -= r3[6] * m0
-    r0[7] -= r3[7] * m0
-    m1 = r1[2]
-    s = 1.0 / r1[1]
-    r1[4] = s * (r1[4] - r2[4] * m1)
-    r1[5] = s * (r1[5] - r2[5] * m1)
-    r1[6] = s * (r1[6] - r2[6] * m1)
-    r1[7] = s * (r1[7] - r2[7] * m1)
-    m0 = r0[2]
-    r0[4] -= r2[4] * m0
-    r0[5] -= r2[5] * m0
-    r0[6] -= r2[6] * m0
-    r0[7] -= r2[7] * m0
-    m0 = r0[1]
-    s = 1.0 / r0[0]
-    r0[4] = s * (r0[4] - r1[4] * m0)
-    r0[5] = s * (r0[5] - r1[5] * m0)
-    r0[6] = s * (r0[6] - r1[6] * m0)
-    r0[7] = s * (r0[7] - r1[7] * m0)
-    out[_mat(0, 0)] = r0[4]
+    
+    [4, 5, 6, 7].map do |x|
+      r3[x] *= 1.0 / r3[3]
+      r2[x]  = 1.0 / r2[2] * (r2[x] - r3[x] * r2[3])
+      r1[x] -= r3[x] * r1[3]
+      r0[x] -= r3[x] * r0[3]
+      r1[x]  = 1.0 / r1[1] * (r1[x] - r2[x] * r1[2])
+      r0[x] -= r2[x] * r0[2]
+      r0[x] = 1.0 / r0[0] * (r0[x] - r1[x] * r0[1])
+    end
+
     out[_mat(0, 0)] = r0[4]
     out[_mat(0, 1)] = r0[5]
     out[_mat(0, 2)] = r0[6]
@@ -404,9 +356,8 @@ module BlackBook
   #
   # @return [Boolean] Success
   def draw_grid
-    count = BlackBook::Registry.instance.read('grid_count')
+    count = BlackBook::Registry.instance.read('grid_count') || 200
     size = BlackBook::Registry.instance.read('grid_size')
-    count = 200 if count.nil?
     GL.PushMatrix
     GL.Translatef(0.0, 0.0, 0.0)
 
@@ -470,33 +421,35 @@ module BlackBook
   #   options[:x, :y, :z, :w, :color, :border, :border_color]
   #
   # @return [Boolean] Success
-  def draw_box_2d(options)
+  def draw_box_2d( opts = {} )
     GL.PushMatrix
     GL.Disable(GL::LIGHTING)
     GL.Enable(GL::COLOR_MATERIAL)
     GL.Enable(GL::BLEND)
     GL.BlendFunc(GL::SRC_ALPHA, GL::ONE_MINUS_SRC_ALPHA)
-    GL.Translatef(options[:x], options[:y], options[:z])
+    GL.Translatef(opts[:x], opts[:y], opts[:z])
     # Border
-    if options.key?(:border) && options[:border]
-      apply_color(options[:border_color]) if options.key?(:border_color)
-      line_width = options.key?(:border_size) ? options[:border_size] : 1
+    if opts[:border]
+      apply_color(opts[:border_color]) if opts[:border_color]
+      line_width = opts[:border_size] || 1
+    # hackaround for compare float-nil error
+      opts[:height] ||= 0
       GL.LineWidth(line_width)
       GL.Begin(GL::LINE_STRIP)
       GL.Vertex2d(-line_width, -line_width)
-      GL.Vertex2d(-line_width, options[:height] + line_width)
-      GL.Vertex2d(options[:width] + line_width, options[:height] + line_width)
-      GL.Vertex2d(options[:width] + line_width, -line_width)
+      GL.Vertex2d(-line_width, opts[:height] + line_width)
+      GL.Vertex2d(opts[:width] + line_width, opts[:height] + line_width)
+      GL.Vertex2d(opts[:width] + line_width, -line_width)
       GL.Vertex2d(-line_width, -line_width)
       GL.End
     end
     # Window
-    apply_color(options[:color])
+    apply_color(opts[:color])
     GL.Begin(GL::QUADS)
     GL.Vertex2d(0, 0)
-    GL.Vertex2d(0, options[:height])
-    GL.Vertex2d(options[:width], options[:height])
-    GL.Vertex2d(options[:width], 0)
+    GL.Vertex2d(0, opts[:height])
+    GL.Vertex2d(opts[:width], opts[:height])
+    GL.Vertex2d(opts[:width], 0)
     GL.End
     GL.PopMatrix
   end
@@ -517,9 +470,9 @@ module BlackBook
   # @return [Float] Degrees
   def rad_to_deg(radians)
     result = radians * (180.0 / Math::PI)
-    result = 360.0 + result if result < 0
-    result = 360.0 - result if result > 360.0
-    result
+    result += 360 if result.negative?
+    result = 360 - result if result > 360
+    return result
   end
 
   #
@@ -533,8 +486,7 @@ module BlackBook
     v1 = p2.sub(p1)
     v2 = p3.sub(p1)
     result = v1.cross(v2)
-    result.normalize
-    result
+    return result.normalize
   end
 
   #
@@ -542,7 +494,8 @@ module BlackBook
   # @param data [Array] Array of floats
   #
   # @return [CVector] Result Vector
-  def array_to_vector(data)
+  def array_to_vector( data = [] )
+    raise 'Data must be array' unless data.is_a? Array
     CVector.new(data[0], data[1], data[2], 1)
   end
 

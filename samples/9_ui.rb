@@ -41,23 +41,23 @@ module BlackBook
   # Application object
   class Main < BlackBook::Engine
     attr_accessor :space
-    attr_writer :space
 
     def initialize(w, h, title)
       # First initialize BlackBook Engine
       super
-      # Enable GRID for the scene
-      BlackBook::Registry.instance.write('grid', true)
-      BlackBook::Registry.instance.write('grid_count', 10)
-      BlackBook::Registry.instance.write('grid_size', 3)
 
-      # Required for loading fonts from proper folder.
-      BlackBook::Registry.instance.write('data_path', '../data')
+      # New method for easier Singleton instances write
+      BlackBook::Registry.setup(
+        grid: true, grid_count: 30,
+        grid_size: 1, data_path: '../data'
+      )
+
       # Create 3D space
       @space = Space.new(
         @viewport_x,
         @viewport_y
       )
+
       # Add camera to space
       # Eye position
       eye = CVector.new 20.0, 20.0, 20.0
@@ -134,8 +134,16 @@ module BlackBook
   end
 end
 
-BlackBook::Main.new(
-  800,
-  600,
-  'BlackBook Sample'
-).engine_loop
+#BlackBook::Main.new(
+#  800,
+#  600,
+#  'BlackBook Sample'
+#).engine_loop
+
+BlackBook.loop(w:800, h:600, t:'BlackBook Sample')
+
+# BlackBook.loop(
+#   width: 800,
+#   height: 600,
+#   title: 'BlackBook Sample'
+# )
