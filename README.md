@@ -1,8 +1,18 @@
+Project BlackBook
+===================
+
+
+About the project
+----------
+BlackBook is a pure Ruby 3D Library that aims developers to write their 3D applications with ease of Ruby. Please keep in mind that, this project is still a **work in progress** and is **not suitable to use** I suppose. But try it for yourself. Feel free to fix it, improve it and be a contributor for the project.
+
+
+![alt tag](https://raw.github.com/sinanislekdemir/blackbook/master/sample.png)
+
 ### About Source Code Refactoring
 
 Code refactor and small bug fixes. All methods and variables are still same, it's just simplified so I can continue work on it.
 I am working on some minor changes, in near future I will maybe work on major ones, too.
-I still need to understand OpenGL better, and to check for gem versions. For now, all I know is that this work with Ruby 3.
 
 Methods Added:
 ```ruby
@@ -25,16 +35,6 @@ Methods Added:
                    )
 ```
 
-Project BlackBook
-===================
-
-
-About the project
-----------
-BlackBook is a pure Ruby 3D Library that aims developers to write their 3D applications with ease of Ruby. Please keep in mind that, this project is still a **work in progress** and is **not suitable to use** I suppose. But try it for yourself. Feel free to fix it, improve it and be a contributor for the project.
-
-
-![alt tag](https://raw.github.com/sinanislekdemir/blackbook/master/sample.png)
 
 Documents
 -------------
