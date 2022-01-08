@@ -39,4 +39,14 @@ require 'BlackBook/material'
 module BlackBook
   extend self
   VERSION = '0.0.1'.freeze
+
+  # Shortcut for BlackBook::Main.new *args
+  # BlackBook.loop( w: 800, h: 600, t: 'BlackBook Sample' )
+  # BlackBook.loop( width: 800, height: 600, title: '...' )
+  def self.loop( opts = {} )
+    width  = opts[:w] || opts[:width]
+    height = opts[:h] || opts[:height]
+    title  = opts[:t] || opts[:title]
+    Main.new( width, height, title ).engine_loop
+  end
 end

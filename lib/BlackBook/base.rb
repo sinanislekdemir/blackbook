@@ -27,54 +27,42 @@ require 'BlackBook/logger'
 require 'BlackBook/registry'
 
 $FOLDER = []
+
 def dir_make(name)
- begin
-  if not File.directory?(name)
-     Dir.mkdir(name)
-     return 1, name # create ok
+  unless File.directory?(name)
+    Dir.mkdir(name)
+    return 1, name # create ok
   else
-	 return 2, name #already exists
+    return 2, name #already exists
   end
-   rescue Exception=>e
-	 return 0, name
-  ensure
-   end
+  rescue Exception=>e
+    return 0, name
 end
 
-def dir_del(dirPath)
-  begin
- if File.directory?(dirPath)
-   Dir.foreach(dirPath) do |subFile|
-     if subFile != '.' and subFile != '..'
-       dir_del(File.join(dirPath, subFile))
-     end
-   end
-     Dir.rmdir(dirPath)
+def dir_del(dir_path)
+  if File.directory?(dir_path)
+    Dir.foreach(dir_path) do |sub_file|
+      dir_del(File.join(dir_path, sub_file)) unless ['.', '..'].include? sub_file
+    end
+    Dir.rmdir(dir_path)
   else
-     File.delete(dirPath)
-  end
- rescue Exception=>e
-    #puts "dir_name err: #{e}"
-    return 0
- ensure
-
+    File.delete(dir_path)
   end
   return 1
+  rescue Exception => e
+  return 0
 end
 
 def folder_gen() # year-mon-day-min-sec-nsec
   t = Time.now
   tmp = ENV["temp"]
-  ss = t.year.to_s+"-"+t.month.to_s+"-"+t.day.to_s+"-"+t.hour.to_s+"-"+
-       t.min.to_s+"-"+t.sec.to_s+"-"+t.nsec.to_s
-	return tmp+"/"+ss
+  ss = t.year.to_s
+  %w[month day hour min sec nsec].map { |opt| ss += '-' + t.opt.to_s }
+  return tmp + "/#{ss}"
 end
 
-def clear_temp()
-  $FOLDER.each do |f|
-     #puts "del folder #{f}"
-     dir_del(f)
-  end
+def clear_temp() 
+  $FOLDER.each { |f| dir_del f }
 end
 
 module BlackBook

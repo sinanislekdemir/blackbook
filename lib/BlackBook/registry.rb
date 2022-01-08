@@ -26,7 +26,6 @@ module BlackBook
   class Registry
     include Singleton
 
-    attr_writer :params
     attr_accessor :params
 
     # Create empty hash
@@ -36,7 +35,7 @@ module BlackBook
 
     # read object from hash, return nil if not found
     def read(key)
-      @params.key?(key) ? @params[key] : nil
+      @params[key] || nil
     end
 
     # write to instance hash
@@ -59,5 +58,14 @@ module BlackBook
       buffer = File.read(filename)
       @params = JSON.parse(buffer)
     end
+
+    class << self
+      def setup( opts = {} )
+        opts.map do |x, y|
+          BlackBook::Registry.instance.write x.to_s, y
+        end
+      end
+    end
+
   end
 end

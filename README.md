@@ -9,6 +9,33 @@ BlackBook is a pure Ruby 3D Library that aims developers to write their 3D appli
 
 ![alt tag](https://raw.github.com/sinanislekdemir/blackbook/master/sample.png)
 
+### About Source Code Refactoring
+
+Code refactor and small bug fixes. All methods and variables are still same, it's just simplified so I can continue work on it.
+I am working on some minor changes, in near future I will maybe work on major ones, too.
+
+Methods Added:
+```ruby
+# Shortctut for BlackBook::Registry.instance.write(arg)
+# Now you can call class method Registry#setup with hash arguments:
+
+   BlackBook::Registry.setup( grid: true,
+                              grid_count: 30,
+                              grid_size: 1
+                              )
+
+# Shortcut for BlackBook::Main.new(args).engine_loop
+# Now you can call class method BlackBook#loop with hash arguments:
+
+   BlackBook.loop( w: 800, h:600, t: 'My Title' )
+ #or
+   BlackBook.loop( width: 800,
+                   height: 600,
+                   title: 'My title'
+                   )
+```
+
+
 Documents
 -------------
 
@@ -33,6 +60,12 @@ There are some global variables that you might need to define in your applicatio
     BlackBook::Registry.instance.write('shader', 'vbo')         # Set object shading to Virtual Buffer Objects
     BlackBook::Registry.instance.write('shader', 'displaylist') # Set object shading to display lists
 
+New Method is added to simplify this setup:
+
+    BlackBook::Registry.setup( grid: true,
+                               grid_count: 100,
+                               grid_size: 2
+                               )
 
 
 RAW Object Files

@@ -90,7 +90,7 @@ module BlackBook
   end
 end
 
-abort('Work in progress')
+#abort('Work in progress')
 
 BlackBook::Main.new(
   800,

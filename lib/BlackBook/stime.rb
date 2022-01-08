@@ -31,8 +31,7 @@ module BlackBook
 
     # start timer
     def initialize
-      @start = Time.now.to_f
-      @last_time = @start
+      @start = @last_time = Time.now.to_f
     end
 
     # get time difference

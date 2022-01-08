@@ -39,7 +39,6 @@ module UI
   # @author [sinan]
   #
   class Window < UiElement
-    attr_writer :title_bar, :items, :font_size
     attr_accessor :title_bar, :items, :font_size
 
     #
@@ -47,10 +46,10 @@ module UI
     # @param options [Hash] (x, y, z, w, h, title, font_size)
     #
     # @return [Hash] Empty Items Hash
-    def initialize(options)
+    def initialize( opts = {} )
       super
-      @font_size = options.key?(:font_size) ? options[:font_size] : 30
-      title = options[:title] if options.key?(:title)
+      @font_size = opts[:font_size] || 30
+      title = opts[:title] || ''
       @title_bar = Text.new(x: 0, y: 0, w: 0, h: @font_size, title: title)
       @title_bar.d = 2
       @title_bar.position.x = 5
@@ -65,11 +64,11 @@ module UI
     # @param options [Hash] (x, y, z, w, h, title, font_size, name)
     #
     # @return [type] [description]
-    def create_button(options)
-      b = Button.new(options)
+    def create_button( opts = {} )
+      b = Button.new( opts )
       b.z = 2
-      @items[options[:name]] = b
-      b
+      @items[opts[:name]] = b
+      return b
     end
 
     #
@@ -77,11 +76,11 @@ module UI
     # @param options [Hash] (x, y, z, w, h, value, font_size, name)
     #
     # @return [type] [description]
-    def create_edit(options)
-      e = Edit.new(options)
+    def create_edit( opts = {})
+      e = Edit.new( opts )
       e.z = 2
-      @items[options[:name]] = e
-      e
+      @items[opts[:name]] = e
+      return e
     end
 
     #
@@ -89,14 +88,14 @@ module UI
     # @param options [Hash] (x, y, z, w, h, title)
     #
     # @return [BBText] Created label object
-    def create_label(options)
-      text = Text.new(options)
-      text.h = 30 unless options.key?(:h)
-      text.position.x = options[:x]
-      text.position.y = options[:y]
+    def create_label( opts = {} )
+      text = Text.new( opts )
+      text.h = opts[:h] || 30
+      text.position.x = opts[:x]
+      text.position.y = opts[:y]
       text.d = 2
-      @items[options[:name]] = text
-      text
+      @items[opts[:name]] = text
+      return text
     end
 
     #

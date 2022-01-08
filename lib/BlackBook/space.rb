@@ -69,9 +69,8 @@ module BlackBook
   #
 
   class Space < Base
-    attr_accessor :width, :height, :gl_active, :muliplier, :items
-    attr_writer :width, :height, :gl_active, :muliplier, :items
-    attr_accessor :counter
+    attr_accessor :width, :height, :gl_active, :muliplier, :items, :counter
+
     # Initialize scene,
     # set lights, init opengl
     # set perspective
@@ -98,8 +97,8 @@ module BlackBook
     # @param options [Hash] BBCamera Options (see BBCamera#initialize)
     #
     # @return [Camera] Camera object
-    def add_camera(options)
-      camera = Camera.new(options)
+    def add_camera( opts = {} )
+      camera = Camera.new(opts)
       @items[:cameras].push camera
       camera
     end
@@ -130,22 +129,22 @@ module BlackBook
     #                :scale    => Scale CVector
     #
     # @return [BB3DObject] 3D Object
-    def add_object(options)
+    def add_object( opts = {} )
       obj = B3DObject.new
-      if options.key?(:filename)
-        ext = File.extname(options[:filename])
+      if opts[:filename]
+        ext = File.extname(opts[:filename])
         case ext
         when '.raw'
-          obj.load_raw(options[:filename])
+          obj.load_raw(opts[:filename])
         when '.obj'
-          obj.load_obj(options[:filename])
+          obj.load_obj(opts[:filename])
         end
       end
-      obj.matrix.position = options[:position] if options.key?(:position)
-      obj.time = options[:time] if options.key?(:time)
-      name = options.key?(:name) ? options[:name] : SecureRandom.uuid
+      obj.matrix.position = opts[:position] if opts[:position]
+      obj.time = opts[:time] if opts[:time]
+      name = opts[:name] || SecureRandom.uuid
       obj.name = name
-      obj.scale = options[:scale] if options.key?(:scale)
+      obj.scale = options[:scale] if opts[:scale]
       @items[:objects][name] = obj
       obj
     end
@@ -166,10 +165,10 @@ module BlackBook
     #
     # @return [BB3DObject] 3D Object
     
-    def add_object_anim(options) #
-      anim_obj = options[:anim]
+    def add_object_anim( opts = {} ) #
+      anim_obj = opts[:anim]
       objs = []
-      lc =0
+      lc = 0
       osave = ''
       @anim_frame_max = anim_obj.frames.length
       anim_obj.frames.each do |fname|
@@ -183,13 +182,13 @@ module BlackBook
           obj.load_obj(fname)
         end
 
-      obj.matrix.position = options[:position] if options.key?(:position)
-      obj.time = options[:time] if options.key?(:time)
-      name = options.key?(:name) ? options[:name] : SecureRandom.uuid
+      obj.matrix.position = opts[:position] if opts[:position]
+      obj.time = opts[:time] if opts[:time]
+      name = opts[:name] || SecureRandom.uuid
       #puts "name generated #{name}"
       #name = "___anim_"+name #added darkspy
       obj.name = name
-      obj.scale = options[:scale] if options.key?(:scale)
+      obj.scale = opts[:scale] if opts[:scale]
       if lc == 0
         #obj.material.load_texture(options[:texture]) if options.key?(:texture)
         obj.material.load_texture(anim_obj.texture_name) if anim_obj.texture_name.length > 0

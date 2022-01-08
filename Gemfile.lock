@@ -1,0 +1,21 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    glfw3 (0.4.8)
+    opengl (0.10.0)
+    rmagick (4.2.4)
+    webrick (1.7.0)
+    yard (0.9.27)
+      webrick (~> 1.7.0)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  glfw3
+  opengl
+  rmagick
+  yard
+
+BUNDLED WITH
+   2.2.32

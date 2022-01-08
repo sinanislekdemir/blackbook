@@ -42,18 +42,20 @@ module UI
   #
   class Button < UiElement
     attr_accessor :label, :click, :caption, :hover, :font_size, :caption_w
-    attr_writer :label, :click, :caption, :hover, :font_size, :caption_w
 
     #
     # Initialize BBButton Element
     # @param options [Hash] (x, y, z, w, h, title, font_size)
     #
     # @return [Boolean] Reposition done
-    def initialize(options)
+    def initialize( opts = {} )
       super
-      title = options.key?(:title) ? options[:title] : ''
-      @font_size = options.key?(:font_size) ? options[:font_size] : 30
-      @caption = Text.new(x: 0, y: 0, h: @font_size, title: title)
+      title = opts[:title] || ''
+      @font_size = opts[:font_size] || 30
+      @caption = Text.new(x: 0,
+                          y: 0, 
+                          h: @font_size,
+                          title: title)
       @caption_w = @caption.width
       @click = nil
       @hover = false
@@ -65,9 +67,7 @@ module UI
     #
     # @return [Boolean] Success
     def reposition
-      w = @w
-      @w = @caption.width + 30 if w < @caption.width + 30
-      w = @w
+      @w = @caption.width + 30 if @w < @caption.width + 30
       @caption.d = 2
       @caption.position.z = 2
       @caption.position.x = (@w - @caption_w) / 2
@@ -84,11 +84,11 @@ module UI
     # @param middle_b [Integer] Middle Mouse Button
     #
     # @return [Boolean] Success
-    def mouse(x, y, right_b, left_b, middle_b)
-      x -= @x
-      y -= @y
+    def mouse(x_coord, y_coord, right_b, left_b, middle_b)
+      x = x_coord - @x
+      y = y_coord - @y
       @hover = false
-      return false if x < 0 || x > @w || y < 0 || y > @h
+      return false if x < 0 || x > 800 || y < 0 || y > 600
       @hover = true
       click.call if left_b == 1
     end

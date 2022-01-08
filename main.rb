@@ -50,7 +50,8 @@ module BlackBook
 
       @space = Space.new(
         @viewport_x,
-        @viewport_y)
+        @viewport_y
+      )
       c = @space.add_camera(
         eye_position: CVector.new(10.0, 10.0, 10.0),
         up: CVector.new(0.0, 0.0, 1.0),

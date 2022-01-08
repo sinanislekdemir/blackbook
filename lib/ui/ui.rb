@@ -31,7 +31,6 @@ require 'ui/window'
 module UI
   # Main UI Hud Controller
   class Ui < BlackBook::Base
-    attr_writer :w, :h, :items, :scale, :depth
     attr_accessor :w, :h, :items, :scale, :depth
 
     def initialize(w, h, scale = 10)
@@ -48,10 +47,10 @@ module UI
     # @param options [Hash] Window properties
     #
     # @return [BBWindow] Created Window Object
-    def add_window(options)
-      w = Window.new(options)
+    def add_window( opts = {} )
+      w = Window.new(opts)
       w.z = @depth * 100
-      @items[options[:name]] = w
+      @items[opts[:name]] = w
       @depth += 1
       w
     end

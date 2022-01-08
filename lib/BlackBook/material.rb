@@ -68,7 +68,7 @@ module BlackBook
 
     # Render material
     def start_render
-      texture(@texture_file) if @loaded == false && @texture_file != ''
+      texture(@texture_file) if @loaded == false && !@texture_file.empty?
 
       if @image_w + @image_h > 0
         GL.Enable(GL::TEXTURE_2D)
