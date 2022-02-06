@@ -51,7 +51,7 @@ module BlackBook
   class Engine < Base
     attr_accessor :window_width, :window_height, :title,
                   :left, :right, :middle, :main_window, :spaces,
-                  :viewport_x, :viewport_y
+                  :viewport_x, :viewport_y, :fullscreen
 
     #
     # Initialize BBEngine
@@ -60,9 +60,10 @@ module BlackBook
     # @param title [String] [description]
     # @param w_m = 1 [Integer] Window - Viewport Multiplier for Width
     # @param h_m = 1 [Integer] Window - Viewport Multiplier for Height
+    # @param fs = false [Boolean] fullscreen
     #
     # @return [Boolean] Success
-    def initialize(width, height, title, w_m = 1, h_m = 1)
+    def initialize(width, height, title, w_m = 1, h_m = 1, fs = false)
       raise "#{title} must be String" unless title.is_a? String
       [width, height, w_m, h_m].map do |x|
         raise "#{x} must be Integer" unless x.is_a? Integer
@@ -76,6 +77,7 @@ module BlackBook
       @right  = 0
       @middle = 0
       @spaces = []
+      @fullscreen = (fs==true ? Glfw::Monitor::primary_monitor : nil)
       engine_start
       return true
     end
@@ -86,7 +88,7 @@ module BlackBook
     # @return [Boolean]
     def engine_start
       Glfw::Window.window_hint(Glfw::SAMPLES, 4)
-      @main_window = Glfw::Window.new(@window_width, @window_height, @title)
+      @main_window = Glfw::Window.new(@window_width, @window_height, @title, @fullscreen)
       @viewport_x = @main_window.framebuffer_size[0]
       @viewport_y = @main_window.framebuffer_size[1]
       raise 'Unable to create window' if @main_window.nil?

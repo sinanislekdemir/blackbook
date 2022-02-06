@@ -37,18 +37,16 @@ require 'blackbook'
 require 'ui'
 require 'plugins'
 
-require 'dxruby'
+#require 'dxruby'
 # Main application
-def foo()
-  puts "yes "
-end
+
 module BlackBook
   # Application object
   class Main < BlackBook::Engine
     attr_accessor :space, :space2
     attr_writer :space, :space2
 
-    def initialize(w, h, title)
+    def initialize(w, h, title, w1=1, m1=1, fullscreen = false)
       # First initialize BlackBook Engine
       super
       # Enable GRID for the scene
@@ -92,12 +90,16 @@ module BlackBook
       # You have to give each object a UNIQUE NAME!!!
       anim = Anim.new()
       anim.load_file('data/assets/untitled.awp3d')
+      anim.load_texture('data/assets/texture/A011a.tga')
 
       @obj_1 = @space.add_object_anim(
-        anim: anim,
-        texture: 'data/assets/texture/A011a.tga'
+        anim: anim
+        #texture: 'data/assets/texture/A011a.tga'
         #name: 'cube_object_1'
       )
+      #@obj_1.material.color.set(1.0, 1.0, 1.0, 1.0)
+      #@obj_1.material.load_texture('data/texture/man.png')
+      #@obj_1.material.load_texture('data/usmc/textures/Spinnen_Bein_tex.jpg')
     end
 
     def mouse_move(x, y, right, left, middle)
@@ -119,7 +121,6 @@ module BlackBook
     def keypress(chr)
 		super
 		 #puts ">>>obj #{chr}"
-
      return chr
     end
 
@@ -139,5 +140,6 @@ end
 BlackBook::Main.new(
   800,
   600,
-  'BlackBook Sample'
+  'BlackBook Sample', 
+  1, 1, true
 ).engine_loop
