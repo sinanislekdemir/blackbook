@@ -34,7 +34,7 @@ require 'BlackBook/logger'
 require 'BlackBook/space'
 require 'BlackBook/stime'
 require 'BlackBook/material'
-
+require 'BlackBook/anim'
 # BlackBook main module definition
 module BlackBook
   extend self

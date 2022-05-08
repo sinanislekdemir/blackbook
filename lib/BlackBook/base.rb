@@ -57,7 +57,7 @@ def folder_gen() # year-mon-day-min-sec-nsec
   t = Time.now
   tmp = ENV["temp"]
   ss = t.year.to_s
-  %w[month day hour min sec nsec].map { |opt| ss += '-' + t.opt.to_s }
+  [t.month, t.day, t.hour, t.min, t.sec, t.nsec].map do |opt| ss += '-' + opt.to_s end
   return tmp + "/#{ss}"
 end
 
