@@ -205,7 +205,7 @@ module UI
       @font = {}
       @position = BlackBook::CVector.new(0, 0, 0, 1)
       @scale = BlackBook::CVector.new(1, 1, 1, 1)
-      @scale.multiply(opts[:h] || 30)
+      @scale.multiply(opts[:h] || 13)
       @color = BlackBook::CVector.new(1, 1, 1, 1)
       @roll  = 0.0
       @pitch = 0.0

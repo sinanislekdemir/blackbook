@@ -48,7 +48,7 @@ module UI
     # @return [Hash] Empty Items Hash
     def initialize( opts = {} )
       super
-      @font_size = opts[:font_size] || 30
+      @font_size = opts[:font_size] || 13
       title = opts[:title] || ''
       @title_bar = Text.new(x: 0, y: 0, w: 0, h: @font_size, title: title)
       @title_bar.d = 2
@@ -90,7 +90,7 @@ module UI
     # @return [BBText] Created label object
     def create_label( opts = {} )
       text = Text.new( opts )
-      text.h = opts[:h] || 30
+      text.h = opts[:h] || 13
       text.position.x = opts[:x]
       text.position.y = opts[:y]
       text.d = 2

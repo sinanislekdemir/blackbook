@@ -51,7 +51,7 @@ module UI
     def initialize( opts = {} )
       super
       title = opts[:title] || ''
-      @font_size = opts[:font_size] || 30
+      @font_size = opts[:font_size] || 13
       @caption = Text.new(x: 0,
                           y: 0, 
                           h: @font_size,
@@ -59,6 +59,7 @@ module UI
       @caption_w = @caption.width
       @click = nil
       @hover = false
+      @h = @font_size + 2
       reposition
     end
 
@@ -85,12 +86,8 @@ module UI
     #
     # @return [Boolean] Success
     def mouse(x_coord, y_coord, right_b, left_b, middle_b)
-      x = x_coord - @x
-      y = y_coord - @y
-      @hover = false
-      return false if x < 0 || x > 800 || y < 0 || y > 600
-      @hover = true
-      click.call if left_b == 1
+      @hover = x_coord > @x && x_coord < @x + @w && y_coord > @y && y_coord < @y + @h
+      click.call if left_b == 1 && @hover
     end
 
     #
