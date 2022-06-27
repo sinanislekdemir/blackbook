@@ -49,7 +49,7 @@ module UI
     # @return [Boolean] Focus
     def initialize( opts = {} )
       super
-      @font_size = opts[:font_size] || 30
+      @font_size = opts[:font_size] || 13
       @max_chars = opts[:max_chars] || 255
       @value     = opts[:value]     || ''
       @focus     = opts[:focus]     || false
