@@ -264,11 +264,14 @@ See [LICENSE](LICENSE) for details.
 
 ## Credits
 
-**Author:** Sinan ISLEKDEMIR
+**Author:** Sinan ISLEKDEMIR ([@sinanislekdemir](https://github.com/sinanislekdemir))
 
-**Contributors:** PRs welcome!
+**Contributors:**
+- [@DarkSpyCyber](https://github.com/DarkSpyCyber) - Animation system and frames support
+- [@alx3dev](https://github.com/alx3dev) - Code improvements and refactoring
+- GitHub Copilot - Modernization assistance (v0.5.0)
 
-**Special Thanks:** GitHub Copilot for helping modernize this project
+**Want to contribute?** PRs are welcome!
 
 ## Links
 
