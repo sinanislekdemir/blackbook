@@ -24,7 +24,7 @@
 ################################################################
 
 require 'opengl'
-require 'rmagick'
+require 'mini_magick'
 require 'BlackBook/base'
 require 'BlackBook/constants'
 
@@ -48,11 +48,15 @@ module BlackBook
     end
 
     def texture(filename)
-      image         = Magick::Image.read(filename).first
-      @image_w      = image.columns
-      @image_h      = image.rows
-      @texture_data = image.export_pixels 0, 0, @image_w, @image_h, 'RGBA'
-      @texture_data.map { |p| p /= 257 } if @texture_data.max > 255
+      image = MiniMagick::Image.open(filename)
+      @image_w = image.width
+      @image_h = image.height
+      
+      # Export pixels as RGBA using ImageMagick
+      rgba_data = image.get_pixels('RGBA')
+      # Flatten the 2D array of pixels and convert to byte array
+      @texture_data = rgba_data.flatten
+      
       @tex = GL::GenTextures(1)
       GL.BindTexture(GL::TEXTURE_2D, @tex[0])
       GL.TexParameteri(GL::TEXTURE_2D, GL::TEXTURE_WRAP_S, GL::CLAMP)

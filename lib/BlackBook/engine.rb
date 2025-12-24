@@ -24,7 +24,7 @@
 ################################################################
 
 # simulator starter
-require 'glfw3'
+require 'glfw'
 require 'opengl'
 
 require 'BlackBook/base'
@@ -69,7 +69,7 @@ module BlackBook
         raise "#{x} must be Integer" unless x.is_a? Integer
       end
       super
-      Glfw.init
+      GLFW.init
       @window_width  = width
       @window_height = height
       @title  = title
@@ -77,7 +77,7 @@ module BlackBook
       @right  = 0
       @middle = 0
       @spaces = []
-      @fullscreen = (fs==true ? Glfw::Monitor::primary_monitor : nil)
+      @fullscreen = (fs==true ? GLFW::Monitor.primary : nil)
       engine_start
       return true
     end
@@ -87,23 +87,40 @@ module BlackBook
     #
     # @return [Boolean]
     def engine_start
-      Glfw::Window.window_hint(Glfw::SAMPLES, 4)
-      @main_window = Glfw::Window.new(@window_width, @window_height, @title, @fullscreen)
-      @viewport_x = @main_window.framebuffer_size[0]
-      @viewport_y = @main_window.framebuffer_size[1]
+      GLFW::Window.hint(GLFW::HINT_SAMPLES, 4)
+      @main_window = if @fullscreen
+                       GLFW::Window.new(@window_width, @window_height, @title, @fullscreen)
+                     else
+                       GLFW::Window.new(@window_width, @window_height, @title)
+                     end
+      @viewport_x = @main_window.framebuffer_size.width
+      @viewport_y = @main_window.framebuffer_size.height
       raise 'Unable to create window' if @main_window.nil?
-      @main_window.close_callback = lambda do |window|
-        window.should_close = true
+      @main_window.on_close do
+        @main_window.close
       end
-      @main_window.mouse_button_callback = lambda { |_window, r, l, m|
-        @right = r
-        @left = l
-        @middle = m
-      }
-      @main_window.char_callback = lambda do |window, char|
+      @main_window.on_mouse_button do |button, action, mods|
+        @right = button
+        @left = action
+        @middle = mods
+      end
+      @main_window.on_char do |char|
         keypress(char.chr)
       end
+      @main_window.on_framebuffer_resize do |width, height|
+        @viewport_x = width
+        @viewport_y = height
+        GL.Viewport(0, 0, width, height)
+        on_resize(width, height)
+      end
       return true
+    end
+
+    def on_resize(width, height)
+      # If subclass has @space, resize it
+      @space.resize(width, height) if defined?(@space) && @space
+      # Also resize all spaces in @spaces array
+      @spaces.each { |space| space.resize(width, height) } if @spaces
     end
 
     def keypress(chr)
@@ -126,18 +143,19 @@ module BlackBook
     #
     # @return [Boolean] Success
     def engine_loop
-      @main_window.make_context_current
-      until @main_window.should_close?
+      @main_window.make_current
+      until @main_window.closing?
+        pos = @main_window.cursor_pos
         mouse_move(
-          @main_window.cursor_pos[0],
-          @main_window.cursor_pos[1],
+          pos.x,
+          pos.y,
           @right,
           @left,
           @middle)
         GL.Clear(GL::COLOR_BUFFER_BIT | GL::DEPTH_BUFFER_BIT)
         render
         @main_window.swap_buffers
-        Glfw.poll_events
+        GLFW.poll_events
       end
       engine_end
     end
@@ -148,7 +166,7 @@ module BlackBook
     # @return [Boolean] Success
     def engine_end
       @main_window.destroy
-      Glfw.terminate
+      GLFW.terminate
     end
   end
 end

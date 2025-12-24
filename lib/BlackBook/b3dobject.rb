@@ -376,6 +376,7 @@ module BlackBook
         f_items = line.split(' ').map { |x| x.to_f }
         add_face f_items
       end
+      calculate_radius
       true
     end
 
@@ -409,6 +410,7 @@ module BlackBook
           @indices << indice
         end
       end
+      calculate_radius
     end
 
     #
@@ -441,6 +443,31 @@ module BlackBook
           @indices << indice
         end
       end
+      calculate_radius
+    end
+
+    #
+    # Calculate bounding sphere radius from vertices
+    # Finds the maximum distance from origin to any vertex
+    #
+    # @return [Float] Calculated radius
+    def calculate_radius
+      return 0.0 if @vertices.empty?
+      
+      # Calculate center of mass (centroid)
+      center_x = @vertices.map(&:x).sum / @vertices.size
+      center_y = @vertices.map(&:y).sum / @vertices.size
+      center_z = @vertices.map(&:z).sum / @vertices.size
+      
+      # Find maximum distance from center
+      @radius = @vertices.map do |v|
+        dx = v.x - center_x
+        dy = v.y - center_y
+        dz = v.z - center_z
+        Math.sqrt(dx * dx + dy * dy + dz * dz)
+      end.max
+      
+      @radius
     end
 
 

@@ -270,6 +270,27 @@ module BlackBook
     end
 
     #
+    # Update viewport and projection when window resizes
+    #
+    # @param w [Integer] New width
+    # @param h [Integer] New height
+    # @return [Boolean] Success
+    def resize(w, h)
+      @width = w
+      @height = h
+      GL.Viewport(0, 0, @width, @height)
+      GL.MatrixMode(GL::PROJECTION)
+      GL.LoadIdentity
+      BlackBook.perspective(30.0, @width.to_f / @height.to_f, 1.0, 1000.0)
+      GL.MatrixMode(GL::MODELVIEW)
+      @items[:uis].each do |ui|
+        ui.w = w
+        ui.h = h
+      end
+      true
+    end
+
+    #
     # Main Mouse Move Handler for Space
     # 1. Mouse move for each plugin
     # 2. Mouse move for each ui

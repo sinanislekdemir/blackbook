@@ -1,7 +1,10 @@
 # A sample Gemfile
 source 'https://rubygems.org'
-gem 'glfw3'
+
+ruby '>= 3.0.0'
+
+gem 'glfw'
 gem 'opengl'
 gem 'yard'
-gem 'rmagick'
-gem 'rubyzip',  "~> 1.1", require: 'zip'
+gem 'mini_magick'
+gem 'rubyzip', require: 'zip'
