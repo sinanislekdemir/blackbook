@@ -7,7 +7,7 @@ GEM
       logger
     opengl (0.10.0)
     rubyzip (3.2.2)
-    yard (0.9.38)
+    yard (0.9.42)
 
 PLATFORMS
   ruby
@@ -26,7 +26,7 @@ CHECKSUMS
   mini_magick (5.3.1) sha256=29395dfd76badcabb6403ee5aff6f681e867074f8f28ce08d78661e9e4a351c4
   opengl (0.10.0) sha256=e3bc0fa92dafe5ece8858259ccc47f156edab3b6671786a75873ae1d05355a89
   rubyzip (3.2.2) sha256=c0ed99385f0625415c8f05bcae33fe649ed2952894a95ff8b08f26ca57ea5b3c
-  yard (0.9.38) sha256=721fb82afb10532aa49860655f6cc2eaa7130889df291b052e1e6b268283010f
+  yard (0.9.42) sha256=4e2be01f8623556093497731d44c801e600d7c9759ec7a35a2dd5dd83bbbba68
 
 RUBY VERSION
   ruby 3.4.8
